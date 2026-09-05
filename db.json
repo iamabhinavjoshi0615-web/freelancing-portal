@@ -839,5 +839,100 @@
     }
   ],
   "users": [],
-  "quizResponses": []
+  "quizResponses": [
+    {
+      "id": "resp_1788594274199",
+      "sessionId": "quiz_1788594274199_7mggluq",
+      "businessType": "booking",
+      "hasWebsite": "none",
+      "goal": "inquiries",
+      "budget": "under_5k",
+      "timeline": "asap",
+      "estimatedMin": 12000,
+      "estimatedMax": 30000,
+      "estimateData": {
+        "devCostRange": {
+          "min": 12000,
+          "max": 30000,
+          "label": "Booking/Service Website (New Build)"
+        },
+        "hostingDomain": {
+          "domain": {
+            "label": "Domain Name",
+            "range": "Rs 500 - 1,200/year",
+            "min": 500,
+            "max": 1200
+          },
+          "basicHosting": {
+            "label": "Basic Hosting",
+            "range": "Rs 2,000 - 5,000/year",
+            "min": 2000,
+            "max": 5000
+          },
+          "premiumHosting": {
+            "label": "Premium Hosting",
+            "range": "Rs 8,000 - 20,000/year",
+            "min": 8000,
+            "max": 20000
+          }
+        },
+        "maintenanceTiers": {
+          "basic": {
+            "label": "Basic",
+            "range": "Rs 999 - 2,000/month",
+            "min": 999,
+            "max": 2000
+          },
+          "standard": {
+            "label": "Standard",
+            "range": "Rs 2,500 - 5,000/month",
+            "min": 2500,
+            "max": 5000
+          },
+          "premium": {
+            "label": "Premium",
+            "range": "Rs 6,000 - 12,000/month",
+            "min": 6000,
+            "max": 12000
+          }
+        },
+        "adManagement": null,
+        "exactRecommendedPackage": {
+          "packageName": "Starter Web Presence Package",
+          "exactPrice": 4999,
+          "priceFormatted": "Rs 4,999"
+        },
+        "recommendedStack": {
+          "platform": "Next.js / WordPress with Integrated Calendly & WhatsApp Booking API",
+          "domainHosting": "Namecheap (.com/.in) + Hostinger Business Cloud (India Datacenter)",
+          "analyticsPayment": "Razorpay UPI/Cards + Google Analytics 4 + Meta Pixel"
+        },
+        "timelineSchedule": [
+          {
+            "phase": "Days 1 - 2",
+            "duration": "Setup & Strategy",
+            "details": "Domain registration, hosting server configuration, content & asset collection"
+          },
+          {
+            "phase": "Days 3 - 5",
+            "duration": "Rapid Build",
+            "details": "Design wireframing, layout development, contact forms, and mobile responsiveness"
+          },
+          {
+            "phase": "Days 6 - 7",
+            "duration": "QA & Launch",
+            "details": "Speed audit, SSL security installation, GA4 tracking test, and live domain propagation"
+          }
+        ],
+        "personalizedChecklist": [
+          "Register your domain name directly under your personal account (avoid host hostage lock).",
+          "Choose hosting server located in India for under 1.2s mobile page speed load times.",
+          "Implement instant WhatsApp click-to-chat CTA to boost lead conversion by 3x.",
+          "Verify Google Business Profile listing to rank for local organic search keywords.",
+          "Schedule your free 10-minute strategy kickoff call with our team to start implementation."
+        ]
+      },
+      "createdAt": "2026-09-05T07:44:34.199Z"
+    }
+  ]
 }
