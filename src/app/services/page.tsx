@@ -20,7 +20,7 @@ export default function Services() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <span className="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest bg-blue-50 dark:bg-blue-950/40 px-3 py-1.5 rounded-full border border-blue-200/30">
+        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
           Our Services
         </span>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
@@ -35,7 +35,7 @@ export default function Services() {
       <div className="space-y-8">
         <div className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <div className="flex items-center gap-3">
-            <span className="bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-blue-200/40 dark:border-blue-900/40">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-700 dark:text-blue-400">
               Web Development & Portals
             </span>
           </div>
@@ -115,7 +115,7 @@ export default function Services() {
       <div className="space-y-8">
         <div className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <div className="flex items-center gap-3">
-            <span className="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full border border-emerald-200/40 dark:border-emerald-900/40">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
               Digital Marketing & Ads
             </span>
           </div>

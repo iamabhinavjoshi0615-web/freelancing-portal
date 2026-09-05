@@ -144,7 +144,7 @@ export default function InteractiveQuiz() {
             <Calculator className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/40 dark:border-emerald-800/40">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
               100% Free Interactive Calculator
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mt-1">
@@ -416,8 +416,7 @@ export default function InteractiveQuiz() {
           <div className="bg-gradient-to-br from-blue-900 via-indigo-950 to-zinc-950 text-white rounded-3xl p-6 sm:p-8 border border-blue-800/50 shadow-2xl space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-blue-800/40 pb-4">
               <div>
-                <span className="inline-flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">
                   Instant Free Price Estimate Summary
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black mt-2 text-white">

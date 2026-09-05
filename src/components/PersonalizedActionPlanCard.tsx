@@ -64,8 +64,7 @@ export default function PersonalizedActionPlanCard({
       {/* Card Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-800 print:border-zinc-300 pb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 print:text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 print:text-emerald-700">
             Unlocked Paid Breakdown
           </span>
           <h2 className="text-2xl sm:text-3xl font-black mt-2 text-white print:text-zinc-900">

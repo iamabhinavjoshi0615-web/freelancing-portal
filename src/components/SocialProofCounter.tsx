@@ -45,7 +45,7 @@ export default function SocialProofCounter({ initialUnlocksCount = 0 }: SocialPr
               <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                 {totalCount.toLocaleString("en-IN")}+
               </span>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/30">
+              <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">
                 Live Impact
               </span>
             </div>

@@ -456,7 +456,7 @@ function PayUnlockContent() {
         {/* Feature 5: POST-UNLOCK UPSELL CTA */}
         <div className="bg-gradient-to-r from-blue-900 via-indigo-950 to-zinc-950 text-white rounded-3xl p-6 sm:p-8 border border-blue-700/50 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 print:hidden">
           <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-blue-300 bg-blue-500/20 px-3 py-1 rounded-full border border-blue-400/30">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-300">
               Need Done-For-You Execution?
             </span>
             <h3 className="text-xl font-bold">
@@ -703,7 +703,7 @@ function PayUnlockContent() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-16">
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <span className="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest bg-blue-50 dark:bg-blue-950/40 px-3 py-1.5 rounded-full border border-blue-200/30">
+        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
           Pay & Unlock
         </span>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">

@@ -93,26 +93,21 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-white dark:from-zinc-950 dark:via-black dark:to-black py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-zinc-200/50 dark:border-zinc-900/50">
-        {/* Glow Effects */}
-        <div className="absolute top-0 left-1/4 -translate-x-1/2 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl -z-10"></div>
-
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-zinc-200/50">
         <div className="mx-auto max-w-5xl text-center space-y-8">
           <div>
-            <span className="inline-flex items-center gap-1.5 bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest border border-blue-200/50 dark:border-blue-800/40">
-              <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#1B4332]">
               Transparent Digital Consultancy & Growth
             </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1F2937] leading-tight">
               Stop Overpaying for{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 bg-clip-text text-transparent dark:from-blue-400 dark:via-indigo-400 dark:to-emerald-400">
+              <span className="text-[#D97706]">
                 Websites & Ad Campaigns
               </span>
             </h1>
             
-            <p className="mt-4 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-              Calculate your exact project cost in 60 seconds with our free interactive quiz, or unlock expert blueprints starting at just <strong className="text-zinc-900 dark:text-white">₹99 per guide</strong>.
+            <p className="mt-4 text-lg sm:text-xl text-[#1F2937] max-w-3xl mx-auto leading-relaxed">
+              Calculate your exact project cost in 60 seconds with our free interactive quiz, or unlock expert blueprints starting at just <strong className="text-[#D97706] font-bold">₹99 per guide</strong>.
             </p>
           </div>
 
@@ -125,15 +120,15 @@ export default function Home() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/unlock"
-              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 hover:bg-blue-500 hover:shadow-xl transition-all duration-200"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#D97706] hover:bg-[#B45309] px-8 py-4 text-base font-semibold text-white shadow-md transition-all duration-200"
               id="hero-cta-unlock"
             >
-              <Lock className="w-4 h-4" />
+              <Lock className="w-4 h-4 text-white" />
               Unlock Premium Guides @ ₹99 / Bundle ₹249
             </Link>
             <Link
               href="/portfolio"
-              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 px-8 py-4 text-base font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-200"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-[#1F2937] hover:bg-zinc-100 transition-all duration-200"
               id="hero-cta-portfolio"
             >
               View Client Case Studies
@@ -142,25 +137,25 @@ export default function Home() {
 
           {/* Core Trust Pillars */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
-            <div className="flex gap-3 p-4 rounded-2xl bg-white/40 dark:bg-zinc-950/40 border border-zinc-200/50 dark:border-zinc-900/50 backdrop-blur-sm">
-              <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
+              <CheckCircle className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">Zero Jargon & Fluff</h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Direct checklists, exact pricing tables, and tools built for business growth.</p>
+                <h3 className="text-sm font-semibold text-[#1F2937]">Zero Jargon & Fluff</h3>
+                <p className="text-xs text-zinc-600 mt-1">Direct checklists, exact pricing tables, and tools built for business growth.</p>
               </div>
             </div>
-            <div className="flex gap-3 p-4 rounded-2xl bg-white/40 dark:bg-zinc-950/40 border border-zinc-200/50 dark:border-zinc-900/50 backdrop-blur-sm">
-              <Code className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
+              <Code className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">India-Centric Benchmarks</h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Calculators optimized for Indian lead costs, domains (.in), and hosting plans.</p>
+                <h3 className="text-sm font-semibold text-[#1F2937]">India-Centric Benchmarks</h3>
+                <p className="text-xs text-zinc-600 mt-1">Calculators optimized for Indian lead costs, domains (.in), and hosting plans.</p>
               </div>
             </div>
-            <div className="flex gap-3 p-4 rounded-2xl bg-white/40 dark:bg-zinc-950/40 border border-zinc-200/50 dark:border-zinc-900/50 backdrop-blur-sm">
-              <ShieldCheck className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
+            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
+              <ShieldCheck className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
               <div>
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">Instant Safe Unlock</h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">UPI & card payment integration with full ₹99 credit towards custom development services.</p>
+                <h3 className="text-sm font-semibold text-[#1F2937]">Instant Safe Unlock</h3>
+                <p className="text-xs text-zinc-600 mt-1">UPI & card payment integration with full ₹99 credit towards custom development services.</p>
               </div>
             </div>
           </div>
@@ -175,7 +170,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs font-extrabold uppercase tracking-widest text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200/40">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
                 Our Proven Work
               </span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
@@ -248,7 +243,7 @@ export default function Home() {
       <section id="free-resources" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-emerald-50/20 to-white dark:from-black dark:via-emerald-950/10 dark:to-black border-b border-zinc-200/50 dark:border-zinc-900/50 scroll-mt-20">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-200/50 dark:border-emerald-800/40">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
               100% Free Knowledge Base
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
@@ -443,7 +438,7 @@ export default function Home() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-900 to-indigo-950 text-white rounded-3xl mx-4 sm:mx-8 lg:mx-16 my-8 shadow-xl">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-4 text-center md:text-left">
-            <span className="inline-block bg-blue-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-200">
               Rs 99 Digital Consultancy
             </span>
             <h2 className="text-3xl font-bold tracking-tight">Unlock Handbooks & Custom Calculators</h2>
