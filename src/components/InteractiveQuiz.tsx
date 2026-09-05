@@ -139,18 +139,13 @@ export default function InteractiveQuiz() {
 
       {/* Header */}
       <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-6 mb-8">
-        <div className="flex items-center gap-3">
-          <div className="p-3 bg-blue-600/10 text-blue-600 dark:text-blue-400 rounded-2xl">
-            <Calculator className="w-6 h-6" />
-          </div>
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-              100% Free Interactive Calculator
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mt-1">
-              Website & Ad Investment Calculator
-            </h2>
-          </div>
+        <div>
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+            100% Free Interactive Calculator
+          </span>
+          <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mt-1">
+            Website & Ad Investment Calculator
+          </h2>
         </div>
 
         {step <= 5 && (

@@ -410,18 +410,13 @@ function PayUnlockContent() {
         
         {/* Feature 3: WhatsApp Unlock Flow Thank You Box */}
         <div className="bg-gradient-to-r from-emerald-900 via-teal-950 to-zinc-950 text-white rounded-3xl p-6 sm:p-8 border border-emerald-700/50 shadow-2xl space-y-6 print:hidden">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-emerald-500 rounded-2xl text-white shrink-0">
-              <CheckCircle className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-300">
-                Payment Successful • Guide Unlocked
-              </span>
-              <h2 className="text-xl sm:text-2xl font-black">
-                Thank You! Access Your Unlocked Content Below
-              </h2>
-            </div>
+          <div>
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-emerald-300">
+              Payment Successful • Guide Unlocked
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black">
+              Thank You! Access Your Unlocked Content Below
+            </h2>
           </div>
 
           <p className="text-xs text-emerald-100/90 leading-relaxed">

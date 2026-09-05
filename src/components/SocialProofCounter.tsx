@@ -37,9 +37,6 @@ export default function SocialProofCounter({ initialUnlocksCount = 0 }: SocialPr
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Main Live Counter */}
         <div className="flex items-center gap-4 text-center sm:text-left">
-          <div className="p-3 bg-blue-600/30 border border-blue-400/30 rounded-2xl shrink-0 text-blue-300">
-            <Users className="w-7 h-7" />
-          </div>
           <div>
             <div className="flex items-center gap-2 justify-center sm:justify-start">
               <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">

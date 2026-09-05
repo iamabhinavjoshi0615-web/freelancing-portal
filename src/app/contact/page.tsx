@@ -34,14 +34,9 @@ export default function Contact() {
           
           {/* Booking Card */}
           <div className="bg-gradient-to-tr from-zinc-900 to-zinc-950 text-white rounded-3xl p-6 sm:p-8 border border-zinc-800 space-y-6 shadow-md">
-            <div className="flex gap-3 items-center">
-              <div className="p-2.5 bg-blue-600 rounded-2xl">
-                <Calendar className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-wider block">Free Consultation Call</span>
-                <h3 className="text-lg font-bold">Book a 10-Min Discovery Call</h3>
-              </div>
+            <div>
+              <span className="text-[10px] text-blue-400 font-bold uppercase tracking-wider block">Free Consultation Call</span>
+              <h3 className="text-lg font-bold">Book a 10-Min Discovery Call</h3>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
               Schedule a brief 10-minute briefing call with our lead developer to clarify your ideas, tech options, and timeline estimations.
