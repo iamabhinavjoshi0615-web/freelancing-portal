@@ -1,0 +1,517 @@
+export interface GuideContent {
+  steps: { title: string; desc: string; details: string[] }[];
+  tables: { title: string; headers: string[]; rows: string[][] }[];
+  tools: { name: string; type: string; pricing: string; recommendation: string }[];
+  timelines: { phase: string; duration: string; deliverables: string[] }[];
+  recommendations: string[];
+}
+
+export interface Topic {
+  id: string;
+  title: string;
+  category: string;
+  teaser: string;
+  price: number;
+  fullContent: GuideContent;
+}
+
+export interface Service {
+  id: string;
+  name: string;
+  description: string;
+  startingPrice: string;
+  deliveryTime: string;
+  features: string[];
+}
+
+export interface PriceTier {
+  category: string;
+  item: string;
+  basicPrice: string;
+  detailedPrice: string;
+  billing: string;
+}
+
+export const DEFAULT_SERVICES: Service[] = [
+  {
+    id: "business-website",
+    name: "Business Website",
+    description: "Professional multi-page website to showcase your brand, services, and build trust among Indian consumers.",
+    startingPrice: "₹8,999",
+    deliveryTime: "7 - 10 Days",
+    features: ["Responsive Design (Mobile-First)", "Up to 5 Pages", "WhatsApp Integration", "Google Map & Contact Form", "Basic SEO Setup", "1-Year Free Domain & Basic Hosting"]
+  },
+  {
+    id: "ecommerce-store",
+    name: "E-commerce Store",
+    description: "Robust online store designed to showcase products, manage inventory, and securely accept UPI & cards.",
+    startingPrice: "₹18,999",
+    deliveryTime: "14 - 21 Days",
+    features: ["Up to 100 Products", "Payment Gateway Integration", "Inventory Management", "SMS/WhatsApp Order Alerts", "Coupon & Discount Engine", "Advanced SEO Setup"]
+  },
+  {
+    id: "landing-page",
+    name: "High-Converting Landing Page",
+    description: "Single-page structure built specifically to drive inquiries, downloads, or signups from Google and Meta ads.",
+    startingPrice: "₹4,999",
+    deliveryTime: "3 - 5 Days",
+    features: ["A/B Tested Structure", "Lead Capture Form", "Fast Loading Speed", "Dynamic Call-To-Actions", "Analytics & Pixel Setup", "Domain Linking"]
+  },
+  {
+    id: "service-booking",
+    name: "Booking & Appointment Portal",
+    description: "Ideal for doctors, salons, consultants, and educational institutions looking to automate appointment schedules.",
+    startingPrice: "₹12,499",
+    deliveryTime: "10 - 15 Days",
+    features: ["Interactive Booking Calendar", "Customer Dashboard", "Automated Email/SMS Reminders", "Online Payment Collection", "Admin Booking Management", "Mobile Friendly Layout"]
+  },
+  {
+    id: "google-meta-ads",
+    name: "Google & Meta Ads Campaign Management",
+    description: "End-to-end management of high-converting ad campaigns on Google Search and Facebook/Instagram Reels to generate direct sales and qualified inquiries.",
+    startingPrice: "₹7,999/mo",
+    deliveryTime: "Monthly Retainer",
+    features: [
+      "Targeted Keyword & Audience Setup",
+      "Custom Graphic & Reels Video Ad Creatives",
+      "Meta Pixel & Conversion Tracking Audit",
+      "A/B Split Testing & Bid Optimization",
+      "Weekly ROAS & Lead Reports",
+      "Dedicated Ad Specialist"
+    ]
+  },
+  {
+    id: "seo-local-marketing",
+    name: "Local Business SEO & Organic Growth",
+    description: "Boost your organic visibility on Google Search & Google Maps (GMB) to capture local Indian customers actively searching for your products and services.",
+    startingPrice: "₹5,999/mo",
+    deliveryTime: "Monthly Retainer",
+    features: [
+      "Google Business Profile (GMB) Optimization",
+      "Local Map Pack Ranking Strategy",
+      "Technical & On-Page SEO Optimization",
+      "High-DA Citation & Backlink Building",
+      "Monthly Keyword Rank Tracking"
+    ]
+  }
+];
+
+export const DEFAULT_PRICING_TIERS: PriceTier[] = [
+  { category: "Domain", item: ".in Domain", basicPrice: "₹399/yr", detailedPrice: "₹399 first year, ₹799 renewal. Best for local businesses.", billing: "Yearly" },
+  { category: "Domain", item: ".com Domain", basicPrice: "₹899/yr", detailedPrice: "₹899 first year, ₹1,299 renewal. Best for international reach.", billing: "Yearly" },
+  { category: "Hosting", item: "Shared SSD Hosting", basicPrice: "₹149/mo", detailedPrice: "₹149 to ₹299/mo depending on traffic limit (best for blogs & portfolios).", billing: "Monthly/Yearly" },
+  { category: "Hosting", item: "Cloud / VPS Hosting", basicPrice: "₹799/mo", detailedPrice: "₹799 to ₹2,500/mo (Hostinger Cloud, AWS, or DigitalOcean) for e-commerce.", billing: "Monthly" },
+  { category: "Maintenance", item: "Basic Retainer", basicPrice: "₹1,999/mo", detailedPrice: "Includes minor text edits, monthly backups, plugin updates, uptime monitoring.", billing: "Monthly" },
+  { category: "Maintenance", item: "Premium Support", basicPrice: "₹4,999/mo", detailedPrice: "Includes 4 hours of custom dev, priority bug fixes, security scans, SEO reports.", billing: "Monthly" },
+  { category: "Ad Setup", item: "Campaign Setup Fee", basicPrice: "₹4,999 (one-time)", detailedPrice: "Complete setup: Keyword research, ad copies, target setup, and pixel configuration.", billing: "One-time" },
+  { category: "Ad Retainer", item: "Ad Management Retainer", basicPrice: "₹7,999/mo", detailedPrice: "Or 10% of monthly ad spend (whichever is higher). Includes weekly optimizations and monthly audits.", billing: "Monthly" }
+];
+
+export const DEFAULT_TOPICS: Topic[] = [
+  {
+    id: "website-building",
+    title: "How to Build a Website for Your Business",
+    category: "Web Development",
+    teaser: "A high-level view of how business websites are built. Learn about choosing between builders (WordPress, Wix) and custom code, setting up a domain name, selecting hosting providers, and the typical process flow.",
+    price: 99,
+    fullContent: {
+      steps: [
+        {
+          title: "Step 1: Choose Your Platform",
+          desc: "Decide between CMS builders or custom code based on your business objectives.",
+          details: [
+            "Use WordPress + Elementor/Divi for standard business websites (easy to manage, high flexibility).",
+            "Use Shopify or WooCommerce for e-commerce. Avoid custom building e-commerce from scratch unless you have large budgets.",
+            "Use custom code (Next.js/React or HTML/CSS) if you need lightning-fast speed, custom functionality, and plan to scale extensively.",
+            "Use Wix or Squarespace only if you have zero technical knowledge and want to maintain it entirely yourself, but be aware of higher recurring fees."
+          ]
+        },
+        {
+          title: "Step 2: Procure Domain and Hosting",
+          desc: "Register a professional address and locate your server assets.",
+          details: [
+            "Purchase domains from trusted registrars like Namecheap, GoDaddy, or Hostinger. Keep the name short and clean.",
+            "For standard business websites: Hostinger, Bluehost, or A2 Hosting shared plans are sufficient (₹150 - ₹300/mo).",
+            "For e-commerce: Opt for Managed Cloud hosting (e.g. Hostinger Cloud, Cloudways, or DigitalOcean) to handle sudden spikes (₹800 - ₹2,000/mo).",
+            "Ensure free SSL certificate is included. Google flags non-HTTPS sites, harming conversion rates by 50%."
+          ]
+        },
+        {
+          title: "Step 3: Setup Structure and SEO Foundations",
+          desc: "Establish clear navigation, layout architecture, and crawlability rules.",
+          details: [
+            "Mandatory pages: Home, About Us, Services, Contact, Privacy Policy, Terms & Conditions.",
+            "Integrate WhatsApp floating chat button (boosts conversion rates by up to 40% in India).",
+            "Ensure mobile layout loads in under 2.5 seconds using optimized images (WebP format) and caching (WP Rocket or Cloudflare).",
+            "Setup Google Search Console and Google Analytics 4 (GA4) immediately upon launch."
+          ]
+        }
+      ],
+      tables: [
+        {
+          title: "Platform Comparison Matrix",
+          headers: ["Platform", "Initial Cost", "Complexity", "Monthly Cost", "Best Suited For"],
+          rows: [
+            ["WordPress", "Low - Medium", "Medium", "₹200 - ₹800", "B2B, Portfolios, Local services"],
+            ["Shopify", "Medium", "Low", "₹2,500+", "E-commerce, D2C Brands"],
+            ["Next.js / Custom", "High", "High", "₹100 - ₹500", "Custom portals, Fast landing pages"],
+            ["Wix / Squarespace", "Low", "Low", "₹1,500 - ₹3,000", "Micro-biz, DIY beginners"]
+          ]
+        }
+      ],
+      tools: [
+        { name: "Hostinger SSD Hosting", type: "Hosting", pricing: "₹149 - ₹399/mo", recommendation: "Recommended for B2B/Corporate sites. Good uptime & free SSL." },
+        { name: "Shopify Starter/Basic", type: "E-comm Platform", pricing: "₹1,999+/mo", recommendation: "The standard for online stores in India. Seamless integration with Razorpay & Shiprocket." },
+        { name: "WordPress.org (Self-hosted)", type: "CMS", pricing: "Free (Software)", recommendation: "Highly recommended for flexibility and zero platform lock-in." },
+        { name: "Cloudflare", type: "CDN & Security", pricing: "Free Tier", recommendation: "Essential for protecting your site from spam and boosting speed globally." }
+      ],
+      timelines: [
+        { phase: "Planning & Mockups", duration: "3-5 Days", deliverables: ["Site architecture map", "Wireframe designs", "Content gathering checklist"] },
+        { phase: "Development & Setup", duration: "7-10 Days", deliverables: ["Domain pointing & hosting configuration", "CMS setup & page creation", "Form integrations"] },
+        { phase: "Testing & Handover", duration: "2-3 Days", deliverables: ["Mobile responsive audits", "Speed optimization tests", "SEO metadata launch"] }
+      ],
+      recommendations: [
+        "Never buy hosting and domains under different accounts of your developer. Always buy them under your name and share access.",
+        "Ensure your website loads in under 3 seconds. Indian mobile users are highly impatient and will bounce off.",
+        "A floating WhatsApp action button is the absolute highest converting channel for Indian local businesses."
+      ]
+    }
+  },
+  {
+    id: "running-ads",
+    title: "How to Run Ads for Your Business/Product",
+    category: "Digital Marketing",
+    teaser: "A strategic overview on creating ad campaigns. Learn when to choose Meta Ads vs Google Ads, how to set initial budgets, how pixel tracking works, and how to write compelling ad copies that drive local Indian consumers.",
+    price: 99,
+    fullContent: {
+      steps: [
+        {
+          title: "Step 1: Select the Right Advertising Network",
+          desc: "Pick your platform based on search intent versus visual interest.",
+          details: [
+            "Use **Google Ads** if your customers are actively searching for your service (e.g., 'plumber near me', 'accounting services Mumbai', 'buy leather shoes online').",
+            "Use **Meta Ads (Facebook & Instagram)** if your service is visual, lifestyle-oriented, emotional, or requires creating awareness (e.g., clothing, real estate projects, online courses, restaurant offers).",
+            "For B2B services, test LinkedIn Ads (expensive but targeted) and Google Search Ads."
+          ]
+        },
+        {
+          title: "Step 2: Setup Pixel Tracking & Conversion Metrics",
+          desc: "Configure analytics so you don't burn money blindly.",
+          details: [
+            "Install the Meta Pixel and Google Tag Manager on your website.",
+            "Setup custom conversion events for 'Submit Form', 'Click to WhatsApp', and 'Purchase'.",
+            "Always test your pixel using the Meta Pixel Helper Chrome Extension.",
+            "Without tracking, ad algorithms cannot optimize, leading to 90% budget wastage."
+          ]
+        },
+        {
+          title: "Step 3: Define Budget and Target Audience",
+          desc: "Calculate bidding strategies and demographics for the Indian market.",
+          details: [
+            "Start with a minimum daily budget of ₹500 per campaign on Meta or Google. Anything less will not exit the learning phase.",
+            "For local businesses (salons, clinics, stores): Set location targeting to a 5-10km radius from your physical address.",
+            "Use broad targeting or interest-based stacking on Meta. Let the algorithm do the heavy lifting based on pixel data.",
+            "Exclude previous customers or website visitors to keep ad acquisition costs low (unless running retargeting)."
+          ]
+        }
+      ],
+      tables: [
+        {
+          title: "Meta vs Google Ads Comparison",
+          headers: ["Feature", "Meta Ads (Insta/FB)", "Google Search Ads", "Average Cost per Lead (India)"],
+          rows: [
+            ["Primary Goal", "Brand Awareness, Direct Lead Gen", "High-Intent Inquiries, Sales", "Meta: ₹80 - ₹250 | Google: ₹150 - ₹500"],
+            ["Audience State", "Passive scrolling, browsing", "Actively searching for solutions", "Depends heavily on industry saturation"],
+            ["Best Ad Format", "Videos (Reels), Carousel images", "Plain text ads, shopping listings", "Reels generate highest engagement currently"],
+            ["Minimum Budget", "₹300 - ₹500 / day", "₹500 - ₹1,000 / day", "Higher budget helps algorithm find buyers faster"]
+          ]
+        }
+      ],
+      tools: [
+        { name: "Meta Ads Manager", type: "Ad Panel", pricing: "Free (Pay for Ads)", recommendation: "Crucial for running campaigns on FB/Instagram. Avoid using the 'Boost Post' button; always use Ads Manager." },
+        { name: "Google Keyword Planner", type: "SEO/SEM Tool", pricing: "Free", recommendation: "Essential to find search volume and bid ranges for keywords in your region." },
+        { name: "Canva Pro", type: "Design Tool", pricing: "₹399/mo", recommendation: "Perfect for creating engaging ad creatives, reels, and overlays without graphic design skills." },
+        { name: "CapCut or Vn Editor", type: "Video Editing", pricing: "Free / Paid", recommendation: "Make vertical 9:16 mobile videos for Instagram reels. User-generated content (UGC) outperforms professional graphics by 3x." }
+      ],
+      timelines: [
+        { phase: "Research & Design", duration: "3-4 Days", deliverables: ["Keyword list & search volume report", "3-5 high-converting ad copy angles", "Ad graphic designs / video scripts"] },
+        { phase: "Setup & Tracking", duration: "1-2 Days", deliverables: ["Meta Pixel setup", "Custom conversions tracking check", "Ad account funding & setup"] },
+        { phase: "Testing & Scaling", duration: "10-14 Days", deliverables: ["Split testing different target audiences", "Stopping underperforming ads", "Scaling winning creatives by 15-20% daily"] }
+      ],
+      recommendations: [
+        "In India, direct-to-WhatsApp ads on Facebook/Instagram have a 50% lower cost-per-lead compared to standard landing page forms, but lead quality is slightly lower.",
+        "Always create video ads (reels). Image ads are becoming increasingly expensive to show because Meta prioritizes reels video inventory.",
+        "Add price ranges or qualifiers in your ad copy (e.g. 'Starting from ₹4,999') to automatically filter out unqualified window-shoppers."
+      ]
+    }
+  },
+  {
+    id: "website-pricing",
+    title: "Website Types, Pricing, Hosting, Domain, and Maintenance Charges",
+    category: "Web Development",
+    teaser: "A detailed handbook explaining the actual operational cost of owning a website. Learn the difference between developer fees, yearly renewals, hosting tiers, and how avoid overpaying for website maintenance retainers.",
+    price: 99,
+    fullContent: {
+      steps: [
+        {
+          title: "Step 1: Understand Developer Development Cost Structures",
+          desc: "Learn what variables make website creation prices change.",
+          details: [
+            "Development fees in India typically range from ₹5,000 for standard static templates to ₹50,000+ for custom web portals.",
+            "Freelancers charge less (₹5k - ₹15k) but support might be spotty. Agencies charge more (₹20k - ₹80k) but provide streamlined project management.",
+            "Always clarify: Are copywriting, custom photography, product data entry, and multi-language translation included? Usually, these cost extra."
+          ]
+        },
+        {
+          title: "Step 2: Know Your Mandatory Recurring Costs",
+          desc: "Calculate the exact expenses you have to pay every single year.",
+          details: [
+            "**Domain**: Costs ₹400 - ₹900/year. Watch out for first-year discounts (e.g., ₹199) that renew at high rates (₹1,200). Always buy multi-year if you plan to stick around.",
+            "**Hosting**: Ranges from ₹1,500/year (budget shared hosting) to ₹15,000/year (premium cloud/VPS). If your traffic is under 5,000 visits a month, a ₹2,500/year plan is more than enough.",
+            "**SSL Certificates**: Often charged at ₹2,000/year by GoDaddy, but is actually 100% FREE via Let's Encrypt. Insist on free SSL."
+          ]
+        },
+        {
+          title: "Step 3: Define Maintenance Retainer Requirements",
+          desc: "Assess if you really need a monthly support package.",
+          details: [
+            "Basic websites (portfolios, B2B company pages) do NOT need monthly retainers. Just pay standard hosting renewal and hire a developer hourly if something breaks.",
+            "Dynamic sites, e-commerce stores, and booking platforms benefit from basic maintenance retainers (₹1,500 - ₹4,000/mo) for database backups, security patches, plugin updates, and content additions.",
+            "Avoid signing lock-in contracts. Try monthly rolling options."
+          ]
+        }
+      ],
+      tables: [
+        {
+          title: "Typical Website Pricing Architecture (Indian Market)",
+          headers: ["Website Type", "Standard Freelance Cost", "Standard Agency Cost", "Annual Renewal Cost", "Timeline"],
+          rows: [
+            ["One-Page Landing Page", "₹3,000 - ₹6,000", "₹8,000 - ₹15,000", "₹2,000 - ₹3,500", "3-5 Days"],
+            ["5-Page Business Profile", "₹6,000 - ₹12,000", "₹15,000 - ₹30,000", "₹2,500 - ₹4,500", "7-10 Days"],
+            ["E-commerce Store (Shopify)", "₹12,000 - ₹25,000", "₹30,000 - ₹75,000", "₹25,000 - ₹40,000", "14-21 Days"],
+            ["Custom Web App/SaaS portal", "₹40,000 - ₹1,00,000", "₹1,50,000+", "₹12,000 - ₹35,000", "30-60 Days"]
+          ]
+        }
+      ],
+      tools: [
+        { name: "Let's Encrypt", type: "Security SSL", pricing: "Free", recommendation: "Automated, secure, and accepted by all browsers. Never pay for standard SSL." },
+        { name: "Namecheap Domains", type: "Domain Registrar", pricing: "₹800/yr for .com", recommendation: "Offers free privacy protection for life, keeping your phone number safe from spam developers." },
+        { name: "UpdraftPlus (WordPress)", type: "Backup Plugin", pricing: "Free / Paid", recommendation: "Automated backups straight to your Google Drive. Essential to restore files if your website gets hacked." },
+        { name: "UptimeRobot", type: "Monitoring", pricing: "Free", recommendation: "Pings your site every 5 minutes. Sends you an email alert immediately if your site goes down." }
+      ],
+      timelines: [
+        { phase: "Year 1 Setup", duration: "Months 1", deliverables: ["Development cost", "Domain registry fee (1 Year)", "Hosting subscription (1 Year)"] },
+        { phase: "Ongoing Support", duration: "Months 2-12", deliverables: ["Content uploads (hourly as needed)", "Bug repairs (as needed)"] },
+        { phase: "Yearly Renewal", duration: "Month 12", deliverables: ["Domain renewal cost", "Hosting renewal cost", "Third-party plugin licenses (if any)"] }
+      ],
+      recommendations: [
+        "Ask developers to build in a way that allows you to edit text and images yourself. Insist on a video walkthrough training of the editor.",
+        "Ensure your domain registrar is under your personal account. Many developers register domains under their own names, giving them hostage control over your brand.",
+        "Hostinger's 'Business Web Hosting' package (approx. ₹279/mo) can host up to 100 websites and offers free daily backups, making it perfect if you plan to launch multiple pages."
+      ]
+    }
+  },
+  {
+    id: "ad-pricing",
+    title: "Ad Campaign Charges (Google Ads, Meta Ads, etc.)",
+    category: "Digital Marketing",
+    teaser: "A breakdown of how marketing agencies and freelancers charge for running ad campaigns in India. Compare setup fees, monthly retainers, and percentage of spend models, and see typical industry benchmarks for ad budgets.",
+    price: 99,
+    fullContent: {
+      steps: [
+        {
+          title: "Step 1: Understand Agency Management Models",
+          desc: "Compare different pricing methods for advertising services.",
+          details: [
+            "**Flat Monthly Fee**: Best for small business budgets (₹6,000 - ₹15,000/month). You pay a fixed amount regardless of whether you spend ₹30,000 or ₹1,00,000 on ads.",
+            "**Percentage of Ad Spend**: Best for larger budgets (10% to 20% of ad spend). Standard for spend values above ₹1.5 Lakhs per month.",
+            "**One-Time Setup + Performance Handover**: You pay a one-time setup fee (₹8,000 - ₹15,000) to build campaigns, run them for 30 days, optimize, and hand over keys to your in-house team."
+          ]
+        },
+        {
+          title: "Step 2: Know What is Included in Marketing Retainers",
+          desc: "Be clear on what deliverables you are actually paying for.",
+          details: [
+            "Are ad creatives (images, banners, reels editing) included? If not, graphic design fees can add ₹3,000 - ₹8,000 per month.",
+            "Are landing pages included or optimized? A bad landing page will convert at 0.5% while a good one converts at 4%. Optimization is key.",
+            "Standard retainers must include: Negative keyword lists, A/B testing ad formats, bidding optimizations, and detailed fortnightly or monthly reporting."
+          ]
+        },
+        {
+          title: "Step 3: Factor in Ad Platform Taxes (GST)",
+          desc: "Calculate structural tax additions that increase your final bill.",
+          details: [
+            "Ad budgets spent directly on Meta & Google are subject to 18% GST in India.",
+            "If you do not register a GST number in your business account, you cannot claim Input Tax Credit (ITC) for this 18% charge, raising your ad spend cost directly.",
+            "Provide your corporate GSTIN to the billing section of Facebook Ads Manager and Google Ads before loading funds."
+          ]
+        }
+      ],
+      tables: [
+        {
+          title: "Standard Marketing Management Charges (India)",
+          headers: ["Provider Type", "Monthly Management Fee", "Min Monthly Ad Spend", "Best For", "Key Features"],
+          rows: [
+            ["Freelancer (Junior)", "₹4,000 - ₹8,000", "₹15,000", "Startups, small local shops", "Basic targeting, weekly reporting, text ads"],
+            ["Freelancer (Senior)", "₹10,000 - ₹20,000", "₹40,000", "Mid-sized businesses, D2C", "Custom funnels, pixel debugging, high CTR"],
+            ["Boutique Agency", "₹15,000 - ₹35,000", "₹75,000", "Growing brands, B2B services", "Creative designer included, video editing, weekly calls"],
+            ["Growth Agency", "₹50,000+ or 15% spend", "₹2,50,000", "Scaled enterprise, VC-funded", "Dedicated manager, advanced CRO, landing page building"]
+          ]
+        }
+      ],
+      tools: [
+        { name: "Meta Ads Billing Panel", type: "Ad Spend Tracker", pricing: "Free", recommendation: "Add credit cards with recurring international transactions enabled. Always use post-paid billing if possible." },
+        { name: "Google Ads Editor", type: "Bulk Editing", pricing: "Free", recommendation: "Essential software for large-scale keyword additions and editing without using the slow web interface." },
+        { name: "Microsoft Clarity", type: "User Behavior Recording", pricing: "Free", recommendation: "Records screen sessions of visitors landing from your ads. Visualizes exactly where users scroll and bounce." },
+        { name: "Looker Studio (Google)", type: "Reporting Dashboards", pricing: "Free", recommendation: "Agencies should link your Google/Meta ad data here to present clean, real-time visual charts." }
+      ],
+      timelines: [
+        { phase: "Onboarding & Audit", duration: "3-5 Days", deliverables: ["Ad account setup and access sharing", "Competitor research & ad analysis", "Tracking codes audit"] },
+        { phase: "Launch Phase", duration: "1-2 Days", deliverables: ["Ad groups live", "Daily tracking active", "Budget checks"] },
+        { phase: "Optimization Phase", duration: "Weekly", deliverables: ["Bid adjustments", "Adding negative keywords", "Creative rotations"] }
+      ],
+      recommendations: [
+        "Never run ad spends through the agency's credit card. Always hook up your own card to Google/Meta billing. This ensures complete transparency.",
+        "Expect a learning phase of at least 7 days. Do not panic and change campaign settings in the first week; this resets the learning algorithm.",
+        "Calculate your Break-Even ROAS (Return on Ad Spend) beforehand to ensure you aren't acquiring customers at a loss."
+      ]
+    }
+  }
+];
+
+export const DEFAULT_CMS_SETTINGS = {
+  agencyName: "Guruji Digital & Tech",
+  tagline: "High-Performance Websites & Lead-Generating Marketing Campaigns",
+  contactPhone: "+91 74159 17942",
+  contactEmail: "abhinavjoshi074@gmail.com",
+  whatsappNumber: "917415917942",
+  consultationLink: "https://calendly.com",
+  consultationDuration: "10 Min",
+  officeAddress: "Guruji Digital Space, Sector 62, Noida, UP, India",
+  experienceYears: 6,
+  satisfiedClients: 180,
+  projectsCompleted: 240,
+  adBudgetManaged: "₹2.5 Cr+",
+  aboutTitle: "We eliminate opaque pricing and expensive agency talk.",
+  aboutDesc: "Guruji Digital was founded with a single mission: to provide Indian entrepreneurs, small businesses, and retail stores with premium digital assets and advertising services at transparent, affordable rates. We operate with a lean, highly skilled team of developers and performance marketers. Our unique Rs 99 consultancy platform is built to demystify complex marketing and tech details, helping you make informed investments without falling prey to typical agency jargon.",
+  adminPassword: "admin123"
+};
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  category: string; // e.g. "Web Development", "Digital Marketing", "E-commerce"
+  clientType: string;
+  tags: string[];
+  link: string;
+  keyMetrics: string[];
+  beforeAfter?: { before: string; after: string };
+  imageMockup?: string;
+  fullCaseStudy?: {
+    challenge: string;
+    solution: string;
+    results: string[];
+  };
+}
+
+export const DEFAULT_PROJECTS: Project[] = [
+  {
+    id: "kumar-garments",
+    title: "Kumar Garments E-commerce Store",
+    clientType: "Apparel Manufacturer (Ludhiana)",
+    description: "Designed a clean, fast Shopify website for a leading Ludhiana clothing manufacturer. Integrated automated WhatsApp catalog alerts, domestic UPI shipping gateways (Razorpay), and a local inventory sync utility.",
+    category: "E-commerce",
+    tags: ["Shopify", "UPI Payments", "WhatsApp API", "Inventory Sync"],
+    link: "#",
+    keyMetrics: ["Increased monthly online sales by 65%", "Cart abandonment dropped by 28%"],
+    beforeAfter: {
+      before: "Manual WhatsApp order taking with slow bank transfers & zero catalog tracking",
+      after: "Automated Shopify checkout with instant UPI payment verification & 1-click WhatsApp alerts"
+    },
+    imageMockup: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+    fullCaseStudy: {
+      challenge: "Kumar Garments was relying entirely on manual phone calls and WhatsApp chats to process orders, resulting in misplaced shipping addresses and long payment confirmation delays.",
+      solution: "We built a customized mobile-first Shopify store configured for domestic Indian buyers with Razorpay UPI integration and instant order tracking over WhatsApp.",
+      results: [
+        "65% growth in direct online order revenue within 60 days of launch.",
+        "Zero address entry errors with automated pin code lookup.",
+        "Average order value increased from ₹1,200 to ₹2,450."
+      ]
+    }
+  },
+  {
+    id: "apex-diagnostics",
+    title: "Apex Diagnostics Booking Portal",
+    clientType: "Healthcare Clinic (Delhi)",
+    description: "Created a patient portal doctors can manage for appointment bookings, lab test reports access, and automated SMS appointment alerts. Reduces waiting room traffic by 35% through staggered slots booking.",
+    category: "Web Development",
+    tags: ["Next.js", "MySQL", "Interactive Calendar", "SMS Gateway"],
+    link: "#",
+    keyMetrics: ["Increased appointment inquiries by 40%", "Waiting room congestion reduced by 35%"],
+    beforeAfter: {
+      before: "Crowded waiting room with manual paper registers & lost test reports",
+      after: "Digital booking portal with instant SMS confirmations & online PDF report downloads"
+    },
+    imageMockup: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    fullCaseStudy: {
+      challenge: "Patients experienced over 1.5 hours of waiting time for routine blood tests due to unstructured walk-ins and phone calls.",
+      solution: "Engineered a fast Next.js appointment portal allowing patients to select specific 15-minute slots and automatically view digital lab reports.",
+      results: [
+        "Over 400+ online lab appointments booked every month.",
+        "40% increase in repeat monthly health package bookings.",
+        "Patient satisfaction score jumped from 3.2 to 4.8 stars."
+      ]
+    }
+  },
+  {
+    id: "elite-properties",
+    title: "Elite Properties Lead Gen Campaign",
+    clientType: "Real Estate Developer (Delhi NCR)",
+    description: "Built high-performance landing pages and launched targeted Meta Lead Generation ads for residential housing projects in Delhi NCR. Achieved a cost-per-lead reduction of 40% in 30 days.",
+    category: "Digital Marketing",
+    tags: ["Meta Ads Manager", "Landing Pages", "CRM Integration", "A/B Testing"],
+    link: "#",
+    keyMetrics: ["Ad spend ₹5,000 → 120 leads generated", "Cost per qualified lead reduced by 40%"],
+    beforeAfter: {
+      before: "₹450 per lead using generic agency Boost Post campaigns with high spam rates",
+      after: "₹185 per lead with pre-qualified Meta Lead Forms & custom video Reels ads"
+    },
+    imageMockup: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+    fullCaseStudy: {
+      challenge: "The client was spending over ₹50,000/month on Facebook boost posts with zero lead qualifications, receiving calls from buyers outside their budget.",
+      solution: "Deployed targeted Meta Lead Ads combined with custom video Reels creatives and price-range qualifiers to filter out window shoppers.",
+      results: [
+        "120+ verified site visit requests generated with an initial testing budget of ₹5,000.",
+        "Cost per qualified buyer inquiry dropped from ₹450 to ₹185.",
+        "3 high-value apartment sales closed in the first month."
+      ]
+    }
+  },
+  {
+    id: "saraswati-academy",
+    title: "Saraswati Academy Portal & Ads",
+    clientType: "Educational Institute (Jaipur)",
+    description: "Created a multi-page school profile portal highlighting fee structures and facilities. Integrated Google Local Search ads to drive academic admissions inquiries during the seasonal window.",
+    category: "Web Development",
+    tags: ["WordPress", "SEO Optimization", "Google Search Ads", "Inquiry Forms"],
+    link: "#",
+    keyMetrics: ["180+ admission inquiries in 3 weeks", "Google Maps Local Pack #1 ranking"],
+    beforeAfter: {
+      before: "Outdated non-responsive website with missing fee structure info",
+      after: "Modern mobile profile with Google Maps search domination & instant WhatsApp inquiry button"
+    },
+    imageMockup: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    fullCaseStudy: {
+      challenge: "The academy was losing potential student enrollments to nearby schools due to an outdated non-mobile website and poor local search visibility.",
+      solution: "Redesigned their web portal with clear curriculum details, optimized their Google Business Profile, and ran targeted local Google Search Ads.",
+      results: [
+        "180+ qualified admission inquiries during the 3-week enrollment campaign.",
+        "Ranked #1 on Google Local Map Pack for 'best private academy near me'.",
+        "100% capacity filled for the academic session."
+      ]
+    }
+  }
+];
+
+
