@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Award, Compass, ShieldCheck, HeartHandshake, Lock } from "lucide-react";
+import { Award, Lock } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
 export const dynamic = "force-dynamic";
@@ -12,17 +12,14 @@ export default function About() {
     {
       title: "Radical Transparency",
       desc: "No hidden charges, markups, or hostaged assets. We tell you the exact pricing structures of hostings, domains, and agency retainer percentages.",
-      icon: ShieldCheck,
     },
     {
       title: "MSME First Approach",
       desc: "Our blueprints and pricing calculators are tailored for Indian startups, retail stores, local service companies, and family-owned businesses.",
-      icon: Compass,
     },
     {
       title: "No-Obligation Consulting",
       desc: "By giving away our core blueprints for just ₹99, we let you decide if you want to execute yourself or hire our expert team to handle it for you.",
-      icon: HeartHandshake,
     },
   ];
 
@@ -110,15 +107,11 @@ export default function About() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {coreValues.map((value, index) => {
-            const Icon = value.icon;
             return (
               <div
                 key={index}
                 className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 mb-4 border border-blue-100/30">
-                  <Icon className="w-5 h-5" />
-                </div>
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2">{value.title}</h3>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{value.desc}</p>
               </div>
