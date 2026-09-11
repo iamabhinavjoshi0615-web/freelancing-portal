@@ -28,7 +28,7 @@ export default function About() {
       name: "Abhinav Joshi",
       title: "Founder & Web Consultant",
       bio: "I help small businesses and independent professionals get online without overpaying or getting lost in agency jargon. From e-commerce stores to niche service websites, I focus on building sites that actually convert visitors into customers — backed by clear pricing and honest guidance at every step.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
+      image: "/abhinav-joshi.png",
       skills: [
         "Web Development",
         "SEO & Content Strategy",
