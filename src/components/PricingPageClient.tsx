@@ -146,6 +146,9 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
             </div>
           ))}
         </div>
+        <p className="mt-4 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+          <strong>Payment Terms:</strong> 50% advance to begin work, 50% on completion before final handover.
+        </p>
       </div>
 
       {/* Interactive Estimator and locked detail output */}
@@ -289,6 +292,9 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
                     <span>₹{est.maintCost.toLocaleString()}/mo</span>
                   </div>
                 )}
+                <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400">
+                  <strong>Payment Terms:</strong> 50% advance to begin work, 50% on completion before final handover.
+                </div>
               </div>
             </div>
 

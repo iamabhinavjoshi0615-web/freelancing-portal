@@ -66,7 +66,39 @@ export default function Home() {
     {
       q: "Do you offer full development and ad services too?",
       a: "Yes! These guides are to help you plan. If you decide you want our expert team to build your website or run your ad campaigns, we offer complete development and digital marketing services. Your unlock payment will be fully credited (deducted) from your final invoice."
+    },
+    {
+      q: "What are your payment terms?",
+      a: "We require 50% advance payment to begin work, and the remaining 50% is due on project completion before final handover of files/access. For ongoing retainers (maintenance, ad management), billing is monthly in advance."
     }
+  ];
+
+  const howWeWork = [
+    {
+      step: "01",
+      title: "Discovery Call",
+      desc: "We understand your business, goals, and budget in a quick free call or WhatsApp chat",
+    },
+    {
+      step: "02",
+      title: "Plan & Quote",
+      desc: "You get a clear written proposal with exact pricing and timeline, no hidden costs",
+    },
+    {
+      step: "03",
+      title: "Design & Build",
+      desc: "We design and develop your website/campaign with regular progress updates",
+    },
+    {
+      step: "04",
+      title: "Review & Launch",
+      desc: "You review the final product, request changes if needed, then we go live",
+    },
+    {
+      step: "05",
+      title: "Support & Growth",
+      desc: "Post-launch support included, plus ongoing maintenance/ad management if you choose",
+    },
   ];
 
   const testimonials = [
@@ -232,6 +264,44 @@ export default function Home() {
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work Process Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-zinc-900/60 border-b border-zinc-200/50 dark:border-zinc-900/50">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+              Our Process
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+              How We Work
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm">
+              A transparent, step-by-step workflow designed to deliver results with complete clarity.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {howWeWork.map((item) => (
+              <div
+                key={item.step}
+                className="flex flex-col justify-between p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="space-y-3">
+                  <span className="text-2xl font-black text-blue-600 dark:text-blue-400 block">
+                    {item.step}
+                  </span>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}

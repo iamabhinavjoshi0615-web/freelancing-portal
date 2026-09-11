@@ -408,14 +408,54 @@ export interface Project {
   keyMetrics: string[];
   beforeAfter?: { before: string; after: string };
   imageMockup?: string;
+  gallery?: { url: string; caption: string }[];
   fullCaseStudy?: {
     challenge: string;
-    solution: string;
+    solution: string | string[];
     results: string[];
+    keyTakeaway?: string;
   };
 }
 
 export const DEFAULT_PROJECTS: Project[] = [
+  {
+    id: "pandit-maa-baglamukhi",
+    title: "Pandit Maa Baglamukhi (Acharya Pt. Rudraksh Rajpurohit)",
+    clientType: "Spiritual & Religious Services",
+    description: "Built a complete devotional services website for a Vedic Acharya at Siddh Peeth Nalkheda Dham — combining authentic storytelling, service booking, and bilingual SEO to reach devotees searching for Vedic pujas and havans across India.",
+    category: "Web Development",
+    tags: ["Web Development", "Bilingual SEO", "Content Strategy", "Trust-Based UX"],
+    link: "https://www.panditmaabaglamukhi.com/",
+    keyMetrics: [
+      "Ranking for competitive local + national keywords",
+      "Clear service-to-inquiry funnel",
+      "Bilingual (Hindi + English) SEO"
+    ],
+    imageMockup: "https://www.panditmaabaglamukhi.com/og-image.png",
+    gallery: [
+      { url: "https://www.panditmaabaglamukhi.com/acharya-new.webp", caption: "Acharya Pt. Rudraksh Rajpurohit" },
+      { url: "https://www.panditmaabaglamukhi.com/mata-baglamukhi.webp", caption: "Siddh Peeth Maa Baglamukhi" },
+      { url: "https://www.panditmaabaglamukhi.com/real-havan-kund.webp", caption: "Authentic Havan Kund Rituals" },
+      { url: "https://www.panditmaabaglamukhi.com/mata-temple-exterior.webp", caption: "Nalkheda Dham Temple" }
+    ],
+    fullCaseStudy: {
+      challenge: "A traditional Vedic priest offering authentic pujas, havans, and anusthans needed an online presence that could build trust with devotees who had never met him in person — a uniquely difficult challenge for a business built on faith, authenticity, and word-of-mouth reputation rather than typical product features.",
+      solution: [
+        "Designed a bilingual (Hindi + English) website structure to capture both local and pan-India search intent",
+        "Built dedicated service pages for each puja/havan type (Court Case Victory Puja, Debt Relief Havan, Marriage Obstacle Removal, and more) with clear explanations and booking options",
+        "Created a dedicated 'About Acharya Ji' storytelling section combined with temple history and mythology to build emotional trust before asking for any commitment",
+        "Implemented an SEO-first content strategy — extensive keyword research (bilingual), structured FAQ content, and dedicated 'Guidance' articles targeting long-tail search queries",
+        "Added multi-channel contact options (WhatsApp, phone, email, Google Maps directions) to reduce friction for devotees ready to book",
+        "Included complete legal pages (Privacy Policy, Terms, Refund Policy) to establish credibility and transparency"
+      ],
+      results: [
+        "Ranking for competitive local + national keywords around Vedic pujas and havans",
+        "Clear service-to-inquiry funnel with multiple contact touchpoints",
+        "Testimonial section showcasing real devotee stories, reinforcing trust for new visitors"
+      ],
+      keyTakeaway: "This project proved that even the most trust-sensitive, non-traditional service businesses can be transformed online with the right blend of storytelling, structured SEO, and simple booking flows."
+    }
+  },
   {
     id: "kumar-garments",
     title: "Kumar Garments E-commerce Store",

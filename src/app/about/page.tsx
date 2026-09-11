@@ -23,6 +23,16 @@ export default function About() {
     },
   ];
 
+  const teamMembers = [
+    {
+      name: "Rohan Sharma",
+      title: "Founder & Web Consultant",
+      bio: "Helping Indian small businesses get online without getting overcharged. Over 8+ years of hands-on experience in web engineering and performance marketing, dedicated to transparent pricing and zero jargon.",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
+      skills: ["Web Development", "Google Ads", "Meta Ads", "SEO", "WordPress/Shopify"],
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
       {/* Page Header */}
@@ -96,6 +106,55 @@ export default function About() {
               Unlock Premium Blueprints @ ₹99
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Team / Founder Section */}
+      <div className="space-y-10 border-t border-zinc-200/60 dark:border-zinc-800/80 pt-16">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            Our Leadership
+          </span>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white">
+            About the Founder
+          </h2>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+            Direct, experienced leadership dedicated to delivering real digital growth for your business.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-8 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover shrink-0 border border-zinc-200 dark:border-zinc-700"
+              />
+              <div className="space-y-4 text-center sm:text-left flex-grow">
+                <div>
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{member.name}</h3>
+                  <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-0.5">{member.title}</p>
+                </div>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {member.bio}
+                </p>
+                <div className="pt-2 flex flex-wrap gap-2 justify-center sm:justify-start">
+                  {member.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium border border-zinc-200 dark:border-zinc-700"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

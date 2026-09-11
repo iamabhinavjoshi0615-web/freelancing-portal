@@ -194,12 +194,23 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
                 </div>
 
                 <div className="p-4 rounded-2xl bg-blue-50/40 dark:bg-blue-950/20 border border-blue-200/50 dark:border-blue-900/40">
-                  <h4 className="font-bold text-blue-900 dark:text-blue-300 uppercase text-xs tracking-wider mb-1">
+                  <h4 className="font-bold text-blue-900 dark:text-blue-300 uppercase text-xs tracking-wider mb-2">
                     Our Solution & Implementation
                   </h4>
-                  <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-xs">
-                    {selectedProject.fullCaseStudy.solution}
-                  </p>
+                  {Array.isArray(selectedProject.fullCaseStudy.solution) ? (
+                    <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
+                      {selectedProject.fullCaseStudy.solution.map((item, sIdx) => (
+                        <li key={sIdx} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-xs">
+                      {selectedProject.fullCaseStudy.solution}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -215,6 +226,37 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
                     ))}
                   </div>
                 </div>
+
+                {selectedProject.fullCaseStudy.keyTakeaway && (
+                  <div className="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 text-xs italic text-zinc-700 dark:text-zinc-300 space-y-1">
+                    <span className="font-bold not-italic text-amber-800 dark:text-amber-400 block uppercase text-[10px] tracking-wider">
+                      Key Takeaway
+                    </span>
+                    <p>&ldquo;{selectedProject.fullCaseStudy.keyTakeaway}&rdquo;</p>
+                  </div>
+                )}
+
+                {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <h4 className="font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider">
+                      Website Visuals & Media
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {selectedProject.gallery.map((img, gIdx) => (
+                        <div key={gIdx} className="group relative rounded-xl overflow-hidden bg-zinc-800 border border-zinc-200 dark:border-zinc-800 aspect-video sm:aspect-square">
+                          <img
+                            src={img.url}
+                            alt={img.caption}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2 opacity-90">
+                            <span className="text-[10px] font-semibold text-white truncate leading-tight">{img.caption}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -222,10 +264,22 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
               </p>
             )}
 
-            <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex justify-end">
+            <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex flex-wrap items-center justify-end gap-3">
+              {selectedProject.link && selectedProject.link !== "#" && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 text-xs transition-colors shadow-sm"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>View Live Website &rarr;</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 text-xs transition-colors"
+                className="rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold px-6 py-2.5 text-xs transition-colors"
               >
                 Close Case Study
               </button>

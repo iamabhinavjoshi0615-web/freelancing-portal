@@ -786,8 +786,46 @@
   },
   "projects": [
     {
+      "id": "pandit-maa-baglamukhi",
+      "title": "Pandit Maa Baglamukhi (Acharya Pt. Rudraksh Rajpurohit)",
+      "clientType": "Spiritual & Religious Services",
+      "description": "Built a complete devotional services website for a Vedic Acharya at Siddh Peeth Nalkheda Dham — combining authentic storytelling, service booking, and bilingual SEO to reach devotees searching for Vedic pujas and havans across India.",
+      "category": "Web Development",
+      "tags": [
+        "Web Development",
+        "Bilingual SEO",
+        "Content Strategy",
+        "Trust-Based UX"
+      ],
+      "link": "https://www.panditmaabaglamukhi.com/",
+      "keyMetrics": [
+        "Ranking for competitive local + national keywords",
+        "Clear service-to-inquiry funnel",
+        "Bilingual (Hindi + English) SEO"
+      ],
+      "imageMockup": "https://www.panditmaabaglamukhi.com/og-image.png",
+      "fullCaseStudy": {
+        "challenge": "A traditional Vedic priest offering authentic pujas, havans, and anusthans needed an online presence that could build trust with devotees who had never met him in person — a uniquely difficult challenge for a business built on faith, authenticity, and word-of-mouth reputation rather than typical product features.",
+        "solution": [
+          "Designed a bilingual (Hindi + English) website structure to capture both local and pan-India search intent",
+          "Built dedicated service pages for each puja/havan type (Court Case Victory Puja, Debt Relief Havan, Marriage Obstacle Removal, and more) with clear explanations and booking options",
+          "Created a dedicated 'About Acharya Ji' storytelling section combined with temple history and mythology to build emotional trust before asking for any commitment",
+          "Implemented an SEO-first content strategy — extensive keyword research (bilingual), structured FAQ content, and dedicated 'Guidance' articles targeting long-tail search queries",
+          "Added multi-channel contact options (WhatsApp, phone, email, Google Maps directions) to reduce friction for devotees ready to book",
+          "Included complete legal pages (Privacy Policy, Terms, Refund Policy) to establish credibility and transparency"
+        ],
+        "results": [
+          "Ranking for competitive local + national keywords around Vedic pujas and havans",
+          "Clear service-to-inquiry funnel with multiple contact touchpoints",
+          "Testimonial section showcasing real devotee stories, reinforcing trust for new visitors"
+        ],
+        "keyTakeaway": "This project proved that even the most trust-sensitive, non-traditional service businesses can be transformed online with the right blend of storytelling, structured SEO, and simple booking flows."
+      }
+    },
+    {
       "id": "kumar-garments",
       "title": "Kumar Garments E-commerce Store",
+      "clientType": "Apparel Manufacturer (Ludhiana)",
       "description": "Designed a clean, fast Shopify website for a leading Ludhiana clothing manufacturer. Integrated automated WhatsApp catalog alerts, domestic UPI shipping gateways (Razorpay), and a local inventory sync utility.",
       "category": "E-commerce",
       "tags": [
@@ -796,11 +834,30 @@
         "WhatsApp API",
         "Inventory Sync"
       ],
-      "link": "#"
+      "link": "#",
+      "keyMetrics": [
+        "Increased monthly online sales by 65%",
+        "Cart abandonment dropped by 28%"
+      ],
+      "beforeAfter": {
+        "before": "Manual WhatsApp order taking with slow bank transfers & zero catalog tracking",
+        "after": "Automated Shopify checkout with instant UPI payment verification & 1-click WhatsApp alerts"
+      },
+      "imageMockup": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+      "fullCaseStudy": {
+        "challenge": "Kumar Garments was relying entirely on manual phone calls and WhatsApp chats to process orders, resulting in misplaced shipping addresses and long payment confirmation delays.",
+        "solution": "We built a customized mobile-first Shopify store configured for domestic Indian buyers with Razorpay UPI integration and instant order tracking over WhatsApp.",
+        "results": [
+          "65% growth in direct online order revenue within 60 days of launch.",
+          "Zero address entry errors with automated pin code lookup.",
+          "Average order value increased from ₹1,200 to ₹2,450."
+        ]
+      }
     },
     {
       "id": "apex-diagnostics",
       "title": "Apex Diagnostics Booking Portal",
+      "clientType": "Healthcare Clinic (Delhi)",
       "description": "Created a patient portal doctors can manage for appointment bookings, lab test reports access, and automated SMS appointment alerts. Reduces waiting room traffic by 35% through staggered slots booking.",
       "category": "Web Development",
       "tags": [
@@ -809,11 +866,30 @@
         "Interactive Calendar",
         "SMS Gateway"
       ],
-      "link": "#"
+      "link": "#",
+      "keyMetrics": [
+        "Increased appointment inquiries by 40%",
+        "Waiting room congestion reduced by 35%"
+      ],
+      "beforeAfter": {
+        "before": "Crowded waiting room with manual paper registers & lost test reports",
+        "after": "Digital booking portal with instant SMS confirmations & online PDF report downloads"
+      },
+      "imageMockup": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+      "fullCaseStudy": {
+        "challenge": "Patients experienced over 1.5 hours of waiting time for routine blood tests due to unstructured walk-ins and phone calls.",
+        "solution": "Engineered a fast Next.js appointment portal allowing patients to select specific 15-minute slots and automatically view digital lab reports.",
+        "results": [
+          "Over 400+ online lab appointments booked every month.",
+          "40% increase in repeat monthly health package bookings.",
+          "Patient satisfaction score jumped from 3.2 to 4.8 stars."
+        ]
+      }
     },
     {
       "id": "elite-properties",
       "title": "Elite Properties Lead Gen Campaign",
+      "clientType": "Real Estate Developer (Delhi NCR)",
       "description": "Built high-performance landing pages and launched targeted Meta Lead Generation ads for residential housing projects in Delhi NCR. Achieved a cost-per-lead reduction of 40% in 30 days.",
       "category": "Digital Marketing",
       "tags": [
@@ -822,11 +898,30 @@
         "CRM Integration",
         "A/B Testing"
       ],
-      "link": "#"
+      "link": "#",
+      "keyMetrics": [
+        "Ad spend ₹5,000 → 120 leads generated",
+        "Cost per qualified lead reduced by 40%"
+      ],
+      "beforeAfter": {
+        "before": "₹450 per lead using generic agency Boost Post campaigns with high spam rates",
+        "after": "₹185 per lead with pre-qualified Meta Lead Forms & custom video Reels ads"
+      },
+      "imageMockup": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+      "fullCaseStudy": {
+        "challenge": "The client was spending over ₹50,000/month on Facebook boost posts with zero lead qualifications, receiving calls from buyers outside their budget.",
+        "solution": "Deployed targeted Meta Lead Ads combined with custom video Reels creatives and price-range qualifiers to filter out window shoppers.",
+        "results": [
+          "120+ verified site visit requests generated with an initial testing budget of ₹5,000.",
+          "Cost per qualified buyer inquiry dropped from ₹450 to ₹185.",
+          "3 high-value apartment sales closed in the first month."
+        ]
+      }
     },
     {
       "id": "saraswati-academy",
       "title": "Saraswati Academy Portal & Ads",
+      "clientType": "Educational Institute (Jaipur)",
       "description": "Created a multi-page school profile portal highlighting fee structures and facilities. Integrated Google Local Search ads to drive academic admissions inquiries during the seasonal window.",
       "category": "Web Development",
       "tags": [
@@ -835,7 +930,25 @@
         "Google Search Ads",
         "Inquiry Forms"
       ],
-      "link": "#"
+      "link": "#",
+      "keyMetrics": [
+        "180+ admission inquiries in 3 weeks",
+        "Google Maps Local Pack #1 ranking"
+      ],
+      "beforeAfter": {
+        "before": "Outdated non-responsive website with missing fee structure info",
+        "after": "Modern mobile profile with Google Maps search domination & instant WhatsApp inquiry button"
+      },
+      "imageMockup": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+      "fullCaseStudy": {
+        "challenge": "The academy was losing potential student enrollments to nearby schools due to an outdated non-mobile website and poor local search visibility.",
+        "solution": "Redesigned their web portal with clear curriculum details, optimized their Google Business Profile, and ran targeted local Google Search Ads.",
+        "results": [
+          "180+ qualified admission inquiries during the 3-week enrollment campaign.",
+          "Ranked #1 on Google Local Map Pack for 'best private academy near me'.",
+          "100% capacity filled for the academic session."
+        ]
+      }
     }
   ],
   "users": [],
