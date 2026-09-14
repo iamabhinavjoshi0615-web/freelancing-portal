@@ -824,7 +824,7 @@ function PayUnlockContent() {
               <h2 className="text-xs font-mono font-bold text-[#8E95A5] uppercase tracking-wider">
                 // Free vs Premium Tier Comparison
               </h2>
-              <div className="border border-[#2E313A] bg-[#121316]">
+              <div className="border border-[#2E313A] bg-[#121316] overflow-x-auto">
                 <table className="w-full text-xs text-left">
                   <thead>
                     <tr className="bg-[#18191C] text-[#8E95A5] font-bold border-b border-[#2E313A]">

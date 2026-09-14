@@ -36,11 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
       </head>
       <body
-        className="min-h-full flex flex-col bg-[#F7F3EC] text-[#22281F] font-sans"
+        className="min-h-full flex flex-col bg-[#F7F3EC] text-[#22281F] font-sans overflow-x-hidden max-w-full"
         suppressHydrationWarning
       >
         <Header agencyName={settings.agencyName} />
-        <main className="flex-grow flex flex-col">{children}</main>
+        <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer
           agencyName={settings.agencyName}
           tagline={settings.tagline}
