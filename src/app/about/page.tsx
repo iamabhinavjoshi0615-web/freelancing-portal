@@ -146,12 +146,12 @@ export default function About() {
                   <h3 className="text-2xl font-bold text-[#FFFFFF]">PROVEN TRACK RECORD</h3>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
                     <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
-                      <AnimatedCounter value={`${settings.experienceYears}+ Years`} />
+                      <AnimatedCounter value={`${settings.projectsCompleted}+`} />
                     </span>
-                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Expertise</span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Projects Delivered</span>
                   </div>
                   <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
                     <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
@@ -161,15 +161,9 @@ export default function About() {
                   </div>
                   <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
                     <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
-                      <AnimatedCounter value={`${settings.projectsCompleted}+`} />
+                      <AnimatedCounter value={`${settings.experienceYears}+ Years`} />
                     </span>
-                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Projects Delivered</span>
-                  </div>
-                  <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
-                    <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
-                      <AnimatedCounter value={settings.adBudgetManaged} />
-                    </span>
-                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Ad Spend Managed</span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Years of Engineering</span>
                   </div>
                 </div>
 

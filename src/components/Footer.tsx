@@ -33,19 +33,10 @@ export default function Footer({
       {/* Trust Metrics Banner */}
       <div className="border-b border-[#2E313A] bg-[#121316]">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
               <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
                 01
-              </div>
-              <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
-                <AnimatedCounter value={`${experienceYears}+ Years`} />
-              </span>
-              <span className="text-xs text-[#8E95A5] font-mono mt-1">Industry Expertise</span>
-            </div>
-            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
-              <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
-                02
               </div>
               <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
                 <AnimatedCounter value={`${projectsCompleted}+`} />
@@ -54,21 +45,21 @@ export default function Footer({
             </div>
             <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
               <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
-                03
+                02
               </div>
               <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
                 <AnimatedCounter value={`${satisfiedClients}+`} />
               </span>
-              <span className="text-xs text-[#8E95A5] font-mono mt-1">Happy Indian Clients</span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Clients Served</span>
             </div>
             <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
               <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
-                04
+                03
               </div>
               <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
-                <AnimatedCounter value={adBudgetManaged} />
+                <AnimatedCounter value={`${experienceYears}+ Years`} />
               </span>
-              <span className="text-xs text-[#8E95A5] font-mono mt-1">Ad Budget Managed</span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Years of Engineering</span>
             </div>
           </div>
         </div>

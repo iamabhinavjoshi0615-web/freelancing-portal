@@ -5,6 +5,7 @@ import { getCmsSettings, getServices, getProjects, getUnlocks } from "../lib/db"
 import InteractiveQuiz from "../components/InteractiveQuiz";
 import SocialProofCounter from "../components/SocialProofCounter";
 import ScrollReveal from "../components/ScrollReveal";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 export const dynamic = "force-dynamic";
 
@@ -183,29 +184,33 @@ export default function Home() {
       {/* Section B: Popularity Metrics Banner (Dark Charcoal Wireframe Banner) */}
       <ScrollReveal>
         <section className="bg-[#18191C] border-b border-[#2E313A] py-12 px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <span className="wireframe-section-label-dark">B. POPULARITY METRICS</span>
+          <div className="mx-auto max-w-5xl">
+            <div className="wireframe-section-label-dark mb-4 text-center">B. POPULARITY METRICS</div>
             
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
-                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Installations</span>
-                <span className="font-mono text-2xl font-bold text-white">7,823</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
+                  <AnimatedCounter value={`${settings.projectsCompleted}+`} />
+                </span>
+                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
+                  Projects Delivered
+                </span>
               </div>
-              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
-                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Github Stars</span>
-                <span className="font-mono text-2xl font-bold text-white">34,781</span>
+              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
+                  <AnimatedCounter value={`${settings.satisfiedClients}+`} />
+                </span>
+                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
+                  Clients Served
+                </span>
               </div>
-              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
-                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Pulls/Mo</span>
-                <span className="font-mono text-2xl font-bold text-white">14M</span>
-              </div>
-              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
-                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Contributors</span>
-                <span className="font-mono text-2xl font-bold text-white">259</span>
-              </div>
-              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1 col-span-2 md:col-span-1">
-                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Forks</span>
-                <span className="font-mono text-2xl font-bold text-white">3K+</span>
+              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
+                  <AnimatedCounter value={`${settings.experienceYears}+`} />
+                </span>
+                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
+                  Years of Engineering
+                </span>
               </div>
             </div>
           </div>
