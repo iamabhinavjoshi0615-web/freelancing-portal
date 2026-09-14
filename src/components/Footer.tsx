@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Award, CheckCircle2, TrendingUp } from "lucide-react";
+import { Mail, Phone, MapPin, Award, CheckCircle2, TrendingUp, Terminal } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
 
 interface FooterProps {
@@ -70,8 +70,10 @@ export default function Footer({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Column 1: Brand & Tagline */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#526075] rounded-full inline-block"></span>
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-7 w-7 items-center justify-center rounded bg-[#2E313A] text-white">
+                <Terminal className="h-3.5 w-3.5 text-white" />
+              </div>
               <span className="text-xl font-bold tracking-tight font-mono text-[#FFFFFF] uppercase">
                 {agencyName}
               </span>

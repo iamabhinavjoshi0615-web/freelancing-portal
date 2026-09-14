@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Lock, Layers } from "lucide-react";
+import { Menu, X, Lock, Terminal } from "lucide-react";
 
 interface HeaderProps {
   agencyName: string;
@@ -38,7 +38,7 @@ export default function Header({ agencyName }: HeaderProps) {
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2.5 group" id="nav-logo">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#18191C] text-white shadow-xs group-hover:scale-105 transition-transform duration-200">
-              <Layers className="h-4 w-4 text-white" />
+              <Terminal className="h-4 w-4 text-white" />
             </div>
             <div className="flex flex-col">
               <span className="text-base sm:text-lg font-black tracking-tight text-[#111827] transition-colors">
