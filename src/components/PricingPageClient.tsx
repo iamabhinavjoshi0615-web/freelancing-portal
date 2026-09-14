@@ -77,10 +77,57 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
   const est = calculateEstimate();
 
   // Group tiers by category
+  // Helper for timeline estimates per pricing tier item
+  const getItemTimeline = (item: string, category: string) => {
+    const itemLower = item.toLowerCase();
+    const catLower = category.toLowerCase();
+
+    if (itemLower.includes("landing")) return "Delivery: 1-2 weeks";
+    if (itemLower.includes("basic") || itemLower.includes("business")) return "Delivery: 2-3 weeks";
+    if (itemLower.includes("booking") || itemLower.includes("service")) return "Delivery: 3-4 weeks";
+    if (itemLower.includes("e-commerce") || itemLower.includes("ecommerce")) return "Delivery: 4-6 weeks";
+    if (catLower.includes("retainer") || catLower.includes("maintenance") || catLower.includes("ad")) {
+      return "Starts within: 3-5 business days";
+    }
+    return "Delivery: Instant (Same Day)";
+  };
+
   const categories = Array.from(new Set(initialTiers.map((t) => t.category)));
 
   return (
     <div className="space-y-16 text-[#E2E4E8]">
+      {/* Estimated Delivery Timelines Summary */}
+      <ScrollReveal>
+        <div className="space-y-4 font-mono">
+          <div className="wireframe-section-label mb-1">// ESTIMATED DELIVERY TIMELINES</div>
+          <h2 className="text-xl font-bold text-[#FFFFFF] uppercase tracking-wider">
+            STANDARD PACKAGE DELIVERY TIMELINES
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
+              <div className="text-xs font-bold text-[#FFFFFF]">Landing Page / Starter Tier</div>
+              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 1-2 weeks</div>
+            </div>
+            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
+              <div className="text-xs font-bold text-[#FFFFFF]">Basic Business Website Tier</div>
+              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 2-3 weeks</div>
+            </div>
+            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
+              <div className="text-xs font-bold text-[#FFFFFF]">Booking / Service Website Tier</div>
+              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 3-4 weeks</div>
+            </div>
+            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
+              <div className="text-xs font-bold text-[#FFFFFF]">E-commerce Website Tier</div>
+              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 4-6 weeks</div>
+            </div>
+            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1 sm:col-span-2 lg:col-span-2">
+              <div className="text-xs font-bold text-[#FFFFFF]">Monthly Retainers (Ad Management, SEO, Maintenance)</div>
+              <div className="text-xs text-[#8E95A5] font-mono">Starts within: 3-5 business days</div>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
       {/* Basic Pricing Tables */}
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -108,7 +155,7 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
                               <td className="py-3 font-mono text-[#E2E4E8]">
                                 {t.item}
                                 <span className="block text-[10px] text-[#8E95A5] font-mono mt-0.5">
-                                  Billing: {t.billing}
+                                  Billing: {t.billing} • <span className="text-[#8E95A5] font-medium">{getItemTimeline(t.item, t.category)}</span>
                                 </span>
                               </td>
                               <td className="py-3 text-right font-bold font-mono text-[#FFFFFF]">

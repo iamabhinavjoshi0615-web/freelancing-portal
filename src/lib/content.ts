@@ -38,7 +38,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "Business Website",
     description: "Professional multi-page website to showcase your brand, services, and build trust among Indian consumers.",
     startingPrice: "₹8,999",
-    deliveryTime: "7 - 10 Days",
+    deliveryTime: "Delivery: 2-3 weeks",
     features: ["Responsive Design (Mobile-First)", "Up to 5 Pages", "WhatsApp Integration", "Google Map & Contact Form", "Basic SEO Setup", "1-Year Free Domain & Basic Hosting"]
   },
   {
@@ -46,7 +46,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "E-commerce Store",
     description: "Robust online store designed to showcase products, manage inventory, and securely accept UPI & cards.",
     startingPrice: "₹18,999",
-    deliveryTime: "14 - 21 Days",
+    deliveryTime: "Delivery: 4-6 weeks",
     features: ["Up to 100 Products", "Payment Gateway Integration", "Inventory Management", "SMS/WhatsApp Order Alerts", "Coupon & Discount Engine", "Advanced SEO Setup"]
   },
   {
@@ -54,7 +54,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "High-Converting Landing Page",
     description: "Single-page structure built specifically to drive inquiries, downloads, or signups from Google and Meta ads.",
     startingPrice: "₹4,999",
-    deliveryTime: "3 - 5 Days",
+    deliveryTime: "Delivery: 1-2 weeks",
     features: ["A/B Tested Structure", "Lead Capture Form", "Fast Loading Speed", "Dynamic Call-To-Actions", "Analytics & Pixel Setup", "Domain Linking"]
   },
   {
@@ -62,7 +62,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "Booking & Appointment Portal",
     description: "Ideal for doctors, salons, consultants, and educational institutions looking to automate appointment schedules.",
     startingPrice: "₹12,499",
-    deliveryTime: "10 - 15 Days",
+    deliveryTime: "Delivery: 3-4 weeks",
     features: ["Interactive Booking Calendar", "Customer Dashboard", "Automated Email/SMS Reminders", "Online Payment Collection", "Admin Booking Management", "Mobile Friendly Layout"]
   },
   {
@@ -70,7 +70,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "Google & Meta Ads Campaign Management",
     description: "End-to-end management of high-converting ad campaigns on Google Search and Facebook/Instagram Reels to generate direct sales and qualified inquiries.",
     startingPrice: "₹7,999/mo",
-    deliveryTime: "Monthly Retainer",
+    deliveryTime: "Starts within: 3-5 business days",
     features: [
       "Targeted Keyword & Audience Setup",
       "Custom Graphic & Reels Video Ad Creatives",
@@ -85,7 +85,7 @@ export const DEFAULT_SERVICES: Service[] = [
     name: "Local Business SEO & Organic Growth",
     description: "Boost your organic visibility on Google Search & Google Maps (GMB) to capture local Indian customers actively searching for your products and services.",
     startingPrice: "₹5,999/mo",
-    deliveryTime: "Monthly Retainer",
+    deliveryTime: "Starts within: 3-5 business days",
     features: [
       "Google Business Profile (GMB) Optimization",
       "Local Map Pack Ranking Strategy",

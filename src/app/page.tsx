@@ -6,6 +6,7 @@ import InteractiveQuiz from "../components/InteractiveQuiz";
 import SocialProofCounter from "../components/SocialProofCounter";
 import ScrollReveal from "../components/ScrollReveal";
 import AnimatedCounter from "../components/AnimatedCounter";
+import ClientMarquee from "../components/ClientMarquee";
 
 export const dynamic = "force-dynamic";
 
@@ -72,6 +73,14 @@ export default function Home() {
     {
       q: "What are your payment terms?",
       a: "We require 50% advance payment to begin work, and the remaining 50% is due on project completion before final handover of files/access. For ongoing retainers (maintenance, ad management), billing is monthly in advance."
+    },
+    {
+      q: "Do you sign NDAs (Non-Disclosure Agreements)?",
+      a: "Yes. We're happy to sign a mutual NDA before discussing confidential business details, project requirements, or proprietary information. Just let us know during your inquiry."
+    },
+    {
+      q: "Who owns the website/code after the project is delivered?",
+      a: "You do — completely. Once the project is delivered and final payment is received, you receive full ownership of the website, its code, and all assets. You're free to host it anywhere, hand it to another developer, or modify it as you wish. There's no vendor lock-in."
     }
   ];
 
@@ -180,6 +189,9 @@ export default function Home() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Client Logo/Name Auto-Scrolling Marquee Strip */}
+      <ClientMarquee />
 
       {/* Section B: Popularity Metrics Banner (Dark Charcoal Wireframe Banner) */}
       <ScrollReveal>
