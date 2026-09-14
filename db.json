@@ -1,62 +1,6 @@
 {
-  "orders": [
-    {
-      "id": "order_mock_aw4usd1kc",
-      "amount": 99,
-      "currency": "INR",
-      "status": "paid",
-      "receipt": "rec_1787838960895_442",
-      "email": "iamabhinavjoshi0615@gmail.com",
-      "phone": "7415917942",
-      "name": "Abhinav Joshi",
-      "topicId": "website-building",
-      "createdAt": "2026-08-27T13:56:00.895Z",
-      "razorpayPaymentId": "pay_mock_qhuenpp4u",
-      "verifiedAt": "2026-08-27T13:56:53.248Z"
-    },
-    {
-      "id": "order_mock_fa69x1nl3",
-      "amount": 99,
-      "currency": "INR",
-      "status": "paid",
-      "receipt": "rec_1787930940877_379",
-      "email": "iamabhinavjoshi0615@gmail.com",
-      "phone": "7415917942",
-      "name": "Abhinav Joshi",
-      "topicId": "ad-pricing",
-      "createdAt": "2026-08-28T15:29:00.877Z",
-      "razorpayPaymentId": "pay_mock_5prblc0w9",
-      "verifiedAt": "2026-08-28T15:29:13.539Z"
-    },
-    {
-      "id": "order_mock_zefkkljlw",
-      "amount": 99,
-      "currency": "INR",
-      "status": "paid",
-      "receipt": "rec_1787931012615_680",
-      "email": "iamabhinavjoshi0615@gmail.com",
-      "phone": "7415917942",
-      "name": "Abhinav Joshi",
-      "topicId": "website-building",
-      "createdAt": "2026-08-28T15:30:12.615Z",
-      "razorpayPaymentId": "pay_mock_942jd716v",
-      "verifiedAt": "2026-08-28T15:30:14.308Z"
-    }
-  ],
-  "unlocks": [
-    {
-      "email": "iamabhinavjoshi0615@gmail.com",
-      "topicId": "website-building",
-      "unlockedAt": "2026-08-27T13:56:53.254Z",
-      "orderId": "order_mock_aw4usd1kc"
-    },
-    {
-      "email": "iamabhinavjoshi0615@gmail.com",
-      "topicId": "ad-pricing",
-      "unlockedAt": "2026-08-28T15:29:13.542Z",
-      "orderId": "order_mock_fa69x1nl3"
-    }
-  ],
+  "orders": [],
+  "unlocks": [],
   "topics": [
     {
       "id": "website-building",
