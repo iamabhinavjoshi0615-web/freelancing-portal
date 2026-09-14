@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Guruji Digital & Tech | Premium Web Development & Digital Marketing India",
+  title: "The Industries | Premium Web Development & Digital Marketing India",
   description: "Get high-performance business websites, Shopify stores, and lead-generating Google/Meta ad campaigns. Professional digital consultancy starting at just ₹99.",
-  keywords: ["web development India", "digital marketing agency", "small business website", "Google Ads management", "Meta Ads India", "Guruji Digital"],
+  keywords: ["web development India", "digital marketing agency", "small business website", "Google Ads management", "Meta Ads India", "The Industries"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

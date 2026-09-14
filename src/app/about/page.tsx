@@ -48,7 +48,7 @@ export default function About() {
       <section className="border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <div className="wireframe-section-label mb-4">// ABOUT GURUJI DIGITAL & TECH</div>
+            <div className="wireframe-section-label mb-4">// ABOUT THE INDUSTRIES</div>
             <h1 className="text-3xl sm:text-5xl font-mono font-bold tracking-tight text-[#FFFFFF] max-w-3xl">
               WE DEMYSTIFY TECH & MARKETING
             </h1>

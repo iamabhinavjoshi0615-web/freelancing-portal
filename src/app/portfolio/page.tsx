@@ -6,7 +6,7 @@ import ScrollReveal from "../../components/ScrollReveal";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Our Work & Portfolio | Guruji Digital & Tech India",
+  title: "Our Work & Portfolio | The Industries India",
   description: "View case studies of e-commerce store builds, custom business websites, and lead generation campaigns delivered for Indian small business owners.",
 };
 

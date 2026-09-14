@@ -107,7 +107,7 @@ export default function Home() {
     {
       name: "Rajesh Kumar",
       role: "Founder, Kumar Garments (Ludhiana)",
-      quote: "The website pricing guide saved me at least ₹15,000. I was quoted ₹30k by a local developer for basic WooCommerce, but using Guruji's guide, I set up Shopify myself and hired a freelancer for just ₹10k for custom setups.",
+      quote: "The website pricing guide saved me at least ₹15,000. I was quoted ₹30k by a local developer for basic WooCommerce, but using The Industries' guide, I set up Shopify myself and hired a freelancer for just ₹10k for custom setups.",
       stars: 5
     },
     {

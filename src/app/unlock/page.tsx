@@ -223,7 +223,7 @@ function PayUnlockContent() {
           key: orderData.keyId,
           amount: orderData.amount,
           currency: "INR",
-          name: "Guruji Digital & Tech",
+          name: "The Industries",
           description: `Unlock: ${topicTitle}`,
           order_id: orderData.orderId,
           prefill: {
@@ -394,7 +394,7 @@ function PayUnlockContent() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Guruji Digital! I just unlocked ${unlockedTopicTitle || "my consultancy guide"}. Please send me my guide + future tips on WhatsApp.`
+    `Hi The Industries! I just unlocked ${unlockedTopicTitle || "my consultancy guide"}. Please send me my guide + future tips on WhatsApp.`
   );
 
   // Render UNLOCKED Premium Content
@@ -462,7 +462,7 @@ function PayUnlockContent() {
 
               <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                 <a
-                  href="https://wa.me/917415917942?text=Hi%20Guruji%20Digital,%20I%20unlocked%20my%20guide%20and%20would%20like%20to%20book%20a%20Free%2010-min%20call%20for%20done-for-you%20packages."
+                  href="https://wa.me/917415917942?text=Hi%20The%20Industries,%20I%20unlocked%20my%20guide%20and%20would%20like%20to%20book%20a%20Free%2010-min%20call%20for%20done-for-you%20packages."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-bracket px-6 py-3 text-xs text-center"
@@ -530,7 +530,7 @@ function PayUnlockContent() {
           {/* PRINT BANNER ONLY FOR PAPER */}
           <div className="hidden print:block border-b border-zinc-300 pb-4 mb-6">
             <h1 className="text-3xl font-bold">{unlockedTopicTitle}</h1>
-            <p className="text-sm text-zinc-600">Consultancy Blueprint. Email: {unlockedEmail} | Provided by Guruji Digital & Tech</p>
+            <p className="text-sm text-zinc-600">Consultancy Blueprint. Email: {unlockedEmail} | Provided by The Industries</p>
           </div>
 
           {/* 1. Steps Breakdown */}

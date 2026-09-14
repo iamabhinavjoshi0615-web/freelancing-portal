@@ -173,7 +173,7 @@ export default function PersonalizedActionPlanCard({
 
         <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a
-            href="https://wa.me/917415917942?text=Hi%20Guruji%20Digital,%20I%20unlocked%20my%20personalized%20action%20plan%20and%20want%20to%20book%20a%20free%2010-min%20call."
+            href="https://wa.me/917415917942?text=Hi%20The%20Industries,%20I%20unlocked%20my%20personalized%20action%20plan%20and%20want%20to%20book%20a%20free%2010-min%20call."
             target="_blank"
             rel="noopener noreferrer"
             className="btn-bracket px-6 py-3 text-xs text-center block"
