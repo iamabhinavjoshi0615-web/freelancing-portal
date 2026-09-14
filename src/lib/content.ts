@@ -388,7 +388,7 @@ export const DEFAULT_CMS_SETTINGS = {
   consultationLink: "https://calendly.com",
   consultationDuration: "10 Min",
   officeAddress: "Guruji Digital Space, Sector 62, Noida, UP, India",
-  experienceYears: 6,
+  experienceYears: 3,
   satisfiedClients: 180,
   projectsCompleted: 240,
   adBudgetManaged: "₹2.5 Cr+",
