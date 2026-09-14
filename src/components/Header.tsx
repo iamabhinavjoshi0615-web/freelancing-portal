@@ -44,9 +44,6 @@ export default function Header({ agencyName }: HeaderProps) {
               <span className="text-base sm:text-lg font-black tracking-tight text-[#111827] transition-colors">
                 {agencyName}
               </span>
-              <span className="text-[9px] font-mono font-bold text-[#6B7280] tracking-widest uppercase -mt-1">
-                System Wireframe
-              </span>
             </div>
           </Link>
         </div>
