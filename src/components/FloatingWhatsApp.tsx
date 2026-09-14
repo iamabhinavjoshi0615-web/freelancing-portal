@@ -20,18 +20,15 @@ export default function FloatingWhatsApp({ phoneNumber, agencyName }: FloatingWh
       href={waUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center bg-emerald-500 text-white p-4 rounded-full shadow-2xl hover:bg-emerald-600 transition-all duration-300 hover:scale-110 group focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center bg-[#10B981] text-white p-4 rounded-full shadow-lg hover:bg-[#059669] hover:scale-[1.05] transition-all duration-200 group focus:outline-none border border-[#10B981]/40"
       aria-label="Chat on WhatsApp"
       id="whatsapp-floating-btn"
     >
-      {/* Pulse Rings */}
-      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping -z-10 group-hover:animate-none"></span>
-      
       {/* Icon */}
       <MessageCircle className="w-6 h-6 fill-current" />
       
       {/* Tooltip Label */}
-      <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-sm font-medium transition-all duration-300 ease-in-out">
+      <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 text-sm font-bold transition-all duration-200 ease-in-out">
         Chat with Expert
       </span>
     </a>

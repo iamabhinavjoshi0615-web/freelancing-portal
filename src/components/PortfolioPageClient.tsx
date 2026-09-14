@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ExternalLink, Layers, Layout, ShoppingCart, TrendingUp, CheckCircle, ArrowRight, X, Award } from "lucide-react";
 import { Project } from "../lib/content";
+import ScrollReveal from "./ScrollReveal";
 
 interface PortfolioPageClientProps {
   initialProjects: Project[];
@@ -23,147 +24,147 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
   const getCategoryIcon = (category: string) => {
     switch (category.toLowerCase()) {
       case "web development":
-        return <Layout className="w-4 h-4 text-blue-600 dark:text-blue-400" />;
+        return <Layout className="w-3.5 h-3.5" />;
       case "e-commerce":
-        return <ShoppingCart className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />;
-      case "digital marketing":
-        return <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400" />;
+        return <ShoppingCart className="w-3.5 h-3.5" />;
+      case "ad campaigns":
+        return <TrendingUp className="w-3.5 h-3.5" />;
       default:
-        return <Layers className="w-4 h-4 text-zinc-500" />;
+        return <Layers className="w-3.5 h-3.5" />;
     }
   };
 
   return (
-    <div className="space-y-12">
-      {/* Category Filters */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
+    <div className="space-y-12 text-[#E2E4E8]">
+      {/* Filter Category Pills */}
+      <div className="flex flex-wrap items-center gap-2 justify-center font-mono">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+            className={`px-4 py-2 text-xs font-mono transition-all ${
               activeCategory === category
-                ? "bg-blue-600 text-white shadow-sm"
-                : "bg-zinc-100 hover:bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-350"
+                ? "bg-[#FFFFFF] text-[#18191C] font-bold border border-[#FFFFFF]"
+                : "bg-[#121316] border border-[#2E313A] text-[#8E95A5] hover:text-[#FFFFFF]"
             }`}
             type="button"
           >
-            {category}
+            [ {category.toUpperCase()} ]
           </button>
         ))}
       </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project) => (
-          <div
-            key={project.id}
-            className="flex flex-col justify-between rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
-            onClick={() => setSelectedProject(project)}
-          >
-            {/* Visual Header / Screenshot Mockup */}
-            <div className="relative h-48 w-full bg-gradient-to-br from-zinc-800 to-zinc-950 overflow-hidden">
-              {project.imageMockup ? (
-                <img
-                  src={project.imageMockup}
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-zinc-600 font-bold">
-                  {project.title}
+        {filteredProjects.map((project, pIdx) => (
+          <ScrollReveal key={project.id} delayMs={pIdx * 100}>
+            <div
+              className="flex flex-col justify-between bg-[#121316] border border-[#2E313A] overflow-hidden group cursor-pointer h-full"
+              onClick={() => setSelectedProject(project)}
+            >
+              {/* Visual Header / Screenshot Mockup */}
+              <div className="relative h-48 w-full bg-[#18191C] overflow-hidden border-b border-[#2E313A]">
+                {project.imageMockup ? (
+                  <img
+                    src={project.imageMockup}
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-[#FFFFFF] font-mono font-bold">
+                    {project.title}
+                  </div>
+                )}
+                <div className="absolute top-4 left-4 bg-[#18191C]/90 px-3 py-1 flex items-center gap-1.5 text-[11px] font-mono text-[#FFFFFF] border border-[#2E313A]">
+                  {getCategoryIcon(project.category)}
+                  <span>{project.category.toUpperCase()}</span>
                 </div>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 text-[11px] font-bold text-white border border-white/10">
-                {getCategoryIcon(project.category)}
-                <span>{project.category}</span>
+                <div className="absolute bottom-4 left-4 right-4 bg-[#18191C]/90 p-3 border border-[#2E313A]">
+                  <span className="text-[10px] font-mono font-bold text-[#8E95A5] uppercase tracking-widest block">
+                    {project.clientType || "Client Showcase"}
+                  </span>
+                  <h3 className="text-base font-mono font-bold text-[#FFFFFF] leading-snug truncate">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block">
-                  {project.clientType || "Client Showcase"}
-                </span>
-                <h3 className="text-lg font-bold text-white leading-snug truncate">
-                  {project.title}
-                </h3>
-              </div>
-            </div>
 
-            <div className="p-6 sm:p-8 space-y-6 flex-grow flex flex-col justify-between">
-              <div className="space-y-4">
-                {/* Metrics Badges */}
-                {project.keyMetrics && project.keyMetrics.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {project.keyMetrics.map((metric, mIdx) => (
+              <div className="p-6 sm:p-8 space-y-6 flex-grow flex flex-col justify-between">
+                <div className="space-y-4">
+                  {/* Metrics Badges */}
+                  {project.keyMetrics && project.keyMetrics.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.keyMetrics.map((metric, mIdx) => (
+                        <span
+                          key={mIdx}
+                          className="inline-flex items-center gap-1.5 bg-[#18191C] text-[#FFFFFF] text-xs font-mono px-3 py-1 border border-[#2E313A]"
+                        >
+                          <Award className="w-3.5 h-3.5 text-[#8E95A5]" />
+                          {metric}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <p className="text-xs text-[#8E95A5] leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Before / After Box */}
+                  {project.beforeAfter && (
+                    <div className="p-3.5 bg-[#18191C] border border-[#2E313A] text-xs font-mono space-y-2">
+                      <div className="text-[#8E95A5]">
+                        <span className="font-mono font-bold text-[#FFFFFF] uppercase tracking-wider text-[10px]">BEFORE:</span>{" "}
+                        {project.beforeAfter.before}
+                      </div>
+                      <div className="text-[#FFFFFF] font-semibold border-t border-[#2E313A] pt-2">
+                        <span className="font-mono font-bold text-[#FFFFFF] uppercase tracking-wider text-[10px]">AFTER:</span>{" "}
+                        {project.beforeAfter.after}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.tags.map((tag, tIdx) => (
                       <span
-                        key={mIdx}
-                        className="inline-flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200/50 dark:border-emerald-800/40"
+                        key={tIdx}
+                        className="bg-[#18191C] text-[#8E95A5] text-[10px] font-mono px-2 py-0.5 border border-[#2E313A]"
                       >
-                        <Award className="w-3.5 h-3.5 text-emerald-500" />
-                        {metric}
+                        #{tag}
                       </span>
                     ))}
                   </div>
-                )}
+                </div>
 
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Before / After Box */}
-                {project.beforeAfter && (
-                  <div className="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-150 dark:border-zinc-800/60 text-xs space-y-2">
-                    <div className="text-zinc-500 dark:text-zinc-400">
-                      <span className="font-bold text-rose-500 uppercase tracking-wider text-[10px]">Before:</span>{" "}
-                      {project.beforeAfter.before}
-                    </div>
-                    <div className="text-zinc-800 dark:text-zinc-200 font-semibold border-t border-zinc-200/40 dark:border-zinc-800/60 pt-2">
-                      <span className="font-bold text-emerald-500 uppercase tracking-wider text-[10px]">After:</span>{" "}
-                      {project.beforeAfter.after}
-                    </div>
-                  </div>
-                )}
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-[10px] font-bold px-2.5 py-1 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="pt-4 border-t border-[#2E313A] flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-[#FFFFFF] flex items-center gap-1">
+                    [ VIEW CASE STUDY ]
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 group-hover:underline">
-                  View Full Case Study & Results
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
 
       {/* Case Study Detail Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-[#000000]/80 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-[#121316] border border-[#2E313A] max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto text-[#E2E4E8] font-mono">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="absolute top-6 right-6 p-2 bg-[#18191C] text-[#FFFFFF] hover:bg-[#2E313A] transition-colors border border-[#2E313A]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="space-y-2">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-                {selectedProject.clientType || "Case Study Detail"}
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#8E95A5]">
+                // {selectedProject.clientType || "Case Study Detail"}
               </span>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+              <h2 className="text-2xl font-mono font-bold text-[#FFFFFF]">
                 {selectedProject.title}
               </h2>
             </div>
@@ -173,9 +174,9 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
                 {selectedProject.keyMetrics.map((metric, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-300/40 dark:border-emerald-800/40"
+                    className="inline-flex items-center gap-1.5 bg-[#18191C] text-[#FFFFFF] text-xs font-mono px-3 py-1.5 border border-[#2E313A]"
                   >
-                    <Award className="w-3.5 h-3.5 text-emerald-500" />
+                    <Award className="w-3.5 h-3.5 text-[#8E95A5]" />
                     {metric}
                   </span>
                 ))}
@@ -183,44 +184,44 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
             )}
 
             {selectedProject.fullCaseStudy ? (
-              <div className="space-y-5 text-sm">
-                <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200/60 dark:border-zinc-800">
-                  <h4 className="font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider mb-1">
-                    The Business Challenge
+              <div className="space-y-5 text-xs font-mono">
+                <div className="p-4 bg-[#18191C] border border-[#2E313A]">
+                  <h4 className="font-mono font-bold text-[#FFFFFF] uppercase text-xs tracking-wider mb-1">
+                    // THE BUSINESS CHALLENGE
                   </h4>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-xs">
+                  <p className="text-[#8E95A5] leading-relaxed">
                     {selectedProject.fullCaseStudy.challenge}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-blue-50/40 dark:bg-blue-950/20 border border-blue-200/50 dark:border-blue-900/40">
-                  <h4 className="font-bold text-blue-900 dark:text-blue-300 uppercase text-xs tracking-wider mb-2">
-                    Our Solution & Implementation
+                <div className="p-4 bg-[#18191C] border border-[#2E313A]">
+                  <h4 className="font-mono font-bold text-[#FFFFFF] uppercase text-xs tracking-wider mb-2">
+                    // OUR SOLUTION & IMPLEMENTATION
                   </h4>
                   {Array.isArray(selectedProject.fullCaseStudy.solution) ? (
-                    <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
+                    <ul className="space-y-2 text-[#8E95A5]">
                       {selectedProject.fullCaseStudy.solution.map((item, sIdx) => (
                         <li key={sIdx} className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-[#8E95A5] shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-xs">
+                    <p className="text-[#8E95A5] leading-relaxed">
                       {selectedProject.fullCaseStudy.solution}
                     </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider">
-                    Key Performance Outcomes
+                  <h4 className="font-mono font-bold text-[#FFFFFF] uppercase text-xs tracking-wider">
+                    // KEY PERFORMANCE OUTCOMES
                   </h4>
                   <div className="space-y-2">
                     {selectedProject.fullCaseStudy.results.map((res, rIdx) => (
-                      <div key={rIdx} className="flex items-start gap-2 text-xs text-zinc-700 dark:text-zinc-300">
-                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <div key={rIdx} className="flex items-start gap-2 text-[#8E95A5]">
+                        <CheckCircle className="w-4 h-4 text-[#8E95A5] shrink-0 mt-0.5" />
                         <span>{res}</span>
                       </div>
                     ))}
@@ -228,9 +229,9 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
                 </div>
 
                 {selectedProject.fullCaseStudy.keyTakeaway && (
-                  <div className="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 text-xs italic text-zinc-700 dark:text-zinc-300 space-y-1">
-                    <span className="font-bold not-italic text-amber-800 dark:text-amber-400 block uppercase text-[10px] tracking-wider">
-                      Key Takeaway
+                  <div className="p-4 bg-[#18191C] border border-[#2E313A] text-xs italic text-[#8E95A5] space-y-1">
+                    <span className="font-mono font-bold not-italic text-[#FFFFFF] block uppercase text-[10px] tracking-wider">
+                      // KEY TAKEAWAY
                     </span>
                     <p>&ldquo;{selectedProject.fullCaseStudy.keyTakeaway}&rdquo;</p>
                   </div>
@@ -238,19 +239,19 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
 
                 {selectedProject.gallery && selectedProject.gallery.length > 0 && (
                   <div className="space-y-3 pt-2">
-                    <h4 className="font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider">
-                      Website Visuals & Media
+                    <h4 className="font-mono font-bold text-[#FFFFFF] uppercase text-xs tracking-wider">
+                      // WEBSITE VISUALS & MEDIA
                     </h4>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {selectedProject.gallery.map((img, gIdx) => (
-                        <div key={gIdx} className="group relative rounded-xl overflow-hidden bg-zinc-800 border border-zinc-200 dark:border-zinc-800 aspect-video sm:aspect-square">
+                        <div key={gIdx} className="group relative bg-[#18191C] border border-[#2E313A] aspect-video sm:aspect-square overflow-hidden">
                           <img
                             src={img.url}
                             alt={img.caption}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2 opacity-90">
-                            <span className="text-[10px] font-semibold text-white truncate leading-tight">{img.caption}</span>
+                          <div className="absolute inset-0 bg-[#18191C]/80 flex items-end p-2 opacity-90">
+                            <span className="text-[10px] font-mono text-[#FFFFFF] truncate leading-tight">{img.caption}</span>
                           </div>
                         </div>
                       ))}
@@ -259,29 +260,28 @@ export default function PortfolioPageClient({ initialProjects }: PortfolioPageCl
                 )}
               </div>
             ) : (
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-xs font-mono text-[#8E95A5] leading-relaxed">
                 {selectedProject.description}
               </p>
             )}
 
-            <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex flex-wrap items-center justify-end gap-3">
+            <div className="pt-4 border-t border-[#2E313A] flex flex-wrap items-center justify-end gap-3 font-mono">
               {selectedProject.link && selectedProject.link !== "#" && (
                 <a
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 text-xs transition-colors shadow-sm"
+                  className="btn-bracket px-4 py-2 text-xs"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span>View Live Website &rarr;</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  [ VIEW LIVE WEBSITE &rarr; ]
                 </a>
               )}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="rounded-full bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 font-bold px-6 py-2.5 text-xs transition-colors"
+                className="px-4 py-2 bg-[#18191C] border border-[#2E313A] text-[#8E95A5] hover:text-[#FFFFFF] text-xs font-mono"
               >
-                Close Case Study
+                [ CLOSE ]
               </button>
             </div>
           </div>

@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Award, CheckCircle2, TrendingUp } from "lucide-react";
+import AnimatedCounter from "./AnimatedCounter";
 
 interface FooterProps {
   agencyName: string;
@@ -26,38 +29,46 @@ export default function Footer({
   adBudgetManaged,
 }: FooterProps) {
   return (
-    <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/60 mt-auto">
+    <footer className="w-full border-t border-[#2E313A] bg-[#18191C] text-[#E2E4E8] mt-auto">
       {/* Trust Metrics Banner */}
-      <div className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black/40">
+      <div className="border-b border-[#2E313A] bg-[#121316]">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="flex flex-col items-center">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 mb-2">
-                <Award className="w-5 h-5" />
+            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
+              <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
+                01
               </div>
-              <span className="text-2xl font-bold text-zinc-900 dark:text-white">{experienceYears}+ Years</span>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Industry Expertise</span>
+              <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
+                <AnimatedCounter value={`${experienceYears}+ Years`} />
+              </span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Industry Expertise</span>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 mb-2">
-                <CheckCircle2 className="w-5 h-5" />
+            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
+              <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
+                02
               </div>
-              <span className="text-2xl font-bold text-zinc-900 dark:text-white">{projectsCompleted}+</span>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Projects Delivered</span>
+              <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
+                <AnimatedCounter value={`${projectsCompleted}+`} />
+              </span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Projects Delivered</span>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 mb-2">
-                <TrendingUp className="w-5 h-5" />
+            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
+              <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
+                03
               </div>
-              <span className="text-2xl font-bold text-zinc-900 dark:text-white">{satisfiedClients}+</span>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Happy Indian Clients</span>
+              <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
+                <AnimatedCounter value={`${satisfiedClients}+`} />
+              </span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Happy Indian Clients</span>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 mb-2">
-                <TrendingUp className="w-5 h-5 animate-pulse" />
+            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C]">
+              <div className="flex items-center justify-center w-8 h-8 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 font-mono text-xs">
+                04
               </div>
-              <span className="text-2xl font-bold text-zinc-900 dark:text-white">{adBudgetManaged}</span>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Ad Budget Managed</span>
+              <span className="text-2xl font-bold font-mono text-[#FFFFFF]">
+                <AnimatedCounter value={adBudgetManaged} />
+              </span>
+              <span className="text-xs text-[#8E95A5] font-mono mt-1">Ad Budget Managed</span>
             </div>
           </div>
         </div>
@@ -68,65 +79,68 @@ export default function Footer({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Column 1: Brand & Tagline */}
           <div className="space-y-4">
-            <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-xl font-bold tracking-tight text-transparent dark:from-blue-400 dark:to-emerald-400">
-              {agencyName}
-            </span>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-sm leading-relaxed">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-[#526075] rounded-full inline-block"></span>
+              <span className="text-xl font-bold tracking-tight font-mono text-[#FFFFFF] uppercase">
+                {agencyName}
+              </span>
+            </div>
+            <p className="text-sm text-[#8E95A5] max-w-sm leading-relaxed">
               {tagline}
             </p>
-            <p className="text-xs text-zinc-400 dark:text-zinc-500">
+            <p className="text-xs text-[#8E95A5] font-mono border-l-2 border-[#526075] pl-3 py-1">
               Empowering MSMEs & Startups with high-ROI consultancy and transparent pricing structure.
             </p>
           </div>
 
           {/* Column 2: Navigation Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">Quick Directory</h3>
-            <ul className="grid grid-cols-2 gap-2 text-sm">
+            <h3 className="text-xs font-mono text-[#8E95A5] uppercase tracking-wider">// Quick Directory</h3>
+            <ul className="grid grid-cols-2 gap-2 text-sm font-mono">
               <li>
-                <Link href="/" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Home</Link>
+                <Link href="/" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Home ]</Link>
               </li>
               <li>
-                <Link href="/services" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Services</Link>
+                <Link href="/services" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Services ]</Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Pricing Details</Link>
+                <Link href="/pricing" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Pricing ]</Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Portfolio</Link>
+                <Link href="/portfolio" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Portfolio ]</Link>
               </li>
               <li>
-                <Link href="/unlock" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Unlock Guides</Link>
+                <Link href="/unlock" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Guides ]</Link>
               </li>
               <li>
-                <Link href="/blog" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Free Resources</Link>
+                <Link href="/blog" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Resources ]</Link>
               </li>
               <li>
-                <Link href="/about" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">About Us</Link>
+                <Link href="/about" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ About Us ]</Link>
               </li>
               <li>
-                <Link href="/contact" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">Get Quote</Link>
+                <Link href="/contact" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ Get Quote ]</Link>
               </li>
               <li>
-                <Link href="/admin" className="text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors">CMS Admin</Link>
+                <Link href="/admin" className="text-[#8E95A5] hover:text-[#FFFFFF] transition-colors">[ CMS Admin ]</Link>
               </li>
             </ul>
           </div>
 
           {/* Column 3: Contact Details */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">Contact Info</h3>
-            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <h3 className="text-xs font-mono text-[#8E95A5] uppercase tracking-wider">// Contact Info</h3>
+            <ul className="space-y-2 text-sm font-mono text-[#8E95A5]">
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
-                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:underline">{phone}</a>
+                <Phone className="w-4 h-4 text-[#8E95A5] shrink-0" />
+                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:underline hover:text-[#FFFFFF]">{phone}</a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
-                <a href={`mailto:${email}`} className="hover:underline">{email}</a>
+                <Mail className="w-4 h-4 text-[#8E95A5] shrink-0" />
+                <a href={`mailto:${email}`} className="hover:underline hover:text-[#FFFFFF]">{email}</a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#8E95A5] shrink-0 mt-0.5" />
                 <span className="leading-tight">{address}</span>
               </li>
             </ul>
@@ -134,12 +148,12 @@ export default function Footer({
         </div>
 
         {/* Lower Banner */}
-        <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+        <div className="mt-12 pt-8 border-t border-[#2E313A] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs font-mono text-[#8E95A5]">
             &copy; {new Date().getFullYear()} {agencyName}. All rights reserved.
           </p>
-          <div className="flex gap-4 text-xs text-zinc-500 dark:text-zinc-400">
-            <span>GST Registered Invoices available upon request.</span>
+          <div className="flex gap-4 text-xs font-mono text-[#8E95A5]">
+            <span>[ SYSTEM DEPLOYED ] GST Registered Invoices available.</span>
           </div>
         </div>
       </div>

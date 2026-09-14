@@ -32,74 +32,74 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-250 dark:border-emerald-900 rounded-3xl p-8 text-center space-y-4">
+      <div className="bg-[#FFFFFF] border border-[#E2E4E8] p-8 text-center space-y-4 font-mono text-[#18191C]">
         <div className="flex justify-center">
-          <div className="p-3 bg-emerald-500 rounded-2xl text-white">
-            <CheckCircle2 className="w-6 h-6" />
+          <div className="w-10 h-10 rounded bg-[#18191C] text-[#FFFFFF] font-mono flex items-center justify-center text-sm">
+            &gt;_
           </div>
         </div>
-        <h3 className="text-lg font-bold text-zinc-900 dark:text-white">Inquiry Received!</h3>
-        <p className="text-xs text-zinc-650 dark:text-zinc-400 leading-relaxed max-w-sm mx-auto">
+        <h3 className="text-lg font-mono font-bold text-[#18191C]">INQUIRY RECEIVED!</h3>
+        <p className="text-xs text-[#526075] leading-relaxed max-w-sm mx-auto font-sans">
           Thank you for reaching out. Our consultancy team will review your requirements and contact you on WhatsApp/Email within the next 4 working hours.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 px-4 py-2 text-xs font-bold text-zinc-700 dark:text-zinc-300 transition-colors"
+          className="btn-bracket px-4 py-2 text-xs font-mono"
         >
-          Send Another Inquiry
+          [ SEND ANOTHER INQUIRY ]
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
-      <h3 className="text-lg font-bold text-zinc-900 dark:text-white uppercase tracking-wider mb-2">Send an Inquiry</h3>
+    <form onSubmit={handleSubmit} className="bg-[#FFFFFF] border border-[#E2E4E8] p-6 sm:p-8 space-y-4 text-[#18191C] font-mono">
+      <h3 className="text-lg font-mono font-bold text-[#18191C] uppercase tracking-wider mb-2">// Send an Inquiry</h3>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Name</label>
+          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Name</label>
           <input
             type="text"
             required
             placeholder="Ramesh Sharma"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           />
         </div>
         <div>
-          <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Phone Number</label>
+          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Phone Number</label>
           <input
             type="tel"
             required
             placeholder="9876543210"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Email Address</label>
+        <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Email Address</label>
         <input
           type="email"
           required
           placeholder="ramesh@company.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Service Required</label>
+          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Service Required</label>
           <select
             value={service}
             onChange={(e) => setService(e.target.value)}
-            className="w-full rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           >
             <option value="web-dev">Web Development</option>
             <option value="ecommerce">Shopify / E-commerce</option>
@@ -109,11 +109,11 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Est. Project Budget</label>
+          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Est. Project Budget</label>
           <select
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            className="w-full rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           >
             <option value="₹5k-10k">₹5,000 - ₹10,000</option>
             <option value="₹10k-25k">₹10,000 - ₹25,000</option>
@@ -124,14 +124,14 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Project Details / Message</label>
+        <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Project Details / Message</label>
         <textarea
           rows={4}
           required
           placeholder="Briefly describe what your business does and what type of website/ads you need."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full rounded-xl border border-zinc-200 dark:border-zinc-855 bg-white dark:bg-zinc-950 px-4 py-2.5 text-xs text-zinc-800 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C] resize-none"
         />
       </div>
 
@@ -139,19 +139,13 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-400 text-white font-bold py-3.5 text-xs transition-colors shadow focus:outline-none"
+          className="btn-bracket w-full py-3.5 text-xs font-mono text-center block"
           id="contact-form-submit-btn"
         >
           {submitting ? (
-            <>
-              <Loader2 className="w-4 h-4 animate-spin" />
-              Submitting Inquiry...
-            </>
+            <>[ SUBMITTING INQUIRY... ]</>
           ) : (
-            <>
-              <Send className="w-4 h-4" />
-              Submit My Inquiry
-            </>
+            <>[ SUBMIT INQUIRY &rarr; ]</>
           )}
         </button>
       </div>

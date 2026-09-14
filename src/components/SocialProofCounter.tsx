@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Users, ShieldCheck, TrendingUp, Lock } from "lucide-react";
+import AnimatedCounter from "./AnimatedCounter";
 
 interface SocialProofCounterProps {
   initialUnlocksCount?: number;
@@ -33,34 +33,34 @@ export default function SocialProofCounter({ initialUnlocksCount = 0 }: SocialPr
   const activeTicker = tickerItems[tickerIndex];
 
   return (
-    <div className="w-full bg-gradient-to-r from-blue-900/90 via-indigo-950 to-zinc-950 text-white border-y border-blue-800/40 py-8 px-4 sm:px-6 lg:px-8 shadow-inner">
+    <div className="w-full bg-[#131C2E] text-[#F8FAFC] border-y border-[#334155] py-8 px-4 sm:px-6 lg:px-8 shadow-inner">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Main Live Counter */}
         <div className="flex items-center gap-4 text-center sm:text-left">
           <div>
             <div className="flex items-center gap-2 justify-center sm:justify-start">
-              <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                {totalCount.toLocaleString("en-IN")}+
+              <span className="text-2xl sm:text-3xl font-black text-[#F8FAFC] tracking-tight">
+                <AnimatedCounter value={`${totalCount.toLocaleString("en-IN")}+`} />
               </span>
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#38BDF8]">
                 Live Impact
               </span>
             </div>
-            <p className="text-xs text-zinc-400 font-medium mt-0.5">
+            <p className="text-xs text-[#94A3B8] font-medium mt-0.5">
               Indian SMB owners & entrepreneurs guided by our blueprints
             </p>
           </div>
         </div>
 
         {/* Recent Activity Ticker */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 flex items-center gap-3 w-full md:w-auto max-w-md shadow-sm">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></div>
+        <div className="bg-[#1E293B] border border-[#334155] rounded-2xl px-5 py-3.5 flex items-center gap-3 w-full md:w-auto max-w-md shadow-xs">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse-glow shrink-0"></div>
           <div className="text-xs space-y-0.5 overflow-hidden">
-            <div className="font-bold text-zinc-200 flex items-center justify-between gap-3">
+            <div className="font-bold text-[#F8FAFC] flex items-center justify-between gap-3">
               <span>Someone from {activeTicker.city}</span>
-              <span className="text-[10px] text-zinc-400 font-normal">{activeTicker.time}</span>
+              <span className="text-[10px] text-[#94A3B8] font-mono">{activeTicker.time}</span>
             </div>
-            <p className="text-emerald-300 font-medium truncate">
+            <p className="text-[#38BDF8] font-semibold truncate">
               Unlocked: {activeTicker.topic}
             </p>
           </div>

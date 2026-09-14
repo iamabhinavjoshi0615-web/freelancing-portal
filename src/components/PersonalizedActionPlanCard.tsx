@@ -6,10 +6,7 @@ import {
   Clock,
   Layers,
   PhoneCall,
-  Server,
-  ShieldCheck,
-  Zap,
-  ArrowRight
+  Zap
 } from "lucide-react";
 import { CalculatedEstimate } from "../lib/quizConfig";
 
@@ -48,9 +45,9 @@ export default function PersonalizedActionPlanCard({
 
   if (loading) {
     return (
-      <div className="p-8 bg-zinc-900 text-white rounded-3xl border border-zinc-800 text-center space-y-3">
-        <div className="w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-        <p className="text-xs font-semibold text-zinc-400">Loading your personalized action plan...</p>
+      <div className="p-8 bg-[#121316] text-[#E2E4E8] border border-[#2E313A] text-center space-y-3 font-mono">
+        <div className="w-6 h-6 border-2 border-[#FFFFFF] border-t-transparent rounded-full animate-spin mx-auto"></div>
+        <p className="text-xs font-mono text-[#8E95A5]">[ LOADING PERSONALIZED ACTION PLAN... ]</p>
       </div>
     );
   }
@@ -60,46 +57,44 @@ export default function PersonalizedActionPlanCard({
   }
 
   return (
-    <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950 text-white rounded-3xl p-6 sm:p-10 border border-emerald-500/30 shadow-2xl space-y-8 my-8 print:my-4 print:p-6 print:bg-white print:text-zinc-900 print:border-zinc-300">
+    <div className="bg-[#121316] text-[#E2E4E8] p-6 sm:p-10 border border-[#2E313A] space-y-8 my-8 font-mono print:my-4 print:p-6 print:bg-white print:text-zinc-900 print:border-zinc-300">
       {/* Card Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-800 print:border-zinc-300 pb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#2E313A] print:border-zinc-300 pb-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 print:text-emerald-700">
-            Unlocked Paid Breakdown
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-black mt-2 text-white print:text-zinc-900">
-            Personalized Action Plan & Recommendation
+          <div className="wireframe-section-label mb-1">// UNLOCKED PAID BREAKDOWN</div>
+          <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#FFFFFF] print:text-zinc-900">
+            PERSONALIZED ACTION PLAN & RECOMMENDATION
           </h2>
         </div>
-        <div className="text-right sm:text-right">
-          <span className="text-xs text-zinc-400 print:text-zinc-600 block font-medium">Single Target Tier</span>
-          <span className="text-2xl font-black text-emerald-400 print:text-emerald-700">
+        <div className="text-left sm:text-right shrink-0">
+          <span className="text-xs text-[#8E95A5] print:text-zinc-600 block uppercase">// TARGET PACKAGE TIER</span>
+          <span className="text-2xl font-mono font-bold text-[#FFFFFF] print:text-emerald-700">
             {estimate.exactRecommendedPackage.priceFormatted}
           </span>
         </div>
       </div>
 
-      {/* 1. EXACT RECOMMENDED PACKAGE (Single Number/Tier, not a range) */}
-      <div className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 rounded-2xl p-6 space-y-3">
+      {/* 1. EXACT RECOMMENDED PACKAGE */}
+      <div className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-6 space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-emerald-400 print:text-emerald-700 uppercase tracking-widest flex items-center gap-2">
-            <Zap className="w-4 h-4 text-emerald-400" />
-            Exact Recommended Package Tier
+          <span className="text-xs font-mono font-bold text-[#FFFFFF] print:text-emerald-700 uppercase tracking-widest flex items-center gap-2">
+            <Zap className="w-4 h-4 text-[#8E95A5]" />
+            EXACT RECOMMENDED PACKAGE TIER
           </span>
-          <span className="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/30">
-            Single Target Number
+          <span className="bg-[#2E313A] text-[#FFFFFF] text-[10px] font-mono px-2 py-0.5 border border-[#2E313A]">
+            SINGLE TARGET NUMBER
           </span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
           <div>
-            <h3 className="text-xl font-bold text-white print:text-zinc-900">
+            <h3 className="text-xl font-mono font-bold text-[#FFFFFF] print:text-zinc-900">
               {estimate.exactRecommendedPackage.packageName}
             </h3>
-            <p className="text-xs text-zinc-400 print:text-zinc-600 mt-1">
+            <p className="text-xs text-[#8E95A5] print:text-zinc-600 mt-1 font-sans">
               Calculated based on your specific monthly budget allocation answer.
             </p>
           </div>
-          <div className="text-3xl font-black text-emerald-300 print:text-emerald-700 shrink-0">
+          <div className="text-3xl font-mono font-bold text-[#FFFFFF] print:text-emerald-700 shrink-0">
             {estimate.exactRecommendedPackage.priceFormatted}
           </div>
         </div>
@@ -107,40 +102,40 @@ export default function PersonalizedActionPlanCard({
 
       {/* 2. RECOMMENDED PLATFORMS & TOOLS */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-white print:text-zinc-900 flex items-center gap-2">
-          <Layers className="w-5 h-5 text-blue-400" />
-          Recommended Tech Stack & Vendor Tools
+        <h3 className="text-lg font-mono font-bold text-[#FFFFFF] print:text-zinc-900 flex items-center gap-2">
+          <Layers className="w-4 h-4 text-[#8E95A5]" />
+          RECOMMENDED TECH STACK & VENDOR TOOLS
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 p-5 rounded-2xl space-y-1">
-            <span className="text-[10px] font-extrabold uppercase text-blue-300 print:text-blue-700 tracking-wider block">Recommended CMS / Code</span>
-            <p className="font-bold text-white print:text-zinc-900 text-sm">{estimate.recommendedStack.platform}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+          <div className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-5 space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase text-[#8E95A5] tracking-wider block">// RECOMMENDED PLATFORM</span>
+            <p className="font-bold text-[#FFFFFF] print:text-zinc-900 text-sm">{estimate.recommendedStack.platform}</p>
           </div>
-          <div className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 p-5 rounded-2xl space-y-1">
-            <span className="text-[10px] font-extrabold uppercase text-indigo-300 print:text-indigo-700 tracking-wider block">Domain & Hosting Vendor</span>
-            <p className="font-bold text-white print:text-zinc-900 text-sm">{estimate.recommendedStack.domainHosting}</p>
+          <div className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-5 space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase text-[#8E95A5] tracking-wider block">// DOMAIN & HOSTING</span>
+            <p className="font-bold text-[#FFFFFF] print:text-zinc-900 text-sm">{estimate.recommendedStack.domainHosting}</p>
           </div>
-          <div className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 p-5 rounded-2xl space-y-1">
-            <span className="text-[10px] font-extrabold uppercase text-emerald-300 print:text-emerald-700 tracking-wider block">Payment & Analytics</span>
-            <p className="font-bold text-white print:text-zinc-900 text-sm">{estimate.recommendedStack.analyticsPayment}</p>
+          <div className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-5 space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase text-[#8E95A5] tracking-wider block">// PAYMENT & ANALYTICS</span>
+            <p className="font-bold text-[#FFFFFF] print:text-zinc-900 text-sm">{estimate.recommendedStack.analyticsPayment}</p>
           </div>
         </div>
       </div>
 
       {/* 3. STEP-BY-STEP TIMELINE */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-white print:text-zinc-900 flex items-center gap-2">
-          <Clock className="w-5 h-5 text-indigo-400" />
-          Step-by-Step Implementation Timeline
+        <h3 className="text-lg font-mono font-bold text-[#FFFFFF] print:text-zinc-900 flex items-center gap-2">
+          <Clock className="w-4 h-4 text-[#8E95A5]" />
+          IMPLEMENTATION TIMELINE
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {estimate.timelineSchedule.map((t, idx) => (
-            <div key={idx} className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 p-5 rounded-2xl space-y-1.5">
+            <div key={idx} className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-5 space-y-1.5 font-mono">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-extrabold text-emerald-400 print:text-emerald-700">{t.phase}</span>
-                <span className="text-[10px] bg-zinc-800 print:bg-zinc-200 text-zinc-300 print:text-zinc-700 px-2 py-0.5 rounded font-semibold">{t.duration}</span>
+                <span className="font-bold text-[#FFFFFF]">{t.phase}</span>
+                <span className="text-[10px] bg-[#2E313A] text-[#FFFFFF] px-2 py-0.5 font-mono">{t.duration}</span>
               </div>
-              <p className="text-xs text-zinc-300 print:text-zinc-700 leading-relaxed pt-1">{t.details}</p>
+              <p className="text-xs text-[#8E95A5] print:text-zinc-700 leading-relaxed pt-1 font-sans">{t.details}</p>
             </div>
           ))}
         </div>
@@ -148,32 +143,30 @@ export default function PersonalizedActionPlanCard({
 
       {/* 4. PERSONALIZED CHECKLIST */}
       <div className="space-y-4">
-        <h3 className="text-lg font-bold text-white print:text-zinc-900 flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 text-emerald-400" />
-          Personalized Action Checklist
+        <h3 className="text-lg font-mono font-bold text-[#FFFFFF] print:text-zinc-900 flex items-center gap-2">
+          <CheckCircle className="w-4 h-4 text-[#8E95A5]" />
+          PERSONALIZED ACTION CHECKLIST
         </h3>
-        <div className="bg-white/5 print:bg-zinc-50 border border-white/10 print:border-zinc-200 p-6 rounded-2xl space-y-3">
+        <div className="bg-[#18191C] print:bg-zinc-50 border border-[#2E313A] print:border-zinc-200 p-6 space-y-3 font-mono">
           {estimate.personalizedChecklist.map((item, idx) => (
-            <div key={idx} className="flex items-start gap-3 text-xs text-zinc-200 print:text-zinc-800 leading-relaxed">
-              <div className="p-1 bg-emerald-500/20 text-emerald-400 rounded-md shrink-0 mt-0.5">
-                <CheckCircle className="w-3.5 h-3.5" />
-              </div>
+            <div key={idx} className="flex items-start gap-3 text-xs text-[#E2E4E8] print:text-zinc-800 leading-relaxed">
+              <span className="text-[#8E95A5]">&rarr;</span>
               <span>{item}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 5. CTA TO BOOK FREE CALL OR PURCHASE STARTER PACKAGE DIRECTLY */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-950 to-blue-950 print:bg-emerald-50 border border-emerald-500/40 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 print:hidden">
-        <div className="space-y-1 text-center sm:text-left">
-          <span className="text-[10px] font-extrabold text-emerald-300 uppercase tracking-widest block">
-            Ready To Execute?
+      {/* 5. CTA TO BOOK FREE CALL */}
+      <div className="bg-[#18191C] border border-[#2E313A] p-6 flex flex-col sm:flex-row items-center justify-between gap-6 print:hidden">
+        <div className="space-y-1 text-center sm:text-left font-mono">
+          <span className="text-[10px] text-[#8E95A5] uppercase tracking-widest block">
+            // READY TO EXECUTE?
           </span>
-          <h4 className="text-base sm:text-lg font-bold text-white">
-            Hire Our Team & Credit 100% of Your Rs 99 Unlock Fee
+          <h4 className="text-base sm:text-lg font-bold text-[#FFFFFF]">
+            HIRE OUR TEAM & CREDIT 100% OF YOUR ₹99 UNLOCK FEE
           </h4>
-          <p className="text-xs text-emerald-100/80">
+          <p className="text-xs text-[#8E95A5] font-sans">
             Book a 10-minute strategy call or initiate your starter package deployment today.
           </p>
         </div>
@@ -183,10 +176,9 @@ export default function PersonalizedActionPlanCard({
             href="https://wa.me/917415917942?text=Hi%20Guruji%20Digital,%20I%20unlocked%20my%20personalized%20action%20plan%20and%20want%20to%20book%20a%20free%2010-min%20call."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-6 py-3 text-xs transition-all shadow-lg"
+            className="btn-bracket px-6 py-3 text-xs text-center block"
           >
-            <PhoneCall className="w-4 h-4" />
-            <span>Book Free 10-Min Call</span>
+            [ BOOK FREE 10-MIN CALL ]
           </a>
         </div>
       </div>

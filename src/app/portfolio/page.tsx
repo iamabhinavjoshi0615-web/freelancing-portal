@@ -1,6 +1,7 @@
 import React from "react";
 import { getProjects } from "../../lib/db";
 import PortfolioPageClient from "../../components/PortfolioPageClient";
+import ScrollReveal from "../../components/ScrollReveal";
 
 export const dynamic = "force-dynamic";
 
@@ -13,22 +14,26 @@ export default function Portfolio() {
   const projects = getProjects();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-          Our Work
-        </span>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
-          Completed Client Case Studies
-        </h1>
-        <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
-          Browse our portfolio showing how we build fast, high-converting digital assets and ads for businesses across India.
-        </p>
-      </div>
+    <div className="w-full bg-[#18191C] text-[#E2E4E8]">
+      {/* Page Header (Dark Charcoal Block) */}
+      <section className="border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="wireframe-section-label mb-4">// OUR WORK & CASE STUDIES</div>
+            <h1 className="text-3xl sm:text-5xl font-mono font-bold tracking-tight text-[#FFFFFF] max-w-3xl">
+              COMPLETED CLIENT CASE STUDIES
+            </h1>
+            <p className="mt-4 text-[#8E95A5] text-base sm:text-lg max-w-2xl font-sans">
+              Browse our portfolio showing how we build fast, high-converting digital assets and ads for businesses across India.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
-      {/* Main Portfolio Grid */}
-      <PortfolioPageClient initialProjects={projects} />
+      {/* Main Portfolio Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <PortfolioPageClient initialProjects={projects} />
+      </section>
     </div>
   );
 }

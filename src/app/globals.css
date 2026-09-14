@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
-/* Configure Tailwind v4 to only apply dark: classes if the .dark class is explicitly added */
+/* Configure Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff; /* Pure white background */
-  --foreground: #09090b; /* High-contrast charcoal/black */
+  --background: #18191C; /* Charcoal Dark */
+  --foreground: #F8FAFC;
+  --bg-light: #F4F4F6; /* Clean Light Section BG */
+  --card-dark: #22242A;
+  --border-dark: #2E313A;
+  --card-light: #FFFFFF;
+  --border-light: #E2E4E8;
+  --brand-cyan: #0EA5E9;
+  --success-emerald: #10B981;
 }
 
 @theme inline {
@@ -14,38 +21,14 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Royal Corporate Blue Colors */
-  --color-blue-50: #eff6ff;
-  --color-blue-100: #dbeafe;
-  --color-blue-200: #bfdbfe;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb; /* Royal blue main accent */
-  --color-blue-700: #1d4ed8;
-  --color-blue-800: #1e40af;
-  --color-blue-900: #1e3a8a;
-  --color-blue-950: #172554;
-
-  /* Growth Emerald Colors */
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-
-  /* Clean Slate & Gray Shades for Minimalist Light Mode */
-  --color-zinc-50: #fafafa;
-  --color-zinc-100: #f4f4f5;
-  --color-zinc-200: #e4e4e7;
-  --color-zinc-300: #d4d4d8;
-  --color-zinc-400: #a1a1aa;
-  --color-zinc-500: #71717a;
-  --color-zinc-650: #52525b;
-  --color-zinc-600: #52525b;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-800: #27272a;
-  --color-zinc-900: #18181b;
-  --color-zinc-950: #09090b;
+  --color-wireframe-dark: #18191C;
+  --color-wireframe-card-dark: #22242A;
+  --color-wireframe-border-dark: #2E313A;
+  --color-wireframe-light: #F4F4F6;
+  --color-wireframe-card-light: #FFFFFF;
+  --color-wireframe-border-light: #E2E4E8;
+  --color-brand-cyan: #0EA5E9;
+  --color-success-emerald: #10B981;
 }
 
 body {
@@ -55,5 +38,133 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Technical Wireframe Grid Pattern */
+.bg-tech-grid {
+  background-image: linear-gradient(to right, rgba(226, 228, 232, 0.4) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(226, 228, 232, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
 
+.bg-tech-grid-dark {
+  background-image: linear-gradient(to right, rgba(46, 49, 58, 0.4) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(46, 49, 58, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Monospace Wireframe Section Label (e.g. A. Header, B. Features) */
+.wireframe-section-label {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #6B7280;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.wireframe-section-label-dark {
+  color: #9CA3AF;
+}
+
+/* Monospace Bracketed Action Button (e.g. [ READ MORE ], [ INSTALL ]) */
+.btn-bracket {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid currentColor;
+  transition: all 150ms ease-in-out;
+}
+
+.btn-bracket:hover {
+  background-color: rgba(17, 24, 39, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Terminal Box Container */
+.terminal-box {
+  background-color: #18191C;
+  border: 1px solid #2E313A;
+  border-radius: 0.75rem;
+  font-family: var(--font-geist-mono), monospace;
+  color: #F8FAFC;
+}
+
+/* Global Button & Card Interactions */
+button,
+a.btn,
+.btn-hover {
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+button:hover:not(:disabled),
+a.btn:hover,
+.btn-hover:hover {
+  transform: translateY(-1px);
+}
+
+.card-hover {
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Floating Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4.5s ease-in-out 1.5s infinite;
+}
+
+/* Option Click Micro-bounce */
+@keyframes bounceSubtle {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.98); }
+  70% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 250ms ease-in-out;
+}
+
+/* Status Pulse Animation */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 

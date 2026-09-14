@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { Award, Lock } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
+import ScrollReveal from "../../components/ScrollReveal";
+import AnimatedCounter from "../../components/AnimatedCounter";
 
 export const dynamic = "force-dynamic";
 
@@ -41,149 +43,176 @@ export default function About() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
-      {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto">
-        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-          About Guruji
-        </span>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
-          We Demystify Tech & Marketing
-        </h1>
-        <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
-          Operating with transparent rates, zero agency jargon, and battle-tested blueprints.
-        </p>
-      </div>
-
-      {/* Team / Founder Section */}
-      <div className="space-y-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white">
-            Meet the Founder
-          </h2>
+    <div className="w-full bg-[#18191C] text-[#E2E4E8]">
+      {/* Page Header (Dark Charcoal Block) */}
+      <section className="border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="wireframe-section-label mb-4">// ABOUT GURUJI DIGITAL & TECH</div>
+            <h1 className="text-3xl sm:text-5xl font-mono font-bold tracking-tight text-[#FFFFFF] max-w-3xl">
+              WE DEMYSTIFY TECH & MARKETING
+            </h1>
+            <p className="mt-4 text-[#8E95A5] text-base sm:text-lg max-w-2xl font-sans">
+              Operating with transparent rates, zero agency jargon, and battle-tested blueprints.
+            </p>
+          </ScrollReveal>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-8 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8"
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover shrink-0 border border-zinc-200 dark:border-zinc-700"
-              />
-              <div className="space-y-4 text-center sm:text-left flex-grow">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{member.name}</h3>
-                  <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-0.5">{member.title}</p>
+      {/* Team / Founder Section (Light Off-White Block) */}
+      <section className="bg-[#F4F4F6] text-[#18191C] border-b border-[#E2E4E8] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <div className="wireframe-section-label-dark mx-auto mb-2">A. LEADERSHIP</div>
+              <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#18191C]">
+                Meet the Founder
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+              {teamMembers.map((member, index) => (
+                <div
+                  key={index}
+                  className="bg-[#FFFFFF] border border-[#E2E4E8] p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8"
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-28 h-28 sm:w-32 sm:h-32 object-cover shrink-0 border border-[#E2E4E8]"
+                  />
+                  <div className="space-y-4 text-center sm:text-left flex-grow">
+                    <div>
+                      <h3 className="text-xl font-mono font-bold text-[#18191C]">{member.name}</h3>
+                      <p className="text-xs font-mono font-bold text-[#526075] mt-0.5">// {member.title.toUpperCase()}</p>
+                    </div>
+                    <p className="text-xs text-[#526075] leading-relaxed font-sans">
+                      {member.bio}
+                    </p>
+                    <div className="pt-1 flex flex-wrap gap-2 justify-center sm:justify-start">
+                      {member.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-2.5 py-1 bg-[#F4F4F6] text-[#18191C] text-[11px] font-mono border border-[#E2E4E8]"
+                        >
+                          #{skill}
+                        </span>
+                      ))}
+                    </div>
+                    {member.statLine && (
+                      <p className="pt-3 border-t border-[#E2E4E8] text-xs font-mono text-[#526075]">
+                        {member.statLine}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  {member.bio}
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Main Content Info (Dark Charcoal Block) */}
+      <section className="bg-[#18191C] text-[#E2E4E8] border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Left Side: Text Story */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="wireframe-section-label mb-2">B. OUR PHILOSOPHY</div>
+                <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#FFFFFF] leading-tight">
+                  {settings.aboutTitle}
+                </h2>
+                <p className="text-sm text-[#8E95A5] leading-relaxed font-sans">
+                  {settings.aboutDesc}
                 </p>
-                <div className="pt-1 flex flex-wrap gap-2 justify-center sm:justify-start">
-                  {member.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium border border-zinc-200 dark:border-zinc-700"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="bg-[#121316] p-6 border border-[#2E313A] flex items-start gap-4">
+                  <div className="w-8 h-8 rounded bg-[#2E313A] flex items-center justify-center text-[#FFFFFF] font-mono text-xs shrink-0">
+                    ₹99
+                  </div>
+                  <div className="font-mono">
+                    <h3 className="text-xs font-bold text-[#FFFFFF] uppercase">// WHY THE ₹99 PRICE TAG?</h3>
+                    <p className="text-xs text-[#8E95A5] mt-1 leading-relaxed font-sans">
+                      Most agencies require hours of sales calls just to quote basic development costs. We package our exact technical checklists, supplier costs, and ad rules into simple digital handbooks. Unlocking them for ₹99 helps filter out spam while keeping expert consulting affordable for every Indian business owner.
+                    </p>
+                  </div>
                 </div>
-                {member.statLine && (
-                  <p className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                    {member.statLine}
-                  </p>
-                )}
+              </div>
+
+              {/* Right Side: Visual Stats Panel */}
+              <div className="lg:col-span-5 bg-[#121316] p-8 border border-[#2E313A] space-y-8 font-mono">
+                <div className="space-y-2">
+                  <span className="wireframe-section-label block">// SYSTEM PERFORMANCE</span>
+                  <h3 className="text-2xl font-bold text-[#FFFFFF]">PROVEN TRACK RECORD</h3>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
+                    <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
+                      <AnimatedCounter value={`${settings.experienceYears}+ Years`} />
+                    </span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Expertise</span>
+                  </div>
+                  <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
+                    <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
+                      <AnimatedCounter value={`${settings.satisfiedClients}+`} />
+                    </span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Clients Served</span>
+                  </div>
+                  <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
+                    <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
+                      <AnimatedCounter value={`${settings.projectsCompleted}+`} />
+                    </span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Projects Delivered</span>
+                  </div>
+                  <div className="border-l-2 border-[#FFFFFF] pl-4 py-1">
+                    <span className="text-2xl font-bold font-mono text-[#FFFFFF] block">
+                      <AnimatedCounter value={settings.adBudgetManaged} />
+                    </span>
+                    <span className="text-[10px] text-[#8E95A5] font-mono uppercase tracking-wider">Ad Spend Managed</span>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-[#2E313A]">
+                  <Link
+                    href="/unlock"
+                    className="btn-bracket w-full py-3.5 text-xs text-center inline-block"
+                  >
+                    [ UNLOCK PREMIUM BLUEPRINTS @ ₹99 ]
+                  </Link>
+                </div>
               </div>
             </div>
-          ))}
+          </ScrollReveal>
         </div>
-      </div>
+      </section>
 
-      {/* Main Content Info */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Side: Text Story */}
-        <div className="lg:col-span-7 space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white leading-tight">
-            {settings.aboutTitle}
-          </h2>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {settings.aboutDesc}
-          </p>
-          <div className="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200/60 dark:border-zinc-800/80 flex items-start gap-4">
-            <div className="p-3 bg-blue-500 rounded-xl text-white shrink-0">
-              <Award className="w-5 h-5" />
+      {/* Core Values Section (Light Off-White Block) */}
+      <section className="bg-[#F4F4F6] text-[#18191C] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto">
+              <div className="wireframe-section-label-dark mx-auto mb-2">C. OPERATING PRINCIPLES</div>
+              <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#18191C]">Our Operating Values</h2>
+              <p className="text-sm text-[#526075] mt-2 font-sans">The guidelines that define our client relationships and project workflows.</p>
             </div>
-            <div>
-              <h3 className="text-sm font-bold text-zinc-900 dark:text-white">Why the ₹99 Price tag?</h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
-                Most agencies require hours of sales calls just to quote basic development costs. We package our exact technical checklists, supplier costs, and ad rules into simple digital handbooks. Unlocking them for ₹99 helps filter out spam while keeping expert consulting affordable for every Indian business owner.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+              {coreValues.map((value, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="bg-[#FFFFFF] border border-[#E2E4E8] p-6 text-[#18191C]"
+                  >
+                    <div className="text-xs font-mono text-[#526075] mb-1">0{index + 1}.</div>
+                    <h3 className="text-base font-mono font-bold text-[#18191C] mb-2">{value.title}</h3>
+                    <p className="text-xs text-[#526075] leading-relaxed font-sans">{value.desc}</p>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
-
-        {/* Right Side: Visual Stats Panel */}
-        <div className="lg:col-span-5 bg-gradient-to-tr from-blue-600 to-indigo-900 rounded-3xl p-8 text-white space-y-8 shadow-xl">
-          <div className="space-y-2">
-            <span className="text-xs font-bold text-blue-200 uppercase tracking-widest block">Agency Performance</span>
-            <h3 className="text-2xl font-black">Proven Track Record</h3>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-6">
-            <div className="border-l-2 border-blue-400 pl-4 py-1">
-              <span className="text-3xl font-extrabold block">{settings.experienceYears}+ Years</span>
-              <span className="text-[10px] text-blue-200 font-semibold uppercase tracking-wider">Expertise</span>
-            </div>
-            <div className="border-l-2 border-blue-400 pl-4 py-1">
-              <span className="text-3xl font-extrabold block">{settings.satisfiedClients}+</span>
-              <span className="text-[10px] text-blue-200 font-semibold uppercase tracking-wider">Clients Served</span>
-            </div>
-            <div className="border-l-2 border-blue-400 pl-4 py-1">
-              <span className="text-3xl font-extrabold block">{settings.projectsCompleted}+</span>
-              <span className="text-[10px] text-blue-200 font-semibold uppercase tracking-wider">Projects Completed</span>
-            </div>
-            <div className="border-l-2 border-blue-400 pl-4 py-1">
-              <span className="text-3xl font-extrabold block">{settings.adBudgetManaged}</span>
-              <span className="text-[10px] text-blue-200 font-semibold uppercase tracking-wider">Ad Spend Managed</span>
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-blue-800">
-            <Link
-              href="/unlock"
-              className="flex w-full items-center justify-center gap-1.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-3.5 text-xs transition-colors shadow-lg"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              Unlock Premium Blueprints @ ₹99
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Core Values Section */}
-      <div className="space-y-10">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white">Our Operating Values</h2>
-          <p className="text-sm text-zinc-550 dark:text-zinc-405 mt-2">The guidelines that define our client relationships and project workflows.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {coreValues.map((value, index) => {
-            return (
-              <div
-                key={index}
-                className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2">{value.title}</h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{value.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

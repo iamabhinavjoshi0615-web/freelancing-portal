@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, MessageSquare, Star, ArrowUpRight, BookOpen, Gift, FileText, Award } from "lucide-react";
+import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, Star, ArrowUpRight, BookOpen, FileText, Award } from "lucide-react";
 import { getCmsSettings, getServices, getProjects, getUnlocks } from "../lib/db";
 import InteractiveQuiz from "../components/InteractiveQuiz";
 import SocialProofCounter from "../components/SocialProofCounter";
+import ScrollReveal from "../components/ScrollReveal";
 
 export const dynamic = "force-dynamic";
 
@@ -123,494 +124,314 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col w-full min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-zinc-200/50">
-        <div className="mx-auto max-w-5xl text-center space-y-8">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#1B4332]">
-              Transparent Digital Consultancy & Growth
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1F2937] leading-tight">
-              Stop Overpaying for{" "}
-              <span className="text-[#D97706]">
-                Websites & Ad Campaigns
-              </span>
-            </h1>
+    <div className="flex flex-col w-full min-h-screen bg-[#18191C] text-[#F8FAFC]">
+      {/* Section A: Hero Header Block (Wireframe Wireframe Dark Block) */}
+      <ScrollReveal>
+        <section className="relative overflow-hidden bg-[#18191C] bg-tech-grid-dark py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#2E313A]">
+          <div className="mx-auto max-w-6xl">
+            <span className="wireframe-section-label-dark">A. HEADER & NAVIGATION</span>
             
-            <p className="mt-4 text-lg sm:text-xl text-[#1F2937] max-w-3xl mx-auto leading-relaxed">
-              Calculate your exact project cost in 60 seconds with our free interactive quiz, or unlock expert blueprints starting at just <strong className="text-[#D97706] font-bold">₹99 per guide</strong>.
-            </p>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                  Monitor & Build Your <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#9CA3AF]">
+                    Digital Systems, The Right Way!
+                  </span>
+                </h1>
+                
+                <p className="text-base sm:text-lg text-[#9CA3AF] max-w-2xl leading-relaxed">
+                  Get real-time transparent estimates for your websites and ad campaigns. Through interactive calculators and step-by-step diagnostic blueprints starting at <strong className="text-white">₹99 per guide</strong>.
+                </p>
 
-          {/* Feature 1: Interactive Quiz Entry Point */}
-          <div id="calculator-quiz" className="pt-4 scroll-mt-20">
-            <InteractiveQuiz />
-          </div>
-
-          {/* Primary Quick Links */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/unlock"
-              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#D97706] hover:bg-[#B45309] px-8 py-4 text-base font-semibold text-white shadow-md transition-all duration-200"
-              id="hero-cta-unlock"
-            >
-              <Lock className="w-4 h-4 text-white" />
-              Unlock Premium Guides @ ₹99 / Bundle ₹249
-            </Link>
-            <Link
-              href="/portfolio"
-              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-[#1F2937] hover:bg-zinc-100 transition-all duration-200"
-              id="hero-cta-portfolio"
-            >
-              View Client Case Studies
-            </Link>
-          </div>
-
-          {/* Core Trust Pillars */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
-            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
-              <CheckCircle className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
-              <div>
-                <h3 className="text-sm font-semibold text-[#1F2937]">Zero Jargon & Fluff</h3>
-                <p className="text-xs text-zinc-600 mt-1">Direct checklists, exact pricing tables, and tools built for business growth.</p>
+                {/* Primary Quick Links with Bracketed Buttons */}
+                <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/unlock"
+                    className="btn-bracket bg-white text-[#18191C] hover:bg-[#E2E4E8] border-white shadow-xs"
+                    id="hero-cta-unlock"
+                  >
+                    [ INSTALL BLUEPRINT @ ₹99 ]
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="btn-bracket text-[#9CA3AF] hover:text-white border-[#2E313A] hover:border-white"
+                    id="hero-cta-portfolio"
+                  >
+                    [ VIEW CASE STUDIES ]
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
-              <Code className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
-              <div>
-                <h3 className="text-sm font-semibold text-[#1F2937]">India-Centric Benchmarks</h3>
-                <p className="text-xs text-zinc-600 mt-1">Calculators optimized for Indian lead costs, domains (.in), and hosting plans.</p>
-              </div>
-            </div>
-            <div className="flex gap-3 p-4 rounded-2xl bg-white border border-zinc-200/80">
-              <ShieldCheck className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
-              <div>
-                <h3 className="text-sm font-semibold text-[#1F2937]">Instant Safe Unlock</h3>
-                <p className="text-xs text-zinc-600 mt-1">UPI & card payment integration with full ₹99 credit towards custom development services.</p>
+
+              {/* Geometric Graphic Placeholder / Cube Wireframe Visual */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-72 h-72 sm:w-80 sm:h-80 bg-[#22242A] border border-[#2E313A] rounded-2xl flex flex-col items-center justify-center p-6 shadow-2xl overflow-hidden group">
+                  <div className="absolute inset-0 bg-tech-grid-dark opacity-30"></div>
+                  <div className="relative z-10 w-24 h-24 sm:w-32 sm:h-32 border-2 border-white/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center bg-[#18191C]/80 backdrop-blur-md">
+                    <Code className="w-10 h-10 text-white" />
+                  </div>
+                  <span className="relative z-10 mt-6 font-mono text-xs font-bold uppercase tracking-widest text-[#9CA3AF]">
+                    System Architecture v2.4
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      {/* Feature 6: Social Proof Live Counter & Activity Ticker */}
-      <SocialProofCounter initialUnlocksCount={unlocks.length} />
+      {/* Section B: Popularity Metrics Banner (Dark Charcoal Wireframe Banner) */}
+      <ScrollReveal>
+        <section className="bg-[#18191C] border-b border-[#2E313A] py-12 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <span className="wireframe-section-label-dark">B. POPULARITY METRICS</span>
+            
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
+                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Installations</span>
+                <span className="font-mono text-2xl font-bold text-white">7,823</span>
+              </div>
+              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
+                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Github Stars</span>
+                <span className="font-mono text-2xl font-bold text-white">34,781</span>
+              </div>
+              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
+                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Pulls/Mo</span>
+                <span className="font-mono text-2xl font-bold text-white">14M</span>
+              </div>
+              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1">
+                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Contributors</span>
+                <span className="font-mono text-2xl font-bold text-white">259</span>
+              </div>
+              <div className="p-4 bg-[#22242A] border border-[#2E313A] rounded-xl space-y-1 col-span-2 md:col-span-1">
+                <span className="font-mono text-[10px] text-[#9CA3AF] uppercase block">Forks</span>
+                <span className="font-mono text-2xl font-bold text-white">3K+</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
-      {/* Feature 2: Case Studies / Portfolio Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-50/50 dark:bg-zinc-950/30 border-b border-zinc-200/50 dark:border-zinc-900/50">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-                Our Proven Work
-              </span>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
-                Featured Case Studies & Results
+      {/* Live Social Proof Activity Ticker */}
+      <ScrollReveal>
+        <SocialProofCounter initialUnlocksCount={unlocks.length} />
+      </ScrollReveal>
+
+      {/* Section C: Rapid Installation / Calculator Quiz (Dark Terminal Block) */}
+      <ScrollReveal>
+        <section id="calculator-quiz" className="bg-[#18191C] border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
+          <div className="mx-auto max-w-6xl space-y-4">
+            <span className="wireframe-section-label-dark">C. RAPID INSTALLATION & SCOPE CALCULATOR</span>
+            <div className="terminal-box p-6 sm:p-8">
+              <InteractiveQuiz />
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* Section D: Why Choose Us / Services (Wireframe Clean Light Section #F4F4F6) */}
+      <ScrollReveal>
+        <section className="bg-[#F4F4F6] text-[#111827] border-b border-[#E2E4E8] py-20 px-4 sm:px-6 lg:px-8 bg-tech-grid">
+          <div className="mx-auto max-w-6xl space-y-16">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="wireframe-section-label">D. WHY CHOOSE OUR BLUEPRINTS</span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#111827]">
+                Why Choose Our Technical System?
               </h2>
-              <p className="mt-2 text-zinc-600 dark:text-zinc-400 text-sm max-w-2xl">
-                Real results from Indian MSMEs, local clinics, apparel manufacturers, and service brands.
+              <p className="mt-4 text-[#6B7280] text-sm sm:text-base leading-relaxed">
+                Per-second data collection and clear pricing breakdown. Zoom into issues for all metrics without hidden retainers.
               </p>
             </div>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-1 text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
-            >
-              View All Case Studies &rarr;
-            </Link>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.slice(0, 3).map((proj) => (
-              <div
-                key={proj.id}
-                className="flex flex-col justify-between rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group"
-              >
-                <div className="relative h-44 w-full bg-zinc-900 overflow-hidden">
-                  {proj.imageMockup ? (
-                    <img src={proj.imageMockup} alt={proj.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-zinc-500 font-bold">{proj.title}</div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"></div>
-                  <span className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white border border-white/10">
-                    {proj.category}
-                  </span>
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <h3 className="text-base font-bold text-white truncate">{proj.title}</h3>
-                  </div>
+            {/* 4 Feature Pillars Grid (Wireframe Style) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 space-y-4 card-hover">
+                <div className="w-10 h-10 rounded-lg bg-[#F4F4F6] border border-[#E2E4E8] flex items-center justify-center text-[#111827]">
+                  <Award className="w-5 h-5" />
                 </div>
-
-                <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-3">
-                    {proj.keyMetrics && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {proj.keyMetrics.map((m, mIdx) => (
-                          <span key={mIdx} className="inline-flex items-center gap-1 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200/50">
-                            <Award className="w-3 h-3 text-emerald-500" />
-                            <span>{m}</span>
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
-                      {proj.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                    <Link href="/portfolio" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center justify-between">
-                      <span>Read Case Study</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                <h3 className="text-base font-bold text-[#111827]">Granularity</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed">
+                  Per second data collection and visualization. Zoom into exact costs for all your web systems.
+                </p>
+                <div className="pt-2">
+                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
+                    OVERVIEW & METRICS
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* How We Work Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-zinc-900/60 border-b border-zinc-200/50 dark:border-zinc-900/50">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-              Our Process
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
-              How We Work
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-              A transparent, step-by-step workflow designed to deliver results with complete clarity.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {howWeWork.map((item) => (
-              <div
-                key={item.step}
-                className="flex flex-col justify-between p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="space-y-3">
-                  <span className="text-2xl font-black text-blue-600 dark:text-blue-400 block">
-                    {item.step}
+              <div className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 space-y-4 card-hover">
+                <div className="w-10 h-10 rounded-lg bg-[#F4F4F6] border border-[#E2E4E8] flex items-center justify-center text-[#111827]">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#111827]">Centralization</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed">
+                  Consolidate all ad metrics and developer invoices into a single native console view.
+                </p>
+                <div className="pt-2">
+                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
+                    LEARN MORE
                   </span>
-                  <h3 className="text-base font-bold text-zinc-900 dark:text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Free Resources Section */}
-      <section id="free-resources" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-emerald-50/20 to-white dark:from-black dark:via-emerald-950/10 dark:to-black border-b border-zinc-200/50 dark:border-zinc-900/50 scroll-mt-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
-              100% Free Knowledge Base
-            </span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
-              Free Resources & Planning Guides
-            </h2>
-            <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base">
-              No login or payment required. Read our free action checklists, budget calculators, and decision blueprints before starting your project.
-            </p>
-          </div>
+              <div className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 space-y-4 card-hover">
+                <div className="w-10 h-10 rounded-lg bg-[#F4F4F6] border border-[#E2E4E8] flex items-center justify-center text-[#111827]">
+                  <Code className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#111827]">Speed</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed">
+                  Install and use immediately. Get fully functional visual dashboards in just seconds after checkout.
+                </p>
+                <div className="pt-2">
+                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
+                    DETAILS
+                  </span>
+                </div>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {freeResources.map((res, index) => {
-              return (
-                <div
-                  key={index}
-                  className="group flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:border-emerald-500/40 dark:hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 relative"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-[11px] font-extrabold uppercase tracking-wider border border-emerald-200/40 dark:border-emerald-900/40">
-                        {res.category}
-                      </span>
-                      <span className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">
-                        {res.readTime}
-                      </span>
-                    </div>
+              <div className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 space-y-4 card-hover">
+                <div className="w-10 h-10 rounded-lg bg-[#F4F4F6] border border-[#E2E4E8] flex items-center justify-center text-[#111827]">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#111827]">Visualization</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed">
+                  Explore all metrics in a meaningful, easy to understand way without developer jargon.
+                </p>
+                <div className="pt-2">
+                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
+                    VIEW EXAMPLES
+                  </span>
+                </div>
+              </div>
+            </div>
 
+            {/* Services Matrix Summary */}
+            <div className="space-y-8 pt-8 border-t border-[#E2E4E8]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-[#111827]">Professional Implementation Services</h3>
+                  <p className="text-xs text-[#6B7280] mt-1">Need our engineering team to execute your site or ad strategy?</p>
+                </div>
+                <Link href="/services" className="btn-bracket text-[#111827] border-[#111827] hover:bg-[#111827] hover:text-white shrink-0">
+                  [ VIEW ALL SERVICES ]
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {services.slice(0, 3).map((service) => (
+                  <div key={service.id} className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 flex flex-col justify-between space-y-4 card-hover">
                     <div>
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
-                        {res.title}
-                      </h3>
+                      <span className="font-mono text-[10px] font-bold text-[#6B7280] uppercase tracking-wider block">{service.deliveryTime}</span>
+                      <h4 className="text-base font-bold text-[#111827] mt-1">{service.name}</h4>
+                      <p className="text-xs text-[#6B7280] mt-2 line-clamp-3 leading-relaxed">{service.description}</p>
                     </div>
+                    <div className="pt-4 border-t border-[#E2E4E8] flex items-center justify-between">
+                      <span className="font-mono text-sm font-bold text-[#111827]">{service.startingPrice}</span>
+                      <Link href="/services" className="font-mono text-xs font-bold text-[#111827] hover:underline flex items-center gap-1">
+                        Learn More <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                      {res.desc}
-                    </p>
+      {/* Section E: Testimonials & Social Proof (Wireframe Clean Light Section #F4F4F6) */}
+      <ScrollReveal>
+        <section className="bg-[#F4F4F6] text-[#111827] border-b border-[#E2E4E8] py-20 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl space-y-12">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="wireframe-section-label">E. TESTIMONIALS</span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#111827]">
+                What Developers & Business Owners Are Saying
+              </h2>
+            </div>
 
-                    <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 space-y-2">
-                      <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">Key Highlights</span>
-                      {res.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
-                          <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                          <span>{h}</span>
-                        </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonials.map((t, idx) => (
+                <div key={idx} className="bg-[#FFFFFF] border border-[#E2E4E8] rounded-xl p-6 space-y-4 shadow-xs card-hover flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex gap-0.5 text-[#111827]">
+                      {Array.from({ length: t.stars }).map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
                       ))}
                     </div>
+                    <p className="text-xs italic text-[#4B5563] leading-relaxed">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
                   </div>
-
-                  <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                    <Link
-                      href={res.link}
-                      className="flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors group/btn"
-                    >
-                      <span>Read Free Guide</span>
-                      <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </Link>
+                  <div className="pt-4 border-t border-[#E2E4E8] flex items-center justify-between">
+                    <div>
+                      <h4 className="text-xs font-bold text-[#111827]">{t.name}</h4>
+                      <span className="text-[10px] text-[#6B7280] block">{t.role}</span>
+                    </div>
+                    <span className="font-mono text-[10px] text-[#6B7280]">@{t.name.toLowerCase().replace(/\s+/g, "")}</span>
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
+        </section>
+      </ScrollReveal>
 
-          {/* Quick Callout Banner */}
-          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-900/90 to-teal-950 text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-emerald-700/40 shadow-lg">
-            <div className="space-y-1 text-center sm:text-left">
-              <h3 className="text-lg font-bold">
-                Want Complete Technical Blueprints & Price Calculators?
-              </h3>
-              <p className="text-xs text-emerald-200">
-                Unlock single handbooks for ₹99 or unlock the Complete Bundle (All 4 Guides) for ₹249.
+      {/* Section F: Live Wireframe / FAQ & Deployment (Wireframe Dark Charcoal #18191C) */}
+      <ScrollReveal>
+        <section className="bg-[#18191C] border-b border-[#2E313A] py-20 px-4 sm:px-6 lg:px-8 bg-tech-grid-dark">
+          <div className="mx-auto max-w-4xl space-y-12">
+            <div className="text-center space-y-2">
+              <span className="wireframe-section-label-dark">F. FAQ & SYSTEM DEPLOYMENT</span>
+              <h2 className="text-3xl font-bold tracking-tight text-white">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-xs text-[#9CA3AF]">Everything you need to know about system blueprints and unlock options.</p>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => (
+                <details
+                  key={idx}
+                  className="group rounded-xl border border-[#2E313A] bg-[#22242A] p-6 [&_summary::-webkit-details-marker]:hidden focus-within:ring-2 focus-within:ring-white"
+                >
+                  <summary className="flex cursor-pointer items-center justify-between gap-1.5 focus:outline-none">
+                    <h3 className="font-mono text-sm font-bold text-white">
+                      {faq.q}
+                    </h3>
+                    <span className="shrink-0 rounded-full bg-[#18191C] p-1 text-white group-open:rotate-180 transition duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-xs leading-relaxed text-[#9CA3AF]">
+                    {faq.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+
+            {/* Bottom CTA Banner (Wireframe Style) */}
+            <div className="p-8 rounded-xl bg-[#22242A] border border-[#2E313A] text-center space-y-4 shadow-xl">
+              <h3 className="text-2xl font-bold text-white">Get Started Today</h3>
+              <p className="text-xs text-[#9CA3AF] max-w-md mx-auto">
+                Up and running in minutes. Select single guide for ₹99 or unlock the Complete Bundle for ₹249.
               </p>
-            </div>
-            <Link
-              href="/unlock"
-              className="flex items-center justify-center rounded-full bg-white text-emerald-950 font-extrabold px-6 py-3 text-xs hover:bg-emerald-100 transition-colors shrink-0 shadow"
-            >
-              Unlock Guides @ ₹99 / Bundle ₹249
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section Summary */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-50/50 dark:bg-zinc-950/20 space-y-16">
-        <div className="mx-auto max-w-7xl space-y-16">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
-              Professional Tech & Marketing Services
-            </h2>
-            <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-              Need more than self-serve guides? We execute custom development projects and manage optimization ad retainers.
-            </p>
-          </div>
-
-          {/* Subsection 1: Web Development & Portals */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
-                Web Development & Custom Portals
-              </h3>
-              <Link href="/services" className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">
-                View All Web Services &rarr;
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {services
-                .filter((s) => ["business-website", "ecommerce-store", "landing-page", "service-booking"].includes(s.id))
-                .map((service) => (
-                  <div
-                    key={service.id}
-                    className="flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 shadow-sm hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200"
-                  >
-                    <div>
-                      <h4 className="text-base font-bold text-zinc-900 dark:text-white">{service.name}</h4>
-                      <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-3 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                        <span className="text-xs text-zinc-400 dark:text-zinc-500 block">Starting Price</span>
-                        <span className="text-xl font-bold text-blue-600 dark:text-blue-400">{service.startingPrice}</span>
-                      </div>
-                    </div>
-                    <Link
-                      href="/services"
-                      className="mt-6 flex items-center justify-center gap-1.5 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      Learn More
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Subsection 2: Digital Marketing & Ads Services */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                Digital Marketing & Ad Retainers
-              </h3>
-              <Link href="/services" className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
-                View All Ad Services &rarr;
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {services
-                .filter((s) => !["business-website", "ecommerce-store", "landing-page", "service-booking"].includes(s.id))
-                .map((service) => (
-                  <div
-                    key={service.id}
-                    className="flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-emerald-200/60 dark:border-emerald-900/50 shadow-sm hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-700 transition-all duration-200"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-base font-bold text-zinc-900 dark:text-white">{service.name}</h4>
-                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">
-                          {service.deliveryTime}
-                        </span>
-                      </div>
-                      <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-3 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                        <span className="text-xs text-zinc-400 dark:text-zinc-500 block">Starting Price</span>
-                        <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
-                          {service.startingPrice.includes("+ GST") ? service.startingPrice : `${service.startingPrice} + GST`}
-                        </span>
-                        <p className="text-[10px] text-zinc-500 dark:text-zinc-400 font-normal mt-1 leading-snug">
-                          Management fee only. Your ad budget is separate.
-                        </p>
-                      </div>
-                    </div>
-                    <Link
-                      href="/services"
-                      className="mt-6 flex items-center justify-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition-colors"
-                    >
-                      Learn More
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Paywall Preview Callout */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-900 to-indigo-950 text-white rounded-3xl mx-4 sm:mx-8 lg:mx-16 my-8 shadow-xl">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-4 text-center md:text-left">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-200">
-              Rs 99 Digital Consultancy
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight">Unlock Handbooks & Custom Calculators</h2>
-            <p className="text-sm text-blue-200 max-w-xl">
-              Get direct access to our core blueprint reports, detailed cost breakdown spreadsheets, and marketing templates without scheduling expensive consulting calls.
-            </p>
-          </div>
-          <div className="shrink-0 w-full md:w-auto">
-            <Link
-              href="/unlock"
-              className="flex items-center justify-center gap-2 rounded-full bg-emerald-500 text-white font-bold px-8 py-4 shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 transition-all duration-200 text-center w-full"
-            >
-              <Lock className="w-4 h-4" />
-              Pay ₹99 & Unlock Content
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-50/50 dark:bg-zinc-950/20">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-              Trusted by Local Indian Businesses
-            </h2>
-            <p className="mt-3 text-zinc-500 dark:text-zinc-400 text-sm">
-              Read how small scale merchants and service providers are saving costs and driving sales.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 shadow-sm"
-              >
-                <div className="flex gap-0.5 text-amber-500 mb-4">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm italic text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white">{t.name}</h4>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">{t.role}</span>
-                </div>
+              <div className="flex justify-center gap-4 pt-2">
+                <Link href="/unlock" className="btn-bracket bg-white text-[#18191C] hover:bg-[#E2E4E8] border-white">
+                  [ UNLOCK NOW ]
+                </Link>
+                <Link href="/contact" className="btn-bracket text-[#9CA3AF] hover:text-white border-[#2E313A] hover:border-white">
+                  [ BOOK CONSULTATION ]
+                </Link>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-zinc-200/50 dark:border-zinc-900/50">
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-              Frequently Asked Questions
-            </h2>
-            <p className="mt-3 text-zinc-500 dark:text-zinc-400 text-sm">
-              Everything you need to know about the ₹99 unlock payment model.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-6 [&_summary::-webkit-details-marker]:hidden focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-transparent"
-              >
-                <summary className="flex cursor-pointer items-center justify-between gap-1.5 focus:outline-none">
-                  <h3 className="font-semibold text-zinc-900 dark:text-white text-base">
-                    {faq.q}
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-blue-50 dark:bg-blue-950 p-1.5 text-blue-600 dark:text-blue-400 group-open:rotate-180 transition duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  {faq.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }
+
