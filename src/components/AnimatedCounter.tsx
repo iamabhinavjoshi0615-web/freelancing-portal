@@ -9,7 +9,8 @@ interface AnimatedCounterProps {
 }
 
 export default function AnimatedCounter({ value, className = "", durationMs = 1800 }: AnimatedCounterProps) {
-  const [displayValue, setDisplayValue] = useState<string>("0");
+  const rawString = String(value);
+  const [displayValue, setDisplayValue] = useState<string>(rawString);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -17,68 +18,75 @@ export default function AnimatedCounter({ value, className = "", durationMs = 18
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          animateCount();
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.2 }
-    );
+    const startAnimation = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
 
-    observer.observe(element);
-
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, [value]);
-
-  const animateCount = () => {
-    const rawString = String(value);
-    // Extract first continuous number sequence or float
-    const numericMatch = rawString.replace(/,/g, "").match(/(\d+(?:\.\d+)?)/);
-    
-    if (!numericMatch) {
-      setDisplayValue(rawString);
-      return;
-    }
-
-    const targetNum = parseFloat(numericMatch[0]);
-    const numIndex = rawString.replace(/,/g, "").indexOf(numericMatch[0]);
-    const prefix = rawString.substring(0, rawString.indexOf(numericMatch[0][0]));
-    const suffix = rawString.substring(rawString.indexOf(numericMatch[0]) + numericMatch[0].length);
-
-    const isFloat = numericMatch[0].includes(".");
-    const startTime = performance.now();
-
-    const updateFrame = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / durationMs, 1);
-      // Ease out quadratic: 1 - (1 - progress)^2
-      const easedProgress = 1 - Math.pow(1 - progress, 2);
-      const currentNum = targetNum * easedProgress;
-
-      let formattedNum = "";
-      if (isFloat) {
-        formattedNum = currentNum.toFixed(1);
-      } else {
-        formattedNum = Math.floor(currentNum).toLocaleString("en-IN");
-      }
-
-      setDisplayValue(`${prefix}${formattedNum}${suffix}`);
-
-      if (progress < 1) {
-        requestAnimationFrame(updateFrame);
-      } else {
-        // Ensure exact target at the end
+      const match = rawString.match(/^([^0-9]*)([\d,]+(?:\.\d+)?)(.*)$/);
+      if (!match) {
         setDisplayValue(rawString);
+        return;
       }
+
+      const prefix = match[1];
+      const numStr = match[2];
+      const suffix = match[3];
+      const targetNum = parseFloat(numStr.replace(/,/g, ""));
+
+      if (isNaN(targetNum) || targetNum === 0) {
+        setDisplayValue(rawString);
+        return;
+      }
+
+      const isFloat = numStr.includes(".");
+      const startTime = performance.now();
+
+      const updateFrame = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 2);
+        const currentNum = targetNum * easedProgress;
+
+        let formattedNum = "";
+        if (isFloat) {
+          formattedNum = currentNum.toFixed(1);
+        } else {
+          formattedNum = Math.round(currentNum).toLocaleString("en-IN");
+        }
+
+        if (progress < 1) {
+          setDisplayValue(`${prefix}${formattedNum}${suffix}`);
+          requestAnimationFrame(updateFrame);
+        } else {
+          setDisplayValue(rawString);
+        }
+      };
+
+      // Set initial count value to 0 before animation begins
+      setDisplayValue(`${prefix}0${suffix}`);
+      requestAnimationFrame(updateFrame);
     };
 
-    requestAnimationFrame(updateFrame);
-  };
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          if (entry && (entry.isIntersecting || entry.intersectionRatio > 0)) {
+            startAnimation();
+            observer.unobserve(element);
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(element);
+      return () => {
+        if (element) observer.unobserve(element);
+      };
+    } else {
+      startAnimation();
+    }
+  }, [rawString, durationMs]);
 
   return (
     <span ref={ref} className={className}>

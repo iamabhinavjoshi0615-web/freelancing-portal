@@ -76,6 +76,7 @@ export interface DbSchema {
   projects: Project[];
   users: User[];
   quizResponses: QuizResponse[];
+  newsletterSubscribers?: NewsletterSubscriber[];
 }
 
 // Function to read and initialize the database
@@ -93,6 +94,7 @@ export function getDb(): DbSchema {
         projects: DEFAULT_PROJECTS,
         users: [],
         quizResponses: [],
+        newsletterSubscribers: [],
       };
       fs.writeFileSync(DB_FILE_PATH, JSON.stringify(initialDb, null, 2), "utf8");
       return initialDb;
@@ -117,6 +119,12 @@ export function getDb(): DbSchema {
     // Auto-migrate if quizResponses is missing in existing db.json
     if (!parsed.quizResponses) {
       parsed.quizResponses = [];
+      migrated = true;
+    }
+
+    // Auto-migrate if newsletterSubscribers is missing in existing db.json
+    if (!parsed.newsletterSubscribers) {
+      parsed.newsletterSubscribers = [];
       migrated = true;
     }
 
@@ -271,6 +279,37 @@ export function getQuizResponses(): QuizResponse[] {
 export function getQuizResponseBySession(sessionId: string): QuizResponse | undefined {
   const responses = getQuizResponses();
   return responses.find((r) => r.sessionId === sessionId);
+}
+
+export interface NewsletterSubscriber {
+  id: string;
+  email: string;
+  subscribedAt: string;
+}
+
+export function addNewsletterSubscriber(email: string): NewsletterSubscriber {
+  const db = getDb();
+  if (!db.newsletterSubscribers) {
+    db.newsletterSubscribers = [];
+  }
+  const existing = db.newsletterSubscribers.find(
+    (s: NewsletterSubscriber) => s.email.toLowerCase() === email.toLowerCase()
+  );
+  if (existing) return existing;
+
+  const subscriber: NewsletterSubscriber = {
+    id: `sub_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    email,
+    subscribedAt: new Date().toISOString(),
+  };
+  db.newsletterSubscribers.push(subscriber);
+  saveDb(db);
+  return subscriber;
+}
+
+export function getNewsletterSubscribers(): NewsletterSubscriber[] {
+  const db = getDb();
+  return db.newsletterSubscribers || [];
 }
 
 

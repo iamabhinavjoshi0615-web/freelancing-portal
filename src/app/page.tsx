@@ -115,19 +115,25 @@ export default function Home() {
   const testimonials = [
     {
       name: "Rajesh Kumar",
-      role: "Founder, Kumar Garments (Ludhiana)",
+      business: "Kumar Garments",
+      city: "Ludhiana",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120",
       quote: "The website pricing guide saved me at least ₹15,000. I was quoted ₹30k by a local developer for basic WooCommerce, but using The Industries' guide, I set up Shopify myself and hired a freelancer for just ₹10k for custom setups.",
       stars: 5
     },
     {
       name: "Dr. Anjali Sharma",
-      role: "Owner, Skin Care Clinic (Delhi)",
+      business: "Skin Care Clinic",
+      city: "Delhi",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120",
       quote: "I unlocked the Facebook Ads guide. The step-by-step target setup and ad copy formula helped us get 40+ appointments in the very first week with a daily budget of just ₹500.",
       stars: 5
     },
     {
       name: "Amit Patel",
-      role: "Director, Patel Logistics (Ahmedabad)",
+      business: "Patel Logistics",
+      city: "Ahmedabad",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
       quote: "Excellent initiative. Simple, direct information without the typical corporate fluff. Highly recommend the budget calculators.",
       stars: 5
     }
@@ -191,30 +197,41 @@ export default function Home() {
       {/* Section B: Popularity Metrics Banner (Dark Charcoal Banner) */}
       <ScrollReveal>
         <section className="bg-[#18191C] border-b border-[#2E313A] py-12 px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+              <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
-                  <AnimatedCounter value={`${settings.projectsCompleted}+`} />
+                  <AnimatedCounter value="10+" />
                 </span>
-                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
-                  Projects Delivered
+                <span className="font-mono text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider block font-semibold">
+                  PROJECTS DELIVERED
                 </span>
               </div>
-              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+
+              <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
-                  <AnimatedCounter value={`${settings.satisfiedClients}+`} />
+                  <AnimatedCounter value="3+" />
                 </span>
-                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
-                  Clients Served
+                <span className="font-mono text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider block font-semibold">
+                  CLIENTS SERVED
                 </span>
               </div>
-              <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
+
+              <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
-                  <AnimatedCounter value={`${settings.experienceYears}+`} />
+                  <AnimatedCounter value="3+" />
                 </span>
-                <span className="font-mono text-xs text-[#8E95A5] uppercase tracking-wider block">
-                  Years of Engineering
+                <span className="font-mono text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider block font-semibold">
+                  YEARS OF ENGINEERING
+                </span>
+              </div>
+
+              <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
+                <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
+                  <AnimatedCounter value="500+" />
+                </span>
+                <span className="font-mono text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider block font-semibold">
+                  INDIAN SMBs GUIDED
                 </span>
               </div>
             </div>
@@ -371,12 +388,18 @@ export default function Home() {
                       &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-[#E2E4E8] flex items-center justify-between">
+                  <div className="pt-4 border-t border-[#E2E4E8] flex items-center gap-3">
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-9 h-9 rounded-full object-cover border border-[#E2E4E8] shrink-0"
+                    />
                     <div>
                       <h4 className="text-xs font-bold text-[#111827]">{t.name}</h4>
-                      <span className="text-[10px] text-[#6B7280] block">{t.role}</span>
+                      <span className="text-[11px] text-[#6B7280] block font-sans font-medium">
+                        {t.business}, {t.city}
+                      </span>
                     </div>
-                    <span className="font-mono text-[10px] text-[#6B7280]">@{t.name.toLowerCase().replace(/\s+/g, "")}</span>
                   </div>
                 </div>
               ))}
