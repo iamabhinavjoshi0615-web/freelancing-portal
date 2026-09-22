@@ -312,5 +312,19 @@ export function getNewsletterSubscribers(): NewsletterSubscriber[] {
   return db.newsletterSubscribers || [];
 }
 
+export function removeNewsletterSubscriber(email: string): boolean {
+  const db = getDb();
+  if (!db.newsletterSubscribers) return false;
+  const initialCount = db.newsletterSubscribers.length;
+  db.newsletterSubscribers = db.newsletterSubscribers.filter(
+    (s: NewsletterSubscriber) => s.email.toLowerCase() !== email.toLowerCase().trim()
+  );
+  if (db.newsletterSubscribers.length !== initialCount) {
+    saveDb(db);
+    return true;
+  }
+  return false;
+}
+
 
 
