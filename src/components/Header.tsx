@@ -80,26 +80,14 @@ export default function Header({ agencyName }: HeaderProps) {
           </Link>
         </div>
 
-        {/* Medium Screen Nav Fallback */}
-        <div className="hidden md:flex lg:hidden items-center gap-2">
-          <Link
-            href="/services"
-            className="text-xs font-mono font-bold text-[#111827] hover:text-[#0EA5E9] px-2 py-1"
-          >
-            Services
-          </Link>
-          <Link
-            href="/pricing"
-            className="text-xs font-mono font-bold text-[#111827] hover:text-[#0EA5E9] px-2 py-1"
-          >
-            Pricing
-          </Link>
+        {/* Medium Screen Quick Action (sm to lg) */}
+        <div className="hidden sm:flex lg:hidden items-center gap-2">
           <Link
             href="/unlock"
-            className="flex items-center gap-1 rounded-lg bg-[#18191C] text-white px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs hover:scale-[1.02] transition-all"
+            className="flex items-center gap-1 rounded-lg bg-[#18191C] text-white px-3 py-1.5 text-xs font-mono font-bold shadow-xs hover:scale-[1.02] transition-all"
           >
-            <Lock className="w-3 h-3" />
-            <span>[ UNLOCK ]</span>
+            <Lock className="w-3 h-3 text-white" />
+            <span>[ UNLOCK @ ₹99 ]</span>
           </Link>
         </div>
 
@@ -107,7 +95,7 @@ export default function Header({ agencyName }: HeaderProps) {
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-[#111827] hover:bg-[#FFFFFF] border border-[#E2E4E8] focus:outline-none"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-[#111827] hover:bg-[#FFFFFF] border border-[#E2E4E8] focus:outline-none transition-colors"
             aria-expanded={isOpen}
             aria-label="Toggle navigation menu"
           >
@@ -118,8 +106,8 @@ export default function Header({ agencyName }: HeaderProps) {
 
       {/* Mobile Drawer Menu */}
       {isOpen && (
-        <div className="lg:hidden border-b border-[#E2E4E8] bg-[#FFFFFF] px-4 py-5 space-y-2 animate-in slide-in-from-top-2 duration-200">
-          <div className="grid grid-cols-2 gap-1.5 pb-3">
+        <div className="lg:hidden border-b border-[#E2E4E8] bg-[#FFFFFF] px-4 py-5 space-y-3 animate-in slide-in-from-top-2 duration-200 max-h-[85vh] overflow-y-auto">
+          <div className="grid grid-cols-2 gap-2 pb-3">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -127,10 +115,10 @@ export default function Header({ agencyName }: HeaderProps) {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-mono font-bold transition-all ${
+                  className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-mono font-bold transition-all ${
                     active
                       ? "text-white bg-[#18191C]"
-                      : "text-[#4B5563] hover:bg-[#F4F4F6]"
+                      : "text-[#4B5563] hover:bg-[#F4F4F6] hover:text-[#111827]"
                   }`}
                 >
                   <span>{link.name}</span>
@@ -142,9 +130,9 @@ export default function Header({ agencyName }: HeaderProps) {
             <Link
               href="/unlock"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#18191C] hover:bg-[#22242A] py-2.5 text-xs font-mono font-bold text-white shadow-xs hover:scale-[1.02] transition-all"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#18191C] hover:bg-[#22242A] py-3 text-xs font-mono font-bold text-white shadow-xs hover:scale-[1.01] transition-all"
             >
-              <Lock className="w-4 h-4" />
+              <Lock className="w-4 h-4 text-white" />
               <span>[ UNLOCK GUIDES @ ₹99 ]</span>
             </Link>
           </div>

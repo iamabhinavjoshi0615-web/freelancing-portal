@@ -137,33 +137,33 @@ export default function Home() {
     <div className="flex flex-col w-full min-h-screen bg-[#18191C] text-[#F8FAFC]">
       {/* Section A: Hero Header Block (Wireframe Wireframe Dark Block) */}
       <ScrollReveal>
-        <section className="relative overflow-hidden bg-[#18191C] bg-tech-grid-dark py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#2E313A]">
+        <section className="relative overflow-hidden bg-[#18191C] bg-tech-grid-dark py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#2E313A]">
           <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-6">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                  Monitor & Build Your <br />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+              <div className="lg:col-span-7 space-y-6 text-center sm:text-left">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                  Monitor & Build Your <br className="hidden sm:inline" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#9CA3AF]">
                     Digital Systems, The Right Way!
                   </span>
                 </h1>
                 
-                <p className="text-base sm:text-lg text-[#9CA3AF] max-w-2xl leading-relaxed">
+                <p className="text-sm sm:text-lg text-[#9CA3AF] max-w-2xl leading-relaxed mx-auto sm:mx-0">
                   Get real-time transparent estimates for your websites and ad campaigns. Through interactive calculators and step-by-step diagnostic blueprints starting at <strong className="text-white">₹99 per guide</strong>.
                 </p>
 
                 {/* Primary Quick Links with Bracketed Buttons */}
-                <div className="pt-2 flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                   <Link
                     href="/unlock"
-                    className="btn-bracket bg-white text-[#18191C] hover:bg-[#E2E4E8] border-white shadow-xs"
+                    className="btn-bracket bg-white text-[#18191C] hover:bg-[#E2E4E8] border-white shadow-xs text-center py-3 sm:py-2"
                     id="hero-cta-unlock"
                   >
                     [ INSTALL BLUEPRINT @ ₹99 ]
                   </Link>
                   <Link
                     href="/portfolio"
-                    className="btn-bracket text-[#9CA3AF] hover:text-white border-[#2E313A] hover:border-white"
+                    className="btn-bracket text-[#9CA3AF] hover:text-white border-[#2E313A] hover:border-white text-center py-3 sm:py-2"
                     id="hero-cta-portfolio"
                   >
                     [ VIEW CASE STUDIES ]
@@ -173,10 +173,10 @@ export default function Home() {
 
               {/* Geometric Graphic Placeholder / Cube Visual */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="relative w-72 h-72 sm:w-80 sm:h-80 bg-[#22242A] border border-[#2E313A] rounded-2xl flex flex-col items-center justify-center p-6 shadow-2xl overflow-hidden group">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-[#22242A] border border-[#2E313A] rounded-2xl flex flex-col items-center justify-center p-6 shadow-2xl overflow-hidden group">
                   <div className="absolute inset-0 bg-tech-grid-dark opacity-30"></div>
-                  <div className="relative z-10 w-24 h-24 sm:w-32 sm:h-32 border-2 border-white/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center bg-[#18191C]/80 backdrop-blur-md">
-                    <Code className="w-10 h-10 text-white" />
+                  <div className="relative z-10 w-20 h-20 sm:w-32 sm:h-32 border-2 border-white/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center bg-[#18191C]/80 backdrop-blur-md">
+                    <Code className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
                 </div>
               </div>

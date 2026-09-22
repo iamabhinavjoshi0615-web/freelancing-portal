@@ -65,7 +65,7 @@ export default function ContactForm() {
             placeholder="Ramesh Sharma"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2.5 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           />
         </div>
         <div>
@@ -76,7 +76,7 @@ export default function ContactForm() {
             placeholder="9876543210"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2.5 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           />
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function ContactForm() {
           placeholder="ramesh@company.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2.5 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
         />
       </div>
 
@@ -99,40 +99,41 @@ export default function ContactForm() {
           <select
             value={service}
             onChange={(e) => setService(e.target.value)}
-            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2.5 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           >
-            <option value="web-dev">Web Development</option>
-            <option value="ecommerce">Shopify / E-commerce</option>
-            <option value="marketing">Google / Meta Ads</option>
-            <option value="retainer">Monthly Maintenance</option>
-            <option value="custom">Custom Portal / CRM</option>
+            <option value="web-dev">Website Development</option>
+            <option value="ecommerce">E-commerce Portal</option>
+            <option value="ads">Ad Campaign Management</option>
+            <option value="seo">Local GMB & SEO</option>
+            <option value="maintenance">Website Maintenance</option>
+            <option value="blueprint">Consultancy Blueprint</option>
           </select>
         </div>
         <div>
-          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Est. Project Budget</label>
+          <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Estimated Budget</label>
           <select
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+            className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2.5 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
           >
             <option value="₹5k-10k">₹5,000 - ₹10,000</option>
             <option value="₹10k-25k">₹10,000 - ₹25,000</option>
             <option value="₹25k-50k">₹25,000 - ₹50,000</option>
-            <option value="₹50k+">₹50,000 +</option>
+            <option value="₹50k+">₹50,000+</option>
           </select>
         </div>
       </div>
 
       <div>
-        <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Project Details / Message</label>
+        <label className="block text-[10px] font-mono font-bold text-[#18191C] uppercase mb-1">// Project Details</label>
         <textarea
           rows={4}
           required
-          placeholder="Briefly describe what your business does and what type of website/ads you need."
+          placeholder="Briefly describe your requirements or goal..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] px-4 py-2 text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C] resize-none"
-        />
+          className="w-full border border-[#E2E4E8] bg-[#F4F4F6] p-4 text-sm sm:text-xs font-mono text-[#18191C] focus:outline-none focus:border-[#18191C]"
+        ></textarea>
       </div>
 
       <div className="pt-2">

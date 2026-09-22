@@ -146,7 +146,7 @@ export default function InteractiveQuiz() {
     : "animate-in fade-in slide-in-from-left-8 duration-300";
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-[#18191C] border border-[#2E313A] rounded-xl p-6 sm:p-10 shadow-xl relative overflow-hidden text-[#F8FAFC] font-mono">
+    <div className="w-full max-w-4xl mx-auto bg-[#18191C] border border-[#2E313A] rounded-xl p-4 sm:p-8 shadow-xl relative overflow-hidden text-[#F8FAFC] font-mono">
       {/* Top Thin Progress Bar */}
       {step <= 5 && (
         <div className="w-full h-1 bg-[#22242A] rounded-full overflow-hidden mb-6">
