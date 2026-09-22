@@ -60,9 +60,8 @@ export default function ScrollReveal({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translate3d(0, 0, 0) scale(1)" : getInitialTransform(),
-        filter: isVisible ? "blur(0px)" : "blur(4px)",
-        transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, filter 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
-        willChange: "opacity, transform, filter",
+        transition: `opacity 500ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+        willChange: "opacity, transform",
         backfaceVisibility: "hidden",
       }}
     >

@@ -3,7 +3,7 @@ import { getProjects } from "../../lib/db";
 import PortfolioPageClient from "../../components/PortfolioPageClient";
 import ScrollReveal from "../../components/ScrollReveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata = {
   title: "Our Work & Portfolio | The Industries India",

@@ -3,7 +3,7 @@ import { getPricingTiers } from "../../lib/db";
 import PricingPageClient from "../../components/PricingPageClient";
 import ScrollReveal from "../../components/ScrollReveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function Pricing() {
   const tiers = getPricingTiers();

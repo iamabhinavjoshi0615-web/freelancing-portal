@@ -4,7 +4,7 @@ import { getCmsSettings } from "../../lib/db";
 import ContactForm from "../../components/ContactForm";
 import ScrollReveal from "../../components/ScrollReveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function Contact() {
   const settings = getCmsSettings();

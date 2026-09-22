@@ -8,7 +8,7 @@ import ScrollReveal from "../components/ScrollReveal";
 import AnimatedCounter from "../components/AnimatedCounter";
 import ClientMarquee from "../components/ClientMarquee";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function Home() {
   const settings = getCmsSettings();

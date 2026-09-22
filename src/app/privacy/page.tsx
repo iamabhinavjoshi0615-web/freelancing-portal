@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Lock, Shield, ArrowLeft } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function PrivacyPolicyPage() {
   const settings = getCmsSettings();

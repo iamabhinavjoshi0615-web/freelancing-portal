@@ -79,8 +79,17 @@ export interface DbSchema {
   newsletterSubscribers?: NewsletterSubscriber[];
 }
 
+let cachedDb: DbSchema | null = null;
+let lastReadTime = 0;
+const CACHE_TTL_MS = 2000;
+
 // Function to read and initialize the database
 export function getDb(): DbSchema {
+  const now = Date.now();
+  if (cachedDb && now - lastReadTime < CACHE_TTL_MS) {
+    return cachedDb;
+  }
+
   try {
     if (!fs.existsSync(DB_FILE_PATH)) {
       // Seed default database structure
@@ -97,6 +106,8 @@ export function getDb(): DbSchema {
         newsletterSubscribers: [],
       };
       fs.writeFileSync(DB_FILE_PATH, JSON.stringify(initialDb, null, 2), "utf8");
+      cachedDb = initialDb;
+      lastReadTime = now;
       return initialDb;
     }
 
@@ -132,11 +143,13 @@ export function getDb(): DbSchema {
       fs.writeFileSync(DB_FILE_PATH, JSON.stringify(parsed, null, 2), "utf8");
     }
     
+    cachedDb = parsed;
+    lastReadTime = now;
     return parsed;
   } catch (error) {
     console.error("Error reading JSON database:", error);
     // Return fallback state if JSON parsing fails to avoid app crashes
-    return {
+    const fallback: DbSchema = {
       orders: [],
       unlocks: [],
       topics: DEFAULT_TOPICS,
@@ -146,13 +159,19 @@ export function getDb(): DbSchema {
       projects: DEFAULT_PROJECTS,
       users: [],
       quizResponses: [],
+      newsletterSubscribers: [],
     };
+    cachedDb = fallback;
+    lastReadTime = now;
+    return fallback;
   }
 }
 
 // Function to save the database state
 export function saveDb(db: DbSchema): void {
   try {
+    cachedDb = db;
+    lastReadTime = Date.now();
     fs.writeFileSync(DB_FILE_PATH, JSON.stringify(db, null, 2), "utf8");
   } catch (error) {
     console.error("Error writing JSON database:", error);

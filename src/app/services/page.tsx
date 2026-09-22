@@ -4,7 +4,7 @@ import { CheckCircle, ShieldCheck, ArrowRight, Lock } from "lucide-react";
 import { getServices } from "../../lib/db";
 import ScrollReveal from "../../components/ScrollReveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function Services() {
   const services = getServices();

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BookOpen, ArrowRight, Lock, Calendar, Clock } from "lucide-react";
 import ScrollReveal from "../../components/ScrollReveal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function Blog() {
   const articles = [

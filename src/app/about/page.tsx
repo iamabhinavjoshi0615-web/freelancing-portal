@@ -5,7 +5,7 @@ import { getCmsSettings } from "../../lib/db";
 import ScrollReveal from "../../components/ScrollReveal";
 import AnimatedCounter from "../../components/AnimatedCounter";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function About() {
   const settings = getCmsSettings();

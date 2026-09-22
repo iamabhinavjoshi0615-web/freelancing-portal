@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FileText, ArrowLeft } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default function TermsAndConditionsPage() {
   const settings = getCmsSettings();
