@@ -279,9 +279,9 @@ export default function Home() {
                   Per second data collection and visualization. Zoom into exact costs for all your web systems.
                 </p>
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
-                    OVERVIEW & METRICS
-                  </span>
+                  <Link href="/services" className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline hover:text-[#0EA5E9] transition-colors inline-block">
+                    [ OVERVIEW & METRICS ]
+                  </Link>
                 </div>
               </div>
 
@@ -294,9 +294,9 @@ export default function Home() {
                   Consolidate all ad metrics and developer invoices into a single native console view.
                 </p>
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
-                    LEARN MORE
-                  </span>
+                  <Link href="/about" className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline hover:text-[#0EA5E9] transition-colors inline-block">
+                    [ LEARN MORE ]
+                  </Link>
                 </div>
               </div>
 
@@ -309,9 +309,9 @@ export default function Home() {
                   Install and use immediately. Get fully functional visual dashboards in just seconds after checkout.
                 </p>
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
-                    DETAILS
-                  </span>
+                  <Link href="/services" className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline hover:text-[#0EA5E9] transition-colors inline-block">
+                    [ DETAILS ]
+                  </Link>
                 </div>
               </div>
 
@@ -324,9 +324,9 @@ export default function Home() {
                   Explore all metrics in a meaningful, easy to understand way without developer jargon.
                 </p>
                 <div className="pt-2">
-                  <span className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline cursor-pointer">
-                    VIEW EXAMPLES
-                  </span>
+                  <Link href="/portfolio" className="font-mono text-[10px] font-bold text-[#111827] uppercase tracking-wider underline hover:text-[#0EA5E9] transition-colors inline-block">
+                    [ VIEW EXAMPLES ]
+                  </Link>
                 </div>
               </div>
             </div>
