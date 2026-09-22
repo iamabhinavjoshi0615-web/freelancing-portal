@@ -32,16 +32,16 @@ export default function Header({ agencyName }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#E2E4E8] bg-[#F4F4F6]/95 backdrop-blur-xl transition-all shadow-xs text-[#111827]">
+    <header className="sticky top-0 z-50 w-full border-b border-[#E2E4E8] bg-[#F4F4F6]/90 backdrop-blur-xl transition-all duration-300 ease-out shadow-xs text-[#111827]">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo & Icon */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2.5 group" id="nav-logo">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#18191C] text-white shadow-xs group-hover:scale-105 transition-transform duration-200">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#18191C] text-white shadow-xs group-hover:scale-105 active:scale-95 transition-transform duration-300 ease-out">
               <Terminal className="h-4 w-4 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-base sm:text-lg font-black tracking-tight text-[#111827] transition-colors">
+              <span className="text-base sm:text-lg font-black tracking-tight text-[#111827] transition-colors duration-200">
                 {agencyName}
               </span>
             </div>
@@ -49,14 +49,14 @@ export default function Header({ agencyName }: HeaderProps) {
         </div>
 
         {/* Desktop Navigation Bar */}
-        <nav className="hidden lg:flex items-center gap-1 bg-[#FFFFFF] p-1 rounded-lg border border-[#E2E4E8]">
+        <nav className="hidden lg:flex items-center gap-1 bg-[#FFFFFF] p-1 rounded-lg border border-[#E2E4E8] shadow-xs">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-3 py-1.5 text-xs font-mono font-semibold transition-all duration-150 rounded-md flex items-center gap-1.5 ${
+                className={`relative px-3 py-1.5 text-xs font-mono font-semibold transition-all duration-200 ease-out rounded-md flex items-center gap-1.5 active:scale-95 ${
                   active
                     ? "bg-[#18191C] text-white shadow-xs"
                     : "text-[#4B5563] hover:text-[#111827] hover:bg-[#F4F4F6]"

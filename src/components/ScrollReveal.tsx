@@ -44,12 +44,12 @@ export default function ScrollReveal({
 
   const getInitialTransform = () => {
     switch (direction) {
-      case "up": return "translateY(20px)";
-      case "down": return "translateY(-20px)";
-      case "left": return "translateX(20px)";
-      case "right": return "translateX(-20px)";
-      case "none": return "translate(0, 0)";
-      default: return "translateY(20px)";
+      case "up": return "translate3d(0, 24px, 0) scale(0.985)";
+      case "down": return "translate3d(0, -24px, 0) scale(0.985)";
+      case "left": return "translate3d(24px, 0, 0)";
+      case "right": return "translate3d(-24px, 0, 0)";
+      case "none": return "translate3d(0, 0, 0)";
+      default: return "translate3d(0, 24px, 0) scale(0.985)";
     }
   };
 
@@ -59,9 +59,11 @@ export default function ScrollReveal({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translate(0, 0)" : getInitialTransform(),
-        transition: `opacity 400ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
-        willChange: "opacity, transform",
+        transform: isVisible ? "translate3d(0, 0, 0) scale(1)" : getInitialTransform(),
+        filter: isVisible ? "blur(0px)" : "blur(4px)",
+        transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms, filter 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms`,
+        willChange: "opacity, transform, filter",
+        backfaceVisibility: "hidden",
       }}
     >
       {children}

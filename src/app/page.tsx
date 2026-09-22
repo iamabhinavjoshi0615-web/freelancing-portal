@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, Star, ArrowUpRight, BookOpen, FileText, Award } from "lucide-react";
+import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, Star, ArrowUpRight, BookOpen, FileText, Award, ChevronDown } from "lucide-react";
 import { getCmsSettings, getServices, getProjects, getUnlocks } from "../lib/db";
 import InteractiveQuiz from "../components/InteractiveQuiz";
 import SocialProofCounter from "../components/SocialProofCounter";
@@ -411,19 +411,17 @@ export default function Home() {
               {faqs.map((faq, idx) => (
                 <details
                   key={idx}
-                  className="group rounded-xl border border-[#2E313A] bg-[#22242A] p-6 [&_summary::-webkit-details-marker]:hidden focus-within:ring-2 focus-within:ring-white"
+                  className="group rounded-xl border border-[#2E313A] bg-[#22242A] p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300 ease-out hover:border-[#0EA5E9]/40 focus-within:ring-2 focus-within:ring-white"
                 >
-                  <summary className="flex cursor-pointer items-center justify-between gap-1.5 focus:outline-none">
-                    <h3 className="font-mono text-sm font-bold text-white">
+                  <summary className="flex cursor-pointer items-center justify-between gap-2 focus:outline-none select-none">
+                    <h3 className="font-mono text-sm font-bold text-white group-hover:text-[#0EA5E9] transition-colors duration-200">
                       {faq.q}
                     </h3>
-                    <span className="shrink-0 rounded-full bg-[#18191C] p-1 text-white group-open:rotate-180 transition duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                      </svg>
+                    <span className="shrink-0 rounded-full bg-[#18191C] p-1.5 text-white group-open:rotate-180 transition-transform duration-300 ease-out">
+                      <ChevronDown className="h-4 w-4" />
                     </span>
                   </summary>
-                  <p className="mt-4 text-xs leading-relaxed text-[#9CA3AF]">
+                  <p className="mt-4 text-xs leading-relaxed text-[#9CA3AF] transition-all duration-300 ease-out">
                     {faq.a}
                   </p>
                 </details>
