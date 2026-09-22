@@ -431,7 +431,7 @@ export const DEFAULT_PROJECTS: Project[] = [
       "Clear service-to-inquiry funnel",
       "Bilingual (Hindi + English) SEO"
     ],
-    imageMockup: "https://www.panditmaabaglamukhi.com/og-image.png",
+    imageMockup: "/pandit-maa-baglamukhi-hero.png",
     gallery: [
       { url: "https://www.panditmaabaglamukhi.com/acharya-new.webp", caption: "Acharya Pt. Rudraksh Rajpurohit" },
       { url: "https://www.panditmaabaglamukhi.com/mata-baglamukhi.webp", caption: "Siddh Peeth Maa Baglamukhi" },
