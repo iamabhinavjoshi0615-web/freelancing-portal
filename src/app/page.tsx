@@ -139,8 +139,6 @@ export default function Home() {
       <ScrollReveal>
         <section className="relative overflow-hidden bg-[#18191C] bg-tech-grid-dark py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#2E313A]">
           <div className="mx-auto max-w-6xl">
-            <span className="wireframe-section-label-dark">A. HEADER & NAVIGATION</span>
-            
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-6">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -173,16 +171,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Geometric Graphic Placeholder / Cube Wireframe Visual */}
+              {/* Geometric Graphic Placeholder / Cube Visual */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-72 h-72 sm:w-80 sm:h-80 bg-[#22242A] border border-[#2E313A] rounded-2xl flex flex-col items-center justify-center p-6 shadow-2xl overflow-hidden group">
                   <div className="absolute inset-0 bg-tech-grid-dark opacity-30"></div>
                   <div className="relative z-10 w-24 h-24 sm:w-32 sm:h-32 border-2 border-white/40 rotate-12 group-hover:rotate-45 transition-transform duration-700 flex items-center justify-center bg-[#18191C]/80 backdrop-blur-md">
                     <Code className="w-10 h-10 text-white" />
                   </div>
-                  <span className="relative z-10 mt-6 font-mono text-xs font-bold uppercase tracking-widest text-[#9CA3AF]">
-                    System Architecture v2.4
-                  </span>
                 </div>
               </div>
             </div>
@@ -193,12 +188,10 @@ export default function Home() {
       {/* Client Logo/Name Auto-Scrolling Marquee Strip */}
       <ClientMarquee />
 
-      {/* Section B: Popularity Metrics Banner (Dark Charcoal Wireframe Banner) */}
+      {/* Section B: Popularity Metrics Banner (Dark Charcoal Banner) */}
       <ScrollReveal>
         <section className="bg-[#18191C] border-b border-[#2E313A] py-12 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl">
-            <div className="wireframe-section-label-dark mb-4 text-center">B. POPULARITY METRICS</div>
-            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
               <div className="p-6 bg-[#121316] border border-[#2E313A] space-y-1">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
@@ -238,7 +231,6 @@ export default function Home() {
       <ScrollReveal>
         <section id="calculator-quiz" className="bg-[#18191C] border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8 scroll-mt-20">
           <div className="mx-auto max-w-6xl space-y-4">
-            <span className="wireframe-section-label-dark">C. RAPID INSTALLATION & SCOPE CALCULATOR</span>
             <div className="terminal-box p-6 sm:p-8">
               <InteractiveQuiz />
             </div>
@@ -246,12 +238,11 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Section D: Why Choose Us / Services (Wireframe Clean Light Section #F4F4F6) */}
+      {/* Section D: Why Choose Us / Services (Clean Light Section #F4F4F6) */}
       <ScrollReveal>
         <section className="bg-[#F4F4F6] text-[#111827] border-b border-[#E2E4E8] py-20 px-4 sm:px-6 lg:px-8 bg-tech-grid">
           <div className="mx-auto max-w-6xl space-y-16">
             <div className="text-center max-w-3xl mx-auto">
-              <span className="wireframe-section-label">D. WHY CHOOSE OUR BLUEPRINTS</span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#111827]">
                 Why Choose Our Technical System?
               </h2>
@@ -357,12 +348,11 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Section E: Testimonials & Social Proof (Wireframe Clean Light Section #F4F4F6) */}
+      {/* Section E: Testimonials & Social Proof (Clean Light Section #F4F4F6) */}
       <ScrollReveal>
         <section className="bg-[#F4F4F6] text-[#111827] border-b border-[#E2E4E8] py-20 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl space-y-12">
             <div className="text-center max-w-3xl mx-auto">
-              <span className="wireframe-section-label">E. TESTIMONIALS</span>
               <h2 className="text-3xl font-bold tracking-tight text-[#111827]">
                 What Developers & Business Owners Are Saying
               </h2>
@@ -395,12 +385,11 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Section F: Live Wireframe / FAQ & Deployment (Wireframe Dark Charcoal #18191C) */}
+      {/* Section F: Live FAQ & Deployment (Dark Charcoal #18191C) */}
       <ScrollReveal>
         <section className="bg-[#18191C] border-b border-[#2E313A] py-20 px-4 sm:px-6 lg:px-8 bg-tech-grid-dark">
           <div className="mx-auto max-w-4xl space-y-12">
             <div className="text-center space-y-2">
-              <span className="wireframe-section-label-dark">F. FAQ & SYSTEM DEPLOYMENT</span>
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Frequently Asked Questions
               </h2>

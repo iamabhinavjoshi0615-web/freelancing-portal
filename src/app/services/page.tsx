@@ -39,7 +39,6 @@ export default function Services() {
         <div className="max-w-7xl mx-auto space-y-8">
           <ScrollReveal>
             <div className="border-b border-[#E2E4E8] pb-6">
-              <div className="wireframe-section-label-dark mb-2">A. WEB DEVELOPMENT & PORTALS</div>
               <h2 className="text-2xl font-mono font-bold text-[#18191C]">
                 Custom Website & E-commerce Solutions
               </h2>
@@ -119,7 +118,6 @@ export default function Services() {
         <div className="max-w-7xl mx-auto space-y-8">
           <ScrollReveal>
             <div className="border-b border-[#2E313A] pb-6">
-              <div className="wireframe-section-label mb-2">B. DIGITAL MARKETING & ADS</div>
               <h2 className="text-2xl font-mono font-bold text-[#FFFFFF]">
                 Ad Campaign Management & Organic SEO
               </h2>

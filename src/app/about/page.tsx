@@ -64,7 +64,6 @@ export default function About() {
         <div className="max-w-7xl mx-auto space-y-8">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <div className="wireframe-section-label-dark mx-auto mb-2">A. LEADERSHIP</div>
               <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#18191C]">
                 Meet the Founder
               </h2>
@@ -119,7 +118,6 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Side: Text Story */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="wireframe-section-label mb-2">B. OUR PHILOSOPHY</div>
                 <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#FFFFFF] leading-tight">
                   {settings.aboutTitle}
                 </h2>
@@ -186,7 +184,6 @@ export default function About() {
         <div className="max-w-7xl mx-auto space-y-10">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto">
-              <div className="wireframe-section-label-dark mx-auto mb-2">C. OPERATING PRINCIPLES</div>
               <h2 className="text-2xl sm:text-3xl font-mono font-bold text-[#18191C]">Our Operating Values</h2>
               <p className="text-sm text-[#526075] mt-2 font-sans">The guidelines that define our client relationships and project workflows.</p>
             </div>
