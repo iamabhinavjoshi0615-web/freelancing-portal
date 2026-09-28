@@ -64,7 +64,7 @@ export default function Footer({
       {/* Trust Metrics Banner */}
       <div className="border-b border-[#2E313A] bg-[#121316]">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-mono">
             <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C] rounded-lg">
               <div className="flex items-center justify-center w-7 h-7 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 text-xs">
                 01
@@ -91,15 +91,6 @@ export default function Footer({
                 <AnimatedCounter value="3+" />
               </span>
               <span className="text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider mt-1">YEARS OF ENGINEERING</span>
-            </div>
-            <div className="flex flex-col items-center p-4 border border-[#2E313A] bg-[#18191C] rounded-lg">
-              <div className="flex items-center justify-center w-7 h-7 rounded bg-[#2E313A]/50 text-[#8E95A5] mb-2 text-xs">
-                04
-              </div>
-              <span className="text-2xl sm:text-3xl font-bold text-[#FFFFFF]">
-                <AnimatedCounter value="500+" />
-              </span>
-              <span className="text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider mt-1">INDIAN SMBs GUIDED</span>
             </div>
           </div>
         </div>

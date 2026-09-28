@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Lock, Shield, ArrowLeft } from "lucide-react";
+import { Shield, ArrowLeft } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
 export const revalidate = 60;
@@ -27,54 +27,80 @@ export default function PrivacyPolicyPage() {
             </h1>
           </div>
           <p className="text-xs text-[#8E95A5]">
-            Effective Date: September 2026 • Last updated for {settings.agencyName}
+            Effective Date: September 2026 • {settings.agencyName}
           </p>
         </div>
 
         <div className="bg-[#121316] border border-[#2E313A] p-6 sm:p-10 rounded-xl space-y-6 text-xs leading-relaxed text-[#9CA3AF] font-sans">
+          {/* Section 1: Information We Collect */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
               1. Information We Collect
             </h2>
             <p>
-              When you use our website, consult our tools, or purchase digital diagnostic blueprints, we collect personal information required to process your transaction and provide consulting services:
+              When you interact with our site, consult our estimation tools, or purchase digital guides/services, we collect the following personal information:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-[#E2E4E8]">
-              <li>Contact details: Full Name, Email Address, and Phone/WhatsApp Number.</li>
-              <li>Transaction data: Payment confirmation details processed securely via Razorpay payment gateway. (Note: We do not store full credit/debit card numbers or UPI PINs on our servers).</li>
-              <li>Technical usage data: Diagnostic calculator selections, device browser type, and page access timestamps.</li>
+              <li><strong className="text-white">Contact Information:</strong> Full Name, Email Address, and Phone / WhatsApp Number.</li>
+              <li><strong className="text-white">Quiz & Estimator Responses:</strong> Selections made during project estimation quizzes (e.g., website type, feature requirements, budget preferences).</li>
+              <li><strong className="text-white">Payment Details:</strong> Transactions are processed securely via Razorpay. Full card details, banking credentials, and UPI PINs are processed on Razorpay&apos;s encrypted servers and are <strong className="text-white">never stored on our servers</strong>.</li>
             </ul>
           </section>
 
+          {/* Section 2: Why Information is Collected */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
-              2. How We Use Your Data
+              2. Purpose of Collection
             </h2>
-            <p>
-              We strictly utilize your collected data for the following operational purposes:
-            </p>
+            <p>We collect and use your data strictly for the following purposes:</p>
             <ul className="list-disc pl-5 space-y-1 text-[#E2E4E8]">
-              <li>Instantly unlocking and delivering digital consultancy blueprints upon payment confirmation.</li>
-              <li>Sending transaction receipts, WhatsApp/Email service updates, and scheduling discovery calls.</li>
-              <li>Providing technical customer support for custom web builds and ad campaign setups.</li>
+              <li>To generate and provide personalized project estimates and technical advice.</li>
+              <li>To securely process payments for digital guide unlocks and service retainers.</li>
+              <li>To deliver purchased digital guides, blueprints, and project deliverables instantly.</li>
+              <li>To optionally follow up via WhatsApp or email regarding your inquiry if you have explicitly opted in.</li>
             </ul>
           </section>
 
+          {/* Section 3: Data Sharing & Third Parties */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
-              3. Data Non-Disclosure & Security
+              3. Data Non-Disclosure & Third-Party Sharing
             </h2>
             <p>
-              We maintain a zero-spam policy. <strong className="text-white">We do not sell, rent, or trade your personal data to third parties.</strong> All payment processing is encrypted end-to-end through Razorpay PCI-DSS compliant infrastructure.
+              We enforce a strict confidentiality and zero-spam policy. <strong className="text-white">Your personal data is never sold, rented, or shared with third parties for marketing purposes.</strong> Data is shared only with trusted infrastructure providers (such as Razorpay for payment processing or messaging tools for delivering purchased guides) strictly as required to process payments or deliver requested services.
             </p>
           </section>
 
+          {/* Section 4: Data Retention & User Rights */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
-              4. Contact for Privacy & Data Queries
+              4. Data Retention & User Rights
             </h2>
             <p>
-              If you have questions regarding your personal data or wish to request data correction/deletion, please contact our team:
+              We retain transaction records and inquiry data only as long as necessary to maintain active service records, fulfill legal obligations, and support past purchasers.
+            </p>
+            <p>
+              <strong className="text-white">Your Rights:</strong> You have full control over your data. You may request access to, correction of, or deletion of your personal information at any time by contacting our support team.
+            </p>
+          </section>
+
+          {/* Section 5: Cookies & Analytics Disclosure */}
+          <section className="space-y-2">
+            <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
+              5. Cookie Usage & Analytics Disclosure
+            </h2>
+            <p>
+              Our website uses cookies and lightweight analytics tools to understand visitor interactions, track page performance, and enhance user navigation. These cookies help us optimize loading speeds and measure the effectiveness of our resource guides. You can manage or disable cookie preferences directly through your web browser settings.
+            </p>
+          </section>
+
+          {/* Section 6: Contact Us */}
+          <section className="space-y-2 border-t border-[#2E313A] pt-4">
+            <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
+              6. Contact for Privacy Inquiries
+            </h2>
+            <p>
+              For any questions regarding this Privacy Policy, data access requests, or deletion inquiries, please reach out to us:
             </p>
             <div className="p-4 bg-[#18191C] border border-[#2E313A] font-mono text-xs text-[#E2E4E8] space-y-1">
               <p>Email: <a href={`mailto:${settings.contactEmail}`} className="underline text-white">{settings.contactEmail}</a></p>

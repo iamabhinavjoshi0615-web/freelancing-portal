@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, Star, ArrowUpRight, BookOpen, FileText, Award, ChevronDown } from "lucide-react";
 import { getCmsSettings, getServices, getProjects, getUnlocks } from "../lib/db";
 import InteractiveQuiz from "../components/InteractiveQuiz";
-import SocialProofCounter from "../components/SocialProofCounter";
 import ScrollReveal from "../components/ScrollReveal";
 import AnimatedCounter from "../components/AnimatedCounter";
 import ClientMarquee from "../components/ClientMarquee";
@@ -198,7 +197,7 @@ export default function Home() {
       <ScrollReveal>
         <section className="bg-[#18191C] border-b border-[#2E313A] py-12 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
               <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
                 <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
                   <AnimatedCounter value="10+" />
@@ -225,23 +224,9 @@ export default function Home() {
                   YEARS OF ENGINEERING
                 </span>
               </div>
-
-              <div className="p-6 bg-[#121316] border border-[#2E313A] rounded-xl space-y-2.5 flex flex-col items-center justify-center">
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-white block">
-                  <AnimatedCounter value="500+" />
-                </span>
-                <span className="font-mono text-[11px] sm:text-xs text-[#8E95A5] uppercase tracking-wider block font-semibold">
-                  INDIAN SMBs GUIDED
-                </span>
-              </div>
             </div>
           </div>
         </section>
-      </ScrollReveal>
-
-      {/* Live Social Proof Activity Ticker */}
-      <ScrollReveal>
-        <SocialProofCounter initialUnlocksCount={unlocks.length} />
       </ScrollReveal>
 
       {/* Section C: Rapid Installation / Calculator Quiz (Dark Terminal Block) */}

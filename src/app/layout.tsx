@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   title: "The Industries | Premium Web Development & Digital Marketing India",
   description: "Get high-performance business websites, Shopify stores, and lead-generating Google/Meta ad campaigns. Professional digital consultancy starting at just ₹99.",
   keywords: ["web development India", "digital marketing agency", "small business website", "Google Ads management", "Meta Ads India", "The Industries"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

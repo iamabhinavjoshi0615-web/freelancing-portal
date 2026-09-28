@@ -32,41 +32,61 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="bg-[#121316] border border-[#2E313A] p-6 sm:p-10 rounded-xl space-y-6 text-xs leading-relaxed text-[#9CA3AF] font-sans">
+          {/* Section 1: General Site Usage Terms */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
-              1. Agreement to Terms
+              1. General Site Usage Terms
             </h2>
             <p>
-              By accessing our website ({settings.agencyName}) or purchasing any digital guide, scope calculator blueprint, or custom implementation service, you agree to be bound by these Terms & Conditions.
+              By accessing, browsing, or using this website ({settings.agencyName}) or utilizing our interactive estimation tools and digital resource blueprints, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, please refrain from using our site.
             </p>
           </section>
 
+          {/* Section 2: Service Delivery Terms */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
-              2. Service Delivery & Payment Terms
+              2. Service & Product Delivery Terms
             </h2>
             <ul className="list-disc pl-5 space-y-1 text-[#E2E4E8]">
-              <li>Digital blueprints and guide unlocks are made accessible instantly on page upon payment completion via UPI/Cards/Netbanking.</li>
-              <li>Custom website development and performance ad management services require a 50% advance deposit to commence project milestones, with the remaining 50% payable prior to final file/access handover.</li>
-              <li>Monthly retainers for SEO and website maintenance are billed monthly in advance.</li>
+              <li>
+                <strong className="text-white">Digital Guides & Blueprints:</strong> All purchased guides and diagnostic blueprints are digital products and are delivered instantly upon successful payment completion via Razorpay. Access is provided immediately on-screen and/or via electronic communication.
+              </li>
+              <li>
+                <strong className="text-white">Custom Project Work & Retainers:</strong> Website development, e-commerce builds, and performance ad management services follow individually agreed project timelines, written scopes of work, and milestone schedules. Payment terms generally require a 50% advance deposit prior to work commencement, with the remaining balance due upon completion before final access or asset handover.
+              </li>
             </ul>
           </section>
 
+          {/* Section 3: Intellectual Property */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
               3. Intellectual Property Rights
             </h2>
             <p>
-              Upon complete payment of project invoices, clients receive 100% full ownership of custom website code, media assets, and credentials delivered by our team. There is zero vendor lock-in.
+              All original content, site code, design assets, guides, calculators, and materials published on this website remain the exclusive property of {settings.agencyName} unless explicitly agreed otherwise in writing.
+            </p>
+            <p>
+              For custom client projects, full ownership of custom code, design files, and domain credentials transfers completely to the client upon full payment of project invoices.
             </p>
           </section>
 
+          {/* Section 4: Limitation of Liability */}
           <section className="space-y-2">
             <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
               4. Limitation of Liability
             </h2>
             <p>
-              Ad spend is paid directly to advertising platforms (Google Ads, Meta Ads). {settings.agencyName} is not responsible for external ad network policy changes or third-party hosting service disruptions outside our direct control.
+              Our guides, diagnostic calculators, and blueprints provide general informational and technical guidance based on industry best practices. Actual business outcomes, ad conversion rates, and revenue results depend entirely on individual execution, external market conditions, ad platform policies, and product-market fit. {settings.agencyName} shall not be held liable for third-party hosting disruptions or advertising campaign performance variations outside our direct scope of work.
+            </p>
+          </section>
+
+          {/* Section 5: Governing Law */}
+          <section className="space-y-2 border-t border-[#2E313A] pt-4">
+            <h2 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
+              5. Governing Law & Jurisdiction
+            </h2>
+            <p>
+              These Terms & Conditions shall be governed by and construed in accordance with the laws of <strong className="text-white">India</strong>. Any disputes arising out of or related to the use of this website or our services shall be subject to the exclusive jurisdiction of the competent courts in India.
             </p>
           </section>
         </div>
