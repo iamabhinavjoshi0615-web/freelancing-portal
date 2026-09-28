@@ -259,3 +259,43 @@ a.btn:active,
   animation-play-state: paused;
 }
 
+/* Services Page Faint Scrolling Background Animation */
+@keyframes serviceScrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes serviceScrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-service-scroll-left-30 {
+  animation: serviceScrollLeft 30s linear infinite;
+}
+
+.animate-service-scroll-right-30 {
+  animation: serviceScrollRight 30s linear infinite;
+}
+
+.animate-service-scroll-left-40 {
+  animation: serviceScrollLeft 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-service-scroll-left-30,
+  .animate-service-scroll-right-30,
+  .animate-service-scroll-left-40 {
+    animation: none !important;
+  }
+}
+
+

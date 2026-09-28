@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Lock, CheckCircle, Code, ShieldCheck, Star, ArrowUpRight, BookOpen, FileText, Award, ChevronDown } from "lucide-react";
 import { getCmsSettings, getServices, getProjects, getUnlocks } from "../lib/db";
@@ -8,6 +9,16 @@ import AnimatedCounter from "../components/AnimatedCounter";
 import ClientMarquee from "../components/ClientMarquee";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "High-Performance Web Development & Digital Marketing India | The Industries",
+  description: "Get high-converting landing pages, custom business websites, e-commerce stores, and ROI-driven Google & Meta ad campaigns for Indian MSMEs.",
+  openGraph: {
+    title: "High-Performance Web Development & Digital Marketing India | The Industries",
+    description: "Get high-converting landing pages, custom business websites, e-commerce stores, and ROI-driven Google & Meta ad campaigns for Indian MSMEs.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "The Industries" }],
+  },
+};
 
 export default function Home() {
   const settings = getCmsSettings();

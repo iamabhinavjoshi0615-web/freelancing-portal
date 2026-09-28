@@ -1,9 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import { getPricingTiers } from "../../lib/db";
 import PricingPageClient from "../../components/PricingPageClient";
 import ScrollReveal from "../../components/ScrollReveal";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Transparent Web Development & Ad Management Pricing | The Industries",
+  description: "Clear, fixed-scope pricing for business websites, landing pages, e-commerce stores, Google/Meta ads management, and local SEO. No hidden fees or recurring hosting markups.",
+  openGraph: {
+    title: "Transparent Web Development & Ad Management Pricing | The Industries",
+    description: "Clear, fixed-scope pricing for business websites, landing pages, e-commerce stores, Google/Meta ads management, and local SEO.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "The Industries Pricing" }],
+  },
+};
 
 export default function Pricing() {
   const tiers = getPricingTiers();

@@ -2,13 +2,176 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calculator, Lock, ShieldAlert } from "lucide-react";
+import { CheckCircle, X, ShieldAlert, Lock } from "lucide-react";
 import { PriceTier } from "../lib/content";
 import ScrollReveal from "./ScrollReveal";
 
 interface PricingPageClientProps {
   initialTiers: PriceTier[];
 }
+
+interface PackageItem {
+  id: string;
+  name: string;
+  tagline: string;
+  price: string;
+  priceSuffix: string;
+  delivery: string;
+  support: string;
+  isPopular?: boolean;
+  included: string[];
+  notIncluded: string[];
+}
+
+interface ServiceItem {
+  id: string;
+  name: string;
+  tagline: string;
+  price: string;
+  priceSuffix: string;
+  billingNotice: string;
+  disclaimer?: string;
+  included: string[];
+  notIncluded: string[];
+}
+
+const WEBSITE_PACKAGES: PackageItem[] = [
+  {
+    id: "landing-page",
+    name: "Landing Page",
+    tagline: "Single-page design built to drive ad leads and customer inquiries.",
+    price: "₹4,999",
+    priceSuffix: "+ GST (one-time)",
+    delivery: "3–5 days",
+    support: "15 days",
+    included: [
+      "single-page design",
+      "mobile responsive",
+      "contact form with email delivery",
+      "WhatsApp button",
+      "basic SEO setup (title, description, sitemap)",
+      "Google Analytics setup",
+    ],
+    notIncluded: [
+      "multiple pages",
+      "admin panel",
+      "blog",
+      "online payments",
+      "monthly SEO or ad management",
+    ],
+  },
+  {
+    id: "business-website",
+    name: "Business Website",
+    tagline: "Multi-page website for companies looking to establish trust and generate local leads.",
+    price: "₹8,999",
+    priceSuffix: "+ GST (one-time)",
+    delivery: "7–10 days",
+    support: "30 days",
+    isPopular: true,
+    included: [
+      "up to 5 pages (Home, About, Services, Contact, and one extra)",
+      "mobile responsive",
+      "contact form and lead capture",
+      "WhatsApp button",
+      "on-page SEO setup",
+      "Google Analytics and Search Console setup",
+      "blog section",
+    ],
+    notIncluded: [
+      "online store or payments",
+      "custom admin panel",
+      "monthly SEO or ad management",
+    ],
+  },
+  {
+    id: "ecommerce-store",
+    name: "E-commerce Store",
+    tagline: "Complete online storefront to display products and accept online payments.",
+    price: "₹18,999",
+    priceSuffix: "+ GST (one-time)",
+    delivery: "14–21 days",
+    support: "45 days",
+    included: [
+      "product catalog and cart",
+      "UPI, card, and netbanking checkout",
+      "order and inventory management",
+      "mobile responsive",
+      "on-page SEO setup",
+      "Google Analytics setup",
+    ],
+    notIncluded: [
+      "product photography",
+      "ongoing product uploads",
+      "monthly SEO or ad management",
+      "marketplace integrations",
+    ],
+  },
+];
+
+const RECURRING_SERVICES: ServiceItem[] = [
+  {
+    id: "ads-management",
+    name: "Google & Meta Ads Management",
+    tagline: "End-to-end ad campaign setup and optimization to drive inquiries and sales.",
+    price: "₹7,999/month",
+    priceSuffix: "+ GST",
+    billingNotice: "Billed monthly in advance.",
+    disclaimer: "Ad spend (paid directly to Google/Meta) is separate from our management fee.",
+    included: [
+      "Targeted Keyword & Audience Setup",
+      "Custom Graphic & Reels Video Ad Creatives",
+      "Meta Pixel & Conversion Tracking Audit",
+      "A/B Split Testing & Bid Optimization",
+      "Weekly ROAS & Lead Reports",
+      "Dedicated Ad Specialist",
+    ],
+    notIncluded: [
+      "Ad budget (paid directly to ad platforms)",
+      "Website redesign",
+      "Organic social media content creation",
+    ],
+  },
+  {
+    id: "local-seo",
+    name: "Local SEO & Organic Growth",
+    tagline: "Google Maps & search ranking optimization to attract organic local customers.",
+    price: "₹5,999/month",
+    priceSuffix: "+ GST",
+    billingNotice: "Billed monthly in advance.",
+    included: [
+      "Google Business Profile (GMB) Optimization",
+      "Local Map Pack Ranking Strategy",
+      "Technical & On-Page SEO Optimization",
+      "High-DA Citation & Backlink Building",
+      "Monthly Keyword Rank Tracking",
+    ],
+    notIncluded: [
+      "Google/Meta paid ads budget",
+      "Website redesign",
+      "Content writing beyond GMB updates",
+    ],
+  },
+  {
+    id: "website-maintenance",
+    name: "Website Maintenance",
+    tagline: "Regular maintenance, security monitoring, and uptime protection for your website.",
+    price: "from ₹999/month",
+    priceSuffix: "+ GST",
+    billingNotice: "Billed monthly in advance.",
+    included: [
+      "Uptime checks and minor fixes",
+      "Core & plugin security updates",
+      "Monthly database and file backups",
+      "Basic security scanning & malware monitoring",
+    ],
+    notIncluded: [
+      "Major redesigns or new feature development",
+      "Third-party paid plugin subscriptions",
+      "24/7 emergency hotline",
+    ],
+  },
+];
 
 export default function PricingPageClient({ initialTiers }: PricingPageClientProps) {
   // Calculator States
@@ -39,14 +202,12 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
       devFeeMax = 22000;
     }
 
-    // Hosting estimates
     if (hostingQuality === "shared") {
-      hostingCost = 1500; // yearly shared
+      hostingCost = 1500;
     } else {
-      hostingCost = 9600; // yearly cloud (approx ₹800/mo)
+      hostingCost = 9600;
     }
 
-    // Domain estimates
     if (domainExtension === "in") {
       domainCost = 399;
     } else if (domainExtension === "com") {
@@ -55,7 +216,6 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
       domainCost = 0;
     }
 
-    // Monthly maintenance additions
     let maintCost = 0;
     if (maintenance === "basic") maintCost = 1999;
     if (maintenance === "premium") maintCost = 4999;
@@ -76,117 +236,234 @@ export default function PricingPageClient({ initialTiers }: PricingPageClientPro
 
   const est = calculateEstimate();
 
-  // Group tiers by category
-  // Helper for timeline estimates per pricing tier item
-  const getItemTimeline = (item: string, category: string) => {
-    const itemLower = item.toLowerCase();
-    const catLower = category.toLowerCase();
-
-    if (itemLower.includes("landing")) return "Delivery: 1-2 weeks";
-    if (itemLower.includes("basic") || itemLower.includes("business")) return "Delivery: 2-3 weeks";
-    if (itemLower.includes("booking") || itemLower.includes("service")) return "Delivery: 3-4 weeks";
-    if (itemLower.includes("e-commerce") || itemLower.includes("ecommerce")) return "Delivery: 4-6 weeks";
-    if (catLower.includes("retainer") || catLower.includes("maintenance") || catLower.includes("ad")) {
-      return "Starts within: 3-5 business days";
-    }
-    return "Delivery: Instant (Same Day)";
-  };
-
-  const categories = Array.from(new Set(initialTiers.map((t) => t.category)));
-
   return (
     <div className="space-y-16 text-[#E2E4E8]">
-      {/* Estimated Delivery Timelines Summary */}
+      {/* SECTION 1: WEBSITE PACKAGES */}
       <ScrollReveal>
-        <div className="space-y-4 font-mono">
-          <div className="wireframe-section-label mb-1">// ESTIMATED DELIVERY TIMELINES</div>
-          <h2 className="text-xl font-bold text-[#FFFFFF] uppercase tracking-wider">
-            STANDARD PACKAGE DELIVERY TIMELINES
+        <div className="space-y-6">
+          <div className="wireframe-section-label mb-1">// WEBSITE & APPLICATION PACKAGES</div>
+          <h2 className="text-2xl font-mono font-bold text-[#FFFFFF] uppercase tracking-wider">
+            FIXED-SCOPE DEVELOPMENT PACKAGES
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
-              <div className="text-xs font-bold text-[#FFFFFF]">Landing Page / Starter Tier</div>
-              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 1-2 weeks</div>
-            </div>
-            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
-              <div className="text-xs font-bold text-[#FFFFFF]">Basic Business Website Tier</div>
-              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 2-3 weeks</div>
-            </div>
-            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
-              <div className="text-xs font-bold text-[#FFFFFF]">Booking / Service Website Tier</div>
-              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 3-4 weeks</div>
-            </div>
-            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1">
-              <div className="text-xs font-bold text-[#FFFFFF]">E-commerce Website Tier</div>
-              <div className="text-xs text-[#8E95A5] font-mono">Delivery: 4-6 weeks</div>
-            </div>
-            <div className="p-4 bg-[#121316] border border-[#2E313A] space-y-1 sm:col-span-2 lg:col-span-2">
-              <div className="text-xs font-bold text-[#FFFFFF]">Monthly Retainers (Ad Management, SEO, Maintenance)</div>
-              <div className="text-xs text-[#8E95A5] font-mono">Starts within: 3-5 business days</div>
-            </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            {WEBSITE_PACKAGES.map((pkg) => {
+              const isPopular = pkg.isPopular;
+              return (
+                <div
+                  key={pkg.id}
+                  className={`bg-[#121316] p-6 sm:p-8 flex flex-col justify-between rounded-lg transition-all duration-300 card-hover ${
+                    isPopular ? "border-2 border-[#0EA5E9]" : "border border-[#2E313A]"
+                  }`}
+                >
+                  <div>
+                    {/* Plain Text Label for Most Popular (No pill badge, no glow, no gradient) */}
+                    {isPopular && (
+                      <div className="text-xs font-mono font-bold text-[#0EA5E9] uppercase tracking-wider mb-2">
+                        // MOST POPULAR
+                      </div>
+                    )}
+
+                    {/* a) Package Name & One-Line Description */}
+                    <h3 className="text-xl font-mono font-bold text-[#FFFFFF]">{pkg.name}</h3>
+                    <p className="mt-1 text-xs text-[#8E95A5] font-sans leading-relaxed">
+                      {pkg.tagline}
+                    </p>
+
+                    {/* b) Price with + GST */}
+                    <div className="mt-4 pt-4 border-t border-[#2E313A] flex items-baseline gap-2">
+                      <span className="text-3xl font-mono font-bold text-[#FFFFFF]">{pkg.price}</span>
+                      <span className="text-xs font-mono text-[#8E95A5]">{pkg.priceSuffix}</span>
+                    </div>
+
+                    {/* c) Delivery Time */}
+                    <div className="mt-3 inline-block bg-[#18191C] px-3 py-1 border border-[#2E313A] text-xs font-mono text-[#8E95A5]">
+                      Delivery: {pkg.delivery}
+                    </div>
+
+                    {/* d) Included List with Green Check Icons */}
+                    <div className="mt-6 space-y-2">
+                      <h4 className="text-[11px] font-mono font-bold text-[#FFFFFF] uppercase tracking-wider">
+                        Included:
+                      </h4>
+                      <ul className="space-y-2 text-xs font-sans text-[#E2E4E8]">
+                        {pkg.included.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* e) Not Included List with Muted Gray Cross Icons */}
+                    <div className="mt-6 space-y-2">
+                      <h4 className="text-[11px] font-mono font-bold text-[#8E95A5] uppercase tracking-wider">
+                        Not included:
+                      </h4>
+                      <ul className="space-y-2 text-xs font-sans text-[#8E95A5]">
+                        {pkg.notIncluded.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <X className="w-4 h-4 text-[#8E95A5] shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* f) Support Line */}
+                    <div className="mt-6 pt-4 border-t border-[#2E313A] text-xs font-mono text-[#8E95A5]">
+                      Post-launch support: <span className="font-bold text-[#FFFFFF]">{pkg.support}</span>
+                    </div>
+                  </div>
+
+                  {/* g) Primary Button "Get this package" */}
+                  <div className="mt-8">
+                    <Link
+                      href={`/contact?package=${encodeURIComponent(pkg.name)}`}
+                      className="btn-bracket block w-full py-3 text-xs font-mono text-center text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#18191C] transition-colors rounded-md"
+                    >
+                      Get this package
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Short Note Under Cards */}
+          <div className="p-4 bg-[#121316] border border-[#2E313A] text-xs font-mono text-[#8E95A5] rounded-lg">
+            <strong>Note:</strong> Support covers bug fixes, small content changes, and help using your site. New features or major changes are quoted separately.
           </div>
         </div>
       </ScrollReveal>
 
-      {/* Basic Pricing Tables */}
-      <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {categories.map((category, catIdx) => (
-            <ScrollReveal key={category} delayMs={catIdx * 120}>
-              <div className="bg-[#121316] border border-[#2E313A] p-6 h-full flex flex-col justify-between">
+      {/* SECTION 2: RECURRING SERVICES ("Ongoing services") */}
+      <ScrollReveal>
+        <div className="space-y-6">
+          <div className="wireframe-section-label mb-1">// MONTHLY MARKETING & MAINTENANCE RETAINERS</div>
+          <h2 className="text-2xl font-mono font-bold text-[#FFFFFF] uppercase tracking-wider">
+            Ongoing services
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            {RECURRING_SERVICES.map((srv) => (
+              <div
+                key={srv.id}
+                className="bg-[#121316] border border-[#2E313A] p-6 sm:p-8 flex flex-col justify-between rounded-lg transition-all duration-300 card-hover"
+              >
                 <div>
-                  <div className="wireframe-section-label mb-2">// CATEGORY 0{catIdx + 1}</div>
-                  <h3 className="text-lg font-mono font-bold text-[#FFFFFF] border-b border-[#2E313A] pb-3 mb-4 uppercase tracking-wider">
-                    {category} CHARGES
-                  </h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-xs font-mono text-left">
-                      <thead>
-                        <tr className="text-[#8E95A5] uppercase tracking-wider border-b border-[#2E313A]">
-                          <th className="py-3 font-semibold">Service / Item</th>
-                          <th className="py-3 font-semibold text-right">Standard Cost</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-[#2E313A]">
-                        {initialTiers
-                          .filter((t) => t.category === category)
-                          .map((t, idx) => (
-                            <tr key={idx} className="hover:bg-[#18191C] transition-colors">
-                              <td className="py-3 font-mono text-[#E2E4E8]">
-                                {t.item}
-                                <span className="block text-[10px] text-[#8E95A5] font-mono mt-0.5">
-                                  Billing: {t.billing} • <span className="text-[#8E95A5] font-medium">{getItemTimeline(t.item, t.category)}</span>
-                                </span>
-                              </td>
-                              <td className="py-3 text-right font-bold font-mono text-[#FFFFFF]">
-                                {t.basicPrice}
-                              </td>
-                            </tr>
-                          ))}
-                      </tbody>
-                    </table>
+                  {/* Name & One-Line Description */}
+                  <h3 className="text-xl font-mono font-bold text-[#FFFFFF]">{srv.name}</h3>
+                  <p className="mt-1 text-xs text-[#8E95A5] font-sans leading-relaxed">
+                    {srv.tagline}
+                  </p>
+
+                  {/* Price */}
+                  <div className="mt-4 pt-4 border-t border-[#2E313A] flex items-baseline gap-2">
+                    <span className="text-2xl font-mono font-bold text-[#FFFFFF]">{srv.price}</span>
+                    <span className="text-xs font-mono text-[#8E95A5]">{srv.priceSuffix}</span>
+                  </div>
+
+                  {/* Billing Notice */}
+                  <div className="mt-2 text-xs font-mono text-[#8E95A5]">
+                    {srv.billingNotice}
+                  </div>
+
+                  {/* Ad Spend Disclaimer if applicable */}
+                  {srv.disclaimer && (
+                    <div className="mt-4 p-3 bg-[#18191C] border border-[#2E313A] text-xs font-mono text-[#8E95A5] space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-[#FFFFFF] text-[10px] uppercase">
+                        <ShieldAlert className="w-3.5 h-3.5 text-[#8E95A5] shrink-0" />
+                        AD SPEND DISCLAIMER
+                      </div>
+                      <p className="text-[11px] leading-relaxed">{srv.disclaimer}</p>
+                    </div>
+                  )}
+
+                  {/* Included List */}
+                  <div className="mt-6 space-y-2">
+                    <h4 className="text-[11px] font-mono font-bold text-[#FFFFFF] uppercase tracking-wider">
+                      Included:
+                    </h4>
+                    <ul className="space-y-2 text-xs font-sans text-[#E2E4E8]">
+                      {srv.included.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Not Included List */}
+                  <div className="mt-6 space-y-2">
+                    <h4 className="text-[11px] font-mono font-bold text-[#8E95A5] uppercase tracking-wider">
+                      Not included:
+                    </h4>
+                    <ul className="space-y-2 text-xs font-sans text-[#8E95A5]">
+                      {srv.notIncluded.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-[#8E95A5] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
-                {category.toLowerCase().includes("ad") && (
-                  <div className="mt-4 p-4 bg-[#18191C] border border-[#2E313A] text-xs font-mono space-y-1">
-                    <div className="flex items-center gap-1.5 font-bold text-[#FFFFFF] uppercase tracking-wider text-[10px]">
-                      <ShieldAlert className="w-3.5 h-3.5 text-[#8E95A5] shrink-0" />
-                      AD SPEND DISCLAIMER
-                    </div>
-                    <p className="text-[#8E95A5] text-[11px] leading-relaxed">
-                      <strong>Note:</strong> Ad spend (paid directly to Google/Meta) is separate from our management fee. Example: If your ad budget is Rs 5,000/month, that goes to the ad platform directly via your own billing.
-                    </p>
-                  </div>
-                )}
+                {/* Primary Button */}
+                <div className="mt-8">
+                  <Link
+                    href={`/contact?service=${encodeURIComponent(srv.name)}`}
+                    className="btn-bracket block w-full py-3 text-xs font-mono text-center text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#18191C] transition-colors rounded-md"
+                  >
+                    Get this service
+                  </Link>
+                </div>
               </div>
-            </ScrollReveal>
-          ))}
+            ))}
+          </div>
+
+          <p className="text-xs font-mono text-[#8E95A5]">
+            // PAYMENT TERMS: 50% advance to begin work, 50% on completion before final handover.
+          </p>
         </div>
-        <p className="mt-4 text-xs font-mono text-[#8E95A5]">
-          // PAYMENT TERMS: 50% advance to begin work, 50% on completion before final handover.
-        </p>
-      </div>
+      </ScrollReveal>
+
+      {/* SECTION 3: HOSTING AND DOMAIN CLARITY */}
+      <ScrollReveal>
+        <div className="space-y-4">
+          <div className="wireframe-section-label mb-1">// TRANSPARENT DOMAIN & HOSTING FEES</div>
+          <h2 className="text-2xl font-mono font-bold text-[#FFFFFF] uppercase tracking-wider">
+            Hosting and domain
+          </h2>
+
+          <div className="bg-[#121316] border border-[#2E313A] p-6 rounded-lg font-mono">
+            <table className="w-full text-xs text-left">
+              <thead>
+                <tr className="border-b border-[#2E313A] text-[#8E95A5] uppercase tracking-wider">
+                  <th className="py-2.5 font-semibold">Service / Infrastructure</th>
+                  <th className="py-2.5 font-semibold text-right">Estimated Cost (Billed at Cost)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#2E313A]">
+                <tr>
+                  <td className="py-3 text-[#FFFFFF]">Domain (.com or .in)</td>
+                  <td className="py-3 text-right text-[#E2E4E8]">₹500–1,200 per year, billed at cost</td>
+                </tr>
+                <tr>
+                  <td className="py-3 text-[#FFFFFF]">Shared hosting</td>
+                  <td className="py-3 text-right text-[#E2E4E8]">₹2,000–5,000 per year, billed at cost</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="mt-4 pt-4 border-t border-[#2E313A] text-xs text-[#8E95A5] leading-relaxed">
+              We set up your domain and hosting in your own name, so you always own them. There is no recurring hosting fee from us.
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
 
       {/* Interactive Estimator and locked detail output */}
       <div className="terminal-box">

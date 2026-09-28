@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Award, Lock } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
@@ -6,6 +7,16 @@ import ScrollReveal from "../../components/ScrollReveal";
 import AnimatedCounter from "../../components/AnimatedCounter";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "About Us - Digital Consultancy & Web Development | The Industries",
+  description: "Learn about our mission to provide transparent, high-performance web development and lead-generation ad campaigns for Indian MSMEs.",
+  openGraph: {
+    title: "About Us - Digital Consultancy & Web Development | The Industries",
+    description: "Learn about our mission to provide transparent, high-performance web development and lead-generation ad campaigns for Indian MSMEs.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "About The Industries" }],
+  },
+};
 
 export default function About() {
   const settings = getCmsSettings();
@@ -32,11 +43,14 @@ export default function About() {
       bio: "I help small businesses and independent professionals get online without overpaying or getting lost in agency jargon. From e-commerce stores to niche service websites, I focus on building sites that actually convert visitors into customers — backed by clear pricing and honest guidance at every step.",
       image: "/abhinav-joshi.png",
       skills: [
-        "Web Development",
-        "SEO & Content Strategy",
-        "Google & Meta Ads",
-        "E-commerce",
-        "WordPress / Shopify"
+        "Next.js",
+        "React.js",
+        "Spring Boot",
+        "MongoDB",
+        "Postman",
+        "Meta Ads",
+        "Google Ads",
+        "Local SEO"
       ],
       statLine: "4+ projects delivered across retail, healthcare, real estate, and spiritual services — from Kumar Garments to Pandit Maa Baglamukhi.",
     },
@@ -103,6 +117,14 @@ export default function About() {
                         {member.statLine}
                       </p>
                     )}
+                    <div className="pt-2">
+                      <Link
+                        href="/team/abhinav-joshi"
+                        className="text-xs font-mono font-bold text-[#18191C] hover:underline inline-flex items-center gap-1"
+                      >
+                        View full profile &rarr;
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

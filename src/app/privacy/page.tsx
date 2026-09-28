@@ -1,9 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, ArrowLeft } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | The Industries",
+  description: "Privacy policy detailing how we collect, use, and protect your information at The Industries.",
+  openGraph: {
+    title: "Privacy Policy | The Industries",
+    description: "Privacy policy detailing how we collect, use, and protect your information at The Industries.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "Privacy Policy" }],
+  },
+};
 
 export default function PrivacyPolicyPage() {
   const settings = getCmsSettings();

@@ -1,9 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText, ArrowLeft } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Terms of Service & Conditions | The Industries",
+  description: "Terms of service governing the use of our website, consultancy services, and digital products.",
+  openGraph: {
+    title: "Terms of Service & Conditions | The Industries",
+    description: "Terms of service governing the use of our website, consultancy services, and digital products.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "Terms of Service" }],
+  },
+};
 
 export default function TermsAndConditionsPage() {
   const settings = getCmsSettings();

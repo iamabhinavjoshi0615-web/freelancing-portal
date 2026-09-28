@@ -32,6 +32,51 @@ export interface PriceTier {
   billing: string;
 }
 
+export interface TeamMemberProfile {
+  slug: string;
+  name: string;
+  role: string;
+  image: string;
+  facts: string[];
+  about: string;
+  specialization: string;
+  coreSkills: string[];
+  currentlyWorkingOn: string;
+  selectedWorkIds: string[];
+}
+
+export const TEAM_MEMBERS: Record<string, TeamMemberProfile> = {
+  "abhinav-joshi": {
+    slug: "abhinav-joshi",
+    name: "Abhinav Joshi",
+    role: "Founder & Web Consultant",
+    image: "/abhinav-joshi.png",
+    facts: ["3+ years experience", "Working since 2023", "Based in Noida, India"],
+    about:
+      "Abhinav Joshi is the founder of The Industries, a web development and digital marketing consultancy for small businesses in India. He builds websites with Next.js, React.js, Spring Boot, and MongoDB, and runs Meta Ads and local SEO campaigns with clear, upfront pricing and no jargon. His work includes the Pandit Maa Baglamukhi devotional services website, plus projects for retail, healthcare, and real estate clients.",
+    specialization:
+      "Business websites, lead-generation ad campaigns, and local SEO for small businesses",
+    coreSkills: [
+      "Next.js",
+      "React.js",
+      "Spring Boot",
+      "MongoDB",
+      "Postman",
+      "Meta Ads",
+      "Google Ads",
+      "Local SEO",
+    ],
+    currentlyWorkingOn:
+      "Building affordable websites and ad campaigns for small businesses, and refining this consultancy's pricing guides.",
+    selectedWorkIds: [
+      "pandit-maa-baglamukhi",
+      "kumar-garments",
+      "apex-diagnostics",
+      "elite-properties",
+    ],
+  },
+};
+
 export const DEFAULT_SERVICES: Service[] = [
   {
     id: "business-website",

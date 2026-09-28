@@ -1,10 +1,21 @@
 import React from "react";
+import type { Metadata } from "next";
 import { Mail, Phone, MapPin, ExternalLink, MessageCircle } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 import ContactForm from "../../components/ContactForm";
 import ScrollReveal from "../../components/ScrollReveal";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Contact Us - Book a Consultation | The Industries",
+  description: "Get in touch with our web development and ad strategy team for project inquiries, custom quotes, or technical support.",
+  openGraph: {
+    title: "Contact Us - Book a Consultation | The Industries",
+    description: "Get in touch with our web development and ad strategy team for project inquiries, custom quotes, or technical support.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "Contact The Industries" }],
+  },
+};
 
 export default function Contact() {
   const settings = getCmsSettings();

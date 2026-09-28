@@ -1,9 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, ArrowRight, Lock, Calendar, Clock } from "lucide-react";
 import ScrollReveal from "../../components/ScrollReveal";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Resources & Free Guides | The Industries",
+  description: "Free articles, tech blueprints, and guides on website building, ad budget optimization, hosting tech stacks, and SEO strategies.",
+  openGraph: {
+    title: "Resources & Free Guides | The Industries",
+    description: "Free articles, tech blueprints, and guides on website building, ad budget optimization, hosting tech stacks, and SEO strategies.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "The Industries Blog" }],
+  },
+};
 
 export default function Blog() {
   const articles = [

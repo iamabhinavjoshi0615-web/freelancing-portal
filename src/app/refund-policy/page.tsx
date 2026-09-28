@@ -1,9 +1,20 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { RefreshCw, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { getCmsSettings } from "../../lib/db";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Refund & Cancellation Policy | The Industries",
+  description: "Refund and cancellation terms for our web development services, blueprints, and digital consultancy packages.",
+  openGraph: {
+    title: "Refund & Cancellation Policy | The Industries",
+    description: "Refund and cancellation terms for our web development services, blueprints, and digital consultancy packages.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "Refund Policy" }],
+  },
+};
 
 export default function RefundPolicyPage() {
   const settings = getCmsSettings();

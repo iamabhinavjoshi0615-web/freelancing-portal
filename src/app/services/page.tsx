@@ -1,10 +1,22 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle, ShieldCheck, ArrowRight, Lock } from "lucide-react";
 import { getServices } from "../../lib/db";
 import ScrollReveal from "../../components/ScrollReveal";
+import ServicesBackground from "../../components/ServicesBackground";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Services Directory - Websites, E-Commerce & Ads | The Industries",
+  description: "Explore our digital services: custom business websites, Shopify stores, appointment portals, Google Search ads, Meta campaigns, and local SEO.",
+  openGraph: {
+    title: "Services Directory - Websites, E-Commerce & Ads | The Industries",
+    description: "Explore our digital services: custom business websites, Shopify stores, appointment portals, Google Search ads, Meta campaigns, and local SEO.",
+    images: [{ url: "/icon.png", width: 1200, height: 630, alt: "The Industries Services" }],
+  },
+};
 
 export default function Services() {
   const services = getServices();
@@ -20,8 +32,9 @@ export default function Services() {
   return (
     <div className="w-full bg-[#18191C] text-[#E2E4E8]">
       {/* Page Header (Dark Charcoal Block) */}
-      <section className="border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative overflow-hidden border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
+        <ServicesBackground mode="dark" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="wireframe-section-label mb-4">// SERVICES DIRECTORY</div>
             <h1 className="text-3xl sm:text-5xl font-mono font-bold tracking-tight text-[#FFFFFF] max-w-3xl">
@@ -35,8 +48,9 @@ export default function Services() {
       </section>
 
       {/* SECTION 1: Web Development & App Services (Light Off-White Block) */}
-      <section className="bg-[#F4F4F6] text-[#18191C] border-b border-[#E2E4E8] py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <section className="relative overflow-hidden bg-[#F4F4F6] text-[#18191C] border-b border-[#E2E4E8] py-16 px-4 sm:px-6 lg:px-8">
+        <ServicesBackground mode="light" />
+        <div className="relative z-10 max-w-7xl mx-auto space-y-8">
           <ScrollReveal>
             <div className="border-b border-[#E2E4E8] pb-6">
               <h2 className="text-2xl font-mono font-bold text-[#18191C]">
@@ -114,8 +128,9 @@ export default function Services() {
       </section>
 
       {/* SECTION 2: Digital Marketing & Ads Services (Dark Charcoal Block) */}
-      <section className="bg-[#18191C] text-[#E2E4E8] border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <section className="relative overflow-hidden bg-[#18191C] text-[#E2E4E8] border-b border-[#2E313A] py-16 px-4 sm:px-6 lg:px-8">
+        <ServicesBackground mode="dark" />
+        <div className="relative z-10 max-w-7xl mx-auto space-y-8">
           <ScrollReveal>
             <div className="border-b border-[#2E313A] pb-6">
               <h2 className="text-2xl font-mono font-bold text-[#FFFFFF]">
