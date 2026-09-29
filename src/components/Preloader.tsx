@@ -20,27 +20,14 @@ export default function Preloader() {
       return;
     }
 
-    // 3. Skip if already shown during this browser session
-    try {
-      if (sessionStorage.getItem("hasSeenPreloader")) {
-        return;
-      }
-      sessionStorage.setItem("hasSeenPreloader", "true");
-    } catch (e) {
-      // Ignore storage errors if private browsing restricts sessionStorage
-    }
-
-    // If document is already complete before mounting, skip entirely
-    if (document.readyState === "complete") {
-      return;
-    }
-
-    // Activate preloader
+    // Always activate preloader on page load
     setMounted(true);
+    setProgress(0);
+    setFading(false);
     document.body.style.overflow = "hidden";
 
     const startTime = performance.now();
-    const duration = 400; // Ultra-fast 400ms target duration
+    const duration = 600; // 600ms smooth animation duration on every load
     let animationFrameId: number;
     let isDismissing = false;
 
@@ -55,13 +42,13 @@ export default function Preloader() {
           setMounted(false);
           document.body.style.overflow = "";
         }, 150); // 150ms quick fade-out
-      }, 50); // 50ms hold time
+      }, 80); // 80ms hold time
     };
 
     const updateProgress = (currentTime: number) => {
       const elapsed = currentTime - startTime;
 
-      if (elapsed >= duration || document.readyState === "complete") {
+      if (elapsed >= duration) {
         dismissPreloader();
         return;
       }
