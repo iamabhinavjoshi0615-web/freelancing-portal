@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import SmoothScroll from "../components/SmoothScroll";
+import Preloader from "../components/Preloader";
 import { getCmsSettings } from "../lib/db";
 
 const geistSans = Geist({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="min-h-full flex flex-col bg-[#F7F3EC] text-[#22281F] font-sans overflow-x-hidden max-w-full"
         suppressHydrationWarning
       >
+        <Preloader />
         <SmoothScroll>
           <Header agencyName={settings.agencyName} />
           <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">{children}</main>
