@@ -19,28 +19,40 @@ export default function ScrollReveal({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 
+    // Safety fallback timer so content is guaranteed to display even if IntersectionObserver fails or is delayed
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300 + delayMs);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.intersectionRatio > 0) {
           setIsVisible(true);
+          clearTimeout(timer);
           observer.unobserve(element);
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.01,
+        rootMargin: "50px 0px 50px 0px",
       }
     );
 
     observer.observe(element);
 
     return () => {
+      clearTimeout(timer);
       if (element) observer.unobserve(element);
     };
-  }, []);
+  }, [delayMs]);
 
   const getInitialTransform = () => {
     switch (direction) {
